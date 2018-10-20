@@ -1,0 +1,2 @@
+
+([[ -f 'colors.sh' ]] || [ -l 'colors.sh' ]]) && source colors.sh

@@ -1,0 +1,6 @@
+# /* vim: set ft=sh :*/
+
+# Some Common Bash Settings
+
+shopt -s cdspell
+shopt -s autocd

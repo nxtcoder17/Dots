@@ -1,0 +1,26 @@
+# /* vim: set ft=i3 :*/
+
+[ Music ]
+# label=
+color=#00ff00
+interval=01
+markup=pango
+command=echo "<span background='#f7f300' foreground='#00000000'><i> $(echo  ) </i> <b>$(mpc current) </b></span>"
+
+# For System Volume Information
+[ Volume ]
+#label= 
+color=#e00b59
+interval=01
+markup=pango
+command=echo "<span background='#00e9ff' foreground='#00000000'><i>$(echo ' ') </i> <b>$(pamixer --get-volume)</b> </span>"
+
+[ Battery ]
+interval=1
+markup=pango
+command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | awk '{print $4}' | sed s/,//) </b> </span>"
+
+[ Date and Time ]
+interval=01
+markup=pango
+command=echo "<span background='#f72c51' foreground='#00000000'><i> $(echo   )</i><b> $(date +%T) </b> </span>"

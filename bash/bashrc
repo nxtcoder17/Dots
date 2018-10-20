@@ -1,0 +1,92 @@
+#-----------------------------------------------
+#  _                   _                 
+# ( )                 ( )                
+# | |_      _ _   ___ | |__   _ __   ___ 
+# | '_`\  /'_` )/',__)|  _ `\( '__)/'___)
+# | |_) )( (_| |\__, \| | | || |  ( (___ 
+# (_,__/'`\__,_)(____/(_) (_)(_)  `\____)
+#
+#-----------------------------------------------
+
+#----------/ Environment Variables \-----------{{{
+export PROMPT_DIRTRIM="1"
+export EDITOR='vim'
+export PAGER='less'
+export EMAIL='phenomenal_ab@linuxmail.org'
+export BROWSER='qutebrowser --target tab %s'
+#----------------------------------------------}}}
+
+#--------------/ Aliases \---------------------{{{
+alias grep="grep --color=auto"
+alias ls="ls --color=auto"
+
+alias mo="mount -t ext4 /dev/sda4 /My_Everything"
+alias vp="source ~/.local/Virtual_Python/bin/activate"
+alias tmuxw="tmux new -s Workspace"
+alias addbook="python /home/balor/Workspace/Projects/Book_Manager/books_db.py"
+alias pcl="python ~/Workspace/Projects/PCloud/pcloud.py"
+alias yt="youtube-dl --write-auto-sub"
+
+alias scraper='python ~/Workspace/Projects/Scraper/main.py'
+alias vimplugger="bash ~/Workspace/Projects/Vim-Plugger/vim-plugger.sh"
+#----------------------------------------------}}}
+
+#==============[ Functions ]====================
+em() {
+    ebook-meta "$1" | head  -n 5
+}
+#--------------/ Prompt \---------------------
+
+#------/ Background Colors \----------{{{
+none=$(tput setab 0)
+red=$(tput setab 1)
+green=$(tput setab 2)
+yellow=$(tput setab 3)
+blue=$(tput setab 4)
+pink=$(tput setab 5)
+cyan=$(tput setab 6)
+white=$(tput setab 15)
+black=$(tput setab 0)
+purple=$(tput setab 93)
+ind_red=$(tput setab 203)
+#-------------------------------------}}}
+
+#------/ Foreground Colors \----------{{{
+NONE=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+PINK=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BLACK=$(tput setaf 16)
+PURPLE=$(tput setaf 93)
+FLR=$(tput setaf 166)
+IND_RED=$(tput setaf 203)
+IND_GREEN=$(tput setaf 34)
+#-------------------------------------}}}
+
+#------/ Modifiers \---------{{{
+BOLD=$(tput bold)
+DIM=$(tput dim)
+BLINK=$(tput blink)
+RESET=$(tput sgr0)
+#----------------------------}}}
+
+DIR_ICON="   "
+ARCH_ICON="  "
+SEP=""
+FLAME1="  "
+FLAME2=" "
+ARR=""
+CLOCK_ICON=""
+SEQ="\[${BOLD}${IND_RED}${ARR}${WHITE}${ARR}${IND_GREEN}${ARR}\]"
+
+# DIR_PART="\[$black$BOLD$PURPLE\]$DIR_ICON \w $FLAME1\[$RESET\]"
+DIRECTORY="\[${BOLD}${RED}${white}\]${DIR_ICON}\w \[${RESET}${WHITE}${red}\]"
+TIME="\[${BOLD}${WHITE}${red}\]${CLOCK_ICON} \$(date +%H:%M:%S) \[$RESET${RED}\]"
+NORMAL_USER="\[${RESET}${BOLD}${BLACK}${cyan}\]${ARCH_ICON} \u \[${RESET}${CYAN}\]\[$RESET\]"
+
+PS1="$DIRECTORY $TIME\n$NORMAL_USER \[$RESET\]"
+# (cat ~/.cache/wal/sequences &)

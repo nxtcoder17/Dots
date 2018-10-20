@@ -1,0 +1,163 @@
+# i3 gaps Configuration : Phenomenal AB
+# Github Url : https://github.com/phenomenal-ab
+
+# Setting Cmd button as my mod key
+set $mod Mod4
+
+# Also make use of alt key for general purposes as it is near to space
+set $alt Mod1
+
+# My Font
+font pango:Monaco for Powerline Regular 10
+
+# Window Border Width
+for_window [class="^.*"] border pixel 0
+gaps inner 15
+gaps outer 15
+
+# Starting a Terminal
+bindsym $mod+Return exec xfce4-terminal --hide-menubar
+
+# Kill Focused Window
+bindsym $mod+Shift+q kill
+
+# Starting Rofi : A great Application Launcher
+bindsym $mod+d exec rofi -show run
+bindsym $alt+Tab exec rofi -show window
+
+# Changing Focus of Split Windows
+
+# Vim- KeyBindings
+bindsym $alt + h focus left
+bindsym $alt + l focus right
+bindsym $alt + j focus down
+bindsym $alt + k focus up
+
+# We can use Direction Keys too
+bindsym $alt + Left focus left
+bindsym $alt + Right focus right
+bindsym $alt + Down focus down
+bindsym $alt + Up focus up
+
+# Moving Focused Windows
+bindsym $alt+Shift+h move left
+bindsym $alt+Shift+l move right
+bindsym $alt+Shift+j move down
+bindsym $alt+Shift+k move up
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+right move right
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+
+# Split in Horizontal Direction
+bindsym $alt+Control+h split h
+
+# Split in Vertical Direction
+bindsym $alt+Control+v split v
+
+# Fullscreen Toggle
+bindsym $alt+f fullscreen toggle 
+
+# Toggle tiling/Floating
+bindsym $mod+Shift+Space floating toggle
+
+# Change Focus between Tiling / Floating Windows
+bindsym $mod + space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+for_window [class='Vivaldi-stable'] exec move window to workspace 3
+bindym $mod+F5 exec --no-startupo-id vivaldi-snapshot; move window to workspace 3 
+
+# Reloading the i3 configuration
+bindsym $mod + Shift + c reload
+
+# Restarting i3
+bindsym $mod + Shift + r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Auto Start Applications
+
+# nm-applet for Connecting to Networks
+exec --no-startup-id nm-applet	
+
+# compton for Transparency
+exec --no-startup-id compton -f 
+
+# Setting the Wallpaper
+exec_always --no-startup-id feh --bg-scale /home/balor/Pictures/Wallpaper/arch_black.png
+
+# Polybar Configuration
+exec_always --no-startup-id /home/balor/.config/polybar/launch.sh
+
+# Touch Pad Configuration
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Tap Action" 0 0 0 0 1 2 3
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Pressure" 4
+
+# Below width 1 finger touch, above width simulate 2 finger touch. - value=pad-pixels
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Width" 8
+
+# vertical scrolling, horizontal scrolling - values: 0=disable 1=enable
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+
+# vertical, horizontal, corner - values: 0=disable  1=enable
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 0 0 0
+
+# stabilize 2 finger actions - value=pad-pixels
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Jumpy Cursor Threshold" 250
+
+
+# Hide Everything
+bindsym $mod+Shift+Delete exec workspace lmao

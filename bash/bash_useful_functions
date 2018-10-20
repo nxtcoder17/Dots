@@ -1,0 +1,27 @@
+
+fromhex(){
+    # hex=${1#"#"}
+    hex=$1
+    if [[ $hex == "#"* ]]; then
+        hex=$(echo $1 | awk '{print substr($0,2)}')
+    fi
+    r=$(printf '0x%0.2s' "$hex")
+    g=$(printf '0x%0.2s' ${hex#??})
+    b=$(printf '0x%0.2s' ${hex#????})
+    printf '%03d' "$(( (r<75?0:(r-35)/40)*6*6 + 
+                       (g<75?0:(g-35)/40)*6   +
+                       (b<75?0:(b-35)/40)     + 16 ))"
+	echo ""
+}
+
+git_branch() {
+    git branch &> /dev/null
+    if [[ $? -ne 0 ]]
+    then
+        branch_name=""
+    else
+        branch_name=$(git branch | grep '*' | awk ' {print $2} ')
+    fi
+}
+
+# /* vim: set ft=sh: */

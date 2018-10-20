@@ -1,0 +1,34 @@
+
+# === Ignore .git directory too ===
+.git/*
+
+# === Compiled Source Code ===
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+#=== Logs and databases ===
+
+*.log
+*.sql
+*.sqlite
+
+# === Vim Specials ===
+view
+*.netrwhist
+*.swp
+*.~
+plugged
+
+#=== Mpd Special ===
+log
+state
+pid
+database
+
+#=== Python ===
+*.pyc
+

@@ -1,0 +1,310 @@
+#=================================================================================================================================
+#																																  
+#   (_)|___ \                                        / ____|              / _|(_)                          | |  (_)               
+#    _   __) |  ______    __ _   __ _  _ __   ___   | |      ___   _ __  | |_  _   __ _  _   _  _ __  __ _ | |_  _   ___   _ __   
+#   | | |__ <  |______|  / _` | / _` || '_ \ / __|  | |     / _ \ | '_ \ |  _|| | / _` || | | || '__|/ _` || __|| | / _ \ | '_ \  
+#   | | ___) |          | (_| || (_| || |_) |\__ \  | |____| (_) || | | || |  | || (_| || |_| || |  | (_| || |_ | || (_) || | | | 
+#   |_||____/            \__, | \__,_|| .__/ |___/   \_____|\___/ |_| |_||_|  |_| \__, | \__,_||_|   \__,_| \__||_| \___/ |_| |_| 
+#                         __/ |       | |                                          __/ |                                         
+#                        |___/        |_|                                         |___/  :)) phenomenal_ab						  
+# 																						 :)) https://github.com/phenomenal-ab	  
+#=================================================================================================================================#
+
+#==================[ General Configurations ]==================={{{
+# Requirement for i3 gaps
+for_window [class="^.*"] border pixel 0
+
+# The cmd key as my main mod key & Alt key as 2nd modifier
+set $mod Mod4
+set $alt Mod1
+
+# Global Gaps Configuration
+gaps inner 15
+gaps outer -8
+smart_gaps on		# Cause, I want gaps only if there is more than one container on WorkSpace
+
+# My Font	[Favourite : Monaco]
+font pango:Monaco for Powerline Regular 10
+
+#==================[ End : General Configurations ]===================}}}
+
+#========================[  WorkSpace Configuration ]=========================={{{
+default_orientation auto  # Default Orientation : Automatic (stacked,tabbed)
+
+# Switching WorkSpaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+#========================[ END : WorkSpace Configuration ]======================}}}
+
+#===========[ Assigning Applications to Specific Workspaces ]============={{{
+
+#===========[ Workspace 3 : Vivaldi ]===========
+assign [class="^Vivaldi-stable$" instance="^vivaldi-stable$"] 3
+bindsym $mod+v [class="Vivaldi-stable"] focus
+# Vivaldi : Workspace 3
+# ^ and $ : Used for exact match as per i3 User guide
+workspace 3 gaps inner 0
+workspace 3 gaps outer 0
+
+#===========[ Workspace 4 : Thunar ]=============
+assign [class="^Thunar$" instance="^Thunar$"] 4
+workspace 4 gaps inner 0
+workspace 4 gaps outer 0
+
+#===========[ End : Assigning Worksapces to Applications ]===============}}}
+
+#========================[ Volume Vaiables : PulseAudio + pamixer ]============={{{
+
+# Increasing the Volume
+set $minorInc --no-startup-id pamixer --allow-boost -i 5
+set $majorInc --no-startup-id pamixer --allow-boost -i 10
+
+# Decreasing the Volume
+set $minorDec --no-startup-id pamixer --allow-boost -d 5
+set $MajorDec --no-startup-id pamixer --allow-boost -d 10
+
+# Mute/Unmute : Toggle
+set $toggleMute --no-startup-id pamixer -t
+
+# Mute
+set $mute pamixer -m
+
+#=======================[ End : Volume Variables ]=============================}}}
+
+#=============[ Volume Configurations : PulseAudio + pamixer ]================={{{
+
+bindsym $alt+plus exec $minorInc
+bindsym $alt+Shift+plus exec $majorInc
+# plus : '+' symbol 
+
+bindsym $alt+minus exec $minorDec
+bindsym $alt+Shift+minus exec $majorDec
+# minus : '-' symbol
+
+bindsym control+exclam exec $toggleMute
+# control : Ctrl Key
+# exclam : '!' symbol
+
+#================[ End : Volume Configurations ]==================}}}
+
+# [ mpc Configuration ]{{{
+bindsym Mod1 + Pause exec mpc pause
+bindsym $mod + less exec --no-starup-id mpc next
+bindsym $mod + greater exec --no-startup-id mpc next
+bindsym $mod + r exec --no-startup-id mpc random
+
+# [ End: mpc Configuration ]}}}
+
+#=================[ Auto StartUp Applications ]===================={{{
+
+# Setting Caps Lock Key as Control
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id xcape -e 'Control_L=Escape'
+
+# Connecting to the Internet
+exec_always --no-startup-id nm-applet
+
+# Notification Manager
+exec --no-startup-id dunst &
+
+# For Transparency in the Terminal 
+exec_always --no-startup-id compton -f &
+
+# Setting the Wallpaper
+exec --no-startup-id feh --bg-scale ~/.wallpaper.png
+
+# Screenshot Facility
+bindsym $mod+Print exec --no-startup-id scrot
+
+# I also want to start Thunar and Vivaldi everytime
+#exec --no-startup-id vivaldi
+#exec --no-startup-id thunar 
+
+# For URxvt
+exec_always --no-startup-id xrdb ~/.Xresources
+
+# Auto Start the Music Player Daemon
+exec --no-startup-id mpd
+#=================[ End : Auto StartUp Applications ]====================}}}
+
+#==================[ Touch Pad Configuration ]===================={{{
+
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Tap Action" 0 0 0 0 1 2 3
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Pressure" 4
+
+# Below width 1 finger touch, above width simulate 2 finger touch. - value=pad-pixels
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Width" 8
+
+# vertical scrolling, horizontal scrolling - values: 0=disable 1=enable
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+
+# vertical, horizontal, corner - values: 0=disable  1=enable
+exec --no-startup-id xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 0 0 0
+
+# stabilize 2 finger actions - value=pad-pixels
+exec --no-startup-id xinput --set-prop --type=int --format=32 "SynPS/2 Synaptics TouchPad" "Synaptics Jumpy Cursor Threshold" 250
+
+#==================[ END : Touch Pad Configuration ]================}}}
+
+#==================[ Key Mappings ]==================={{{
+
+# Execute Terminal
+# The term variable 
+# set $term xfce4-terminal --hide-menubar
+set $term urxvt
+bindsym  $mod+Return exec --no-startup-id $term
+
+# Killing Applications
+bindsym $mod+Shift+q kill
+
+# Reloading the i3 Configuration
+bindsym $mod+Shift+c reload
+
+# Restarting i3
+bindsym $mod+Shift+r restart
+
+# Splitting Configuration
+bindsym $alt+h split h
+bindsym $alt+v split v
+
+#=======[ Resizing Splits ]==========
+bindsym $mod+shift+minus resize shrink width 2 px
+bindsym $mod+shift+plus resize grow width 2 px
+#=========[ End : Resizing Splits ]========
+
+# Floating Configurations
+bindsym $mod+space floating toggle
+
+# FullScreen Configurations
+bindsym $mod+f fullscreen toggle
+popup_during_fullscreen smart
+
+# Execute Rofi run window
+bindsym $mod+d exec --no-startup-id rofi -show run -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
+
+# Execute Rofi window on [Alt + Tab] Press
+bindsym Mod1+Tab exec --no-startup-id rofi -show drun
+
+# Back And Forth WorkSpace
+bindsym $mod+Tab workspace back_and_forth
+
+#==================[ End : Key Mappings ]===================}}}
+
+#================[ Navigation around Splits ]================{{{
+
+# focus : Focuses the Container over the given direction
+# move  : Moves the Container to the given position
+
+# Key-Scheme 1 : Vim-Lovers
+# 	Mod+Vim-Keys    : change focus among containers
+# 	Mod+Shift +Keys : Moving the Container
+
+bindsym $mod+h focus left
+bindsym $mod+Shift+h move left
+
+bindsym $mod+l focus right
+bindsym $mod+Shift+l move right
+
+bindsym $mod+j focus down
+bindsym $mod+Shift+j move down
+
+bindsym $mod+k focus up
+bindsym $mod+Shift+k move up
+
+# Key-Scheme 2 : Direction Keys
+# 	Mod+Arrows       : change focus among Containers
+# 	Mod+Shift+Arrows : Moving the Container
+
+bindsym $mod+Left focus Left
+bindsym $mod+Shift+Left move left
+
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Down focus down
+bindsym $mod+Shift+Down move down
+
+bindsym $mod+Up focus up
+bindsym $mod+Shift+Up move up
+
+#================[ End : Navigation around Splits ]================}}}
+
+#===================[ Bar Configuration ]===================={{{
+
+# Colors and Variables
+set $transparent    #00000000
+set $black          #000000
+set $pacificBlue    #00a7c9
+set $tomatoRed      #ff5a4a
+set $cornSilk       #fff7d9
+set $battleshipGrey #838581
+set $green 			#69db7c
+set $cyan 			#66d9e8
+
+bar {
+	status_command i3blocks
+	i3bar_command i3bar -t
+
+	# position : Top | Bottom
+	position top
+	# mode : dock | hide | invisible
+	mode dock
+	# modifier : Mod1-Mod5, Ctrl etc keys
+	modifier $mod
+	# Font : Monaco
+	font pango:Monaco for Powerline Regular 10
+	# Separator Symbol
+	separator_symbol " " 
+	# WorkSpace Buttons
+	workspace_buttons yes	
+	# Binding Mode Indicators
+	binding_mode_indicator no
+
+	colors {
+		# Background	: defines the background Color
+		background $transparent
+		# Statusline    : Text Color to be used for Statusline
+		statusline $cyan
+		# Separator     : Text color to be used for Separator
+		separator $green
+
+	#	 ColorClass			Border			Background			Text
+		focused_workspace   $transparent    $cyan        		$transparent
+		inactive_workspace  $transparent    $transparent    	$green
+		urgent_workspace    $transparent    $tomatoRed          $transparent
+	}
+}
+
+#===================[ END : Bar Configuration ]====================}}}
+
+#================[ Fixing the Graphical Interface ]================== {{{
+
+for_window [window_role="pop_up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="GtkFileChooserDialog"] floating enable
+
+#================[ End : Fixing the Graphical Interface ]============}}}
+#
+
+bindsym $mod+u			[instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
