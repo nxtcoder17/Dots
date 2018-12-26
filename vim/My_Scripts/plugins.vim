@@ -21,3 +21,10 @@
 
 "============== [ NerdTree Specifics ]=============
 " map <leader>n :NERDTreeToggle<CR>
+
+" Ultisnips Completion
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+set runtimepath+="/home/balor/.vim/balor-snippets/"

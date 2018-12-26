@@ -8,36 +8,45 @@
 #
 #-----------------------------------------------
 
-#----------/ Environment Variables \-----------{{{
+#==============[ Environment Variables ]============#{{{
+
 export PROMPT_DIRTRIM="1"
 export EDITOR='vim'
 export PAGER='less'
 export EMAIL='phenomenal_ab@linuxmail.org'
 export BROWSER='qutebrowser --target tab %s'
-#----------------------------------------------}}}
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
-#--------------/ Aliases \---------------------{{{
+#===============[ Aliases ]=================#{{{
 alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 
 alias mo="mount -t ext4 /dev/sda4 /My_Everything"
 alias vp="source ~/.local/Virtual_Python/bin/activate"
-alias tmuxw="tmux new -s Workspace"
+alias tmuxw="tmux -2u  new -s Workspace"
 alias addbook="python /home/balor/Workspace/Projects/Book_Manager/books_db.py"
 alias pcl="python ~/Workspace/Projects/PCloud/pcloud.py"
 alias yt="youtube-dl --write-auto-sub"
 
 alias scraper='python ~/Workspace/Projects/Scraper/main.py'
 alias vimplugger="bash ~/Workspace/Projects/Vim-Plugger/vim-plugger.sh"
-#----------------------------------------------}}}
+alias pydm="python ~/Workspace/Python/modules/multiprocessing/process/Downloader.py"
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #==============[ Functions ]====================
 em() {
     ebook-meta "$1" | head  -n 5
 }
-#--------------/ Prompt \---------------------
 
-#------/ Background Colors \----------{{{
+ebookmgr() {
+    table=$1
+    url=$2
+    python ~/Workspace/Projects/Ebook_Manager/Ebook_Manager.py "$1" "$2"
+}
+
+#=============[ Prompt ]================
+
+# =====[Background Colors]====={{{
 none=$(tput setab 0)
 red=$(tput setab 1)
 green=$(tput setab 2)
@@ -49,9 +58,10 @@ white=$(tput setab 15)
 black=$(tput setab 0)
 purple=$(tput setab 93)
 ind_red=$(tput setab 203)
-#-------------------------------------}}}
+# +-+-+-+-+-+-+-+-+-++-+-++-+-+
+#}}}
 
-#------/ Foreground Colors \----------{{{
+# ========[Foreground Colors]======{{{
 NONE=$(tput setaf 0)
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
@@ -62,17 +72,20 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 BLACK=$(tput setaf 16)
 PURPLE=$(tput setaf 93)
+GREY=$(tput setaf 246)
 FLR=$(tput setaf 166)
 IND_RED=$(tput setaf 203)
 IND_GREEN=$(tput setaf 34)
-#-------------------------------------}}}
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
-#------/ Modifiers \---------{{{
+# ========[ Modifiers Codes ]========={{{
 BOLD=$(tput bold)
 DIM=$(tput dim)
 BLINK=$(tput blink)
 RESET=$(tput sgr0)
-#----------------------------}}}
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
+
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 DIR_ICON="   "
 ARCH_ICON="  "
@@ -81,6 +94,7 @@ FLAME1="  "
 FLAME2=" "
 ARR=""
 CLOCK_ICON=""
+HAND_ARROW=" "
 SEQ="\[${BOLD}${IND_RED}${ARR}${WHITE}${ARR}${IND_GREEN}${ARR}\]"
 
 # DIR_PART="\[$black$BOLD$PURPLE\]$DIR_ICON \w $FLAME1\[$RESET\]"
@@ -88,5 +102,10 @@ DIRECTORY="\[${BOLD}${RED}${white}\]${DIR_ICON}\w \[${RESET}${WHITE}${red}\]"
 TIME="\[${BOLD}${WHITE}${red}\]${CLOCK_ICON} \$(date +%H:%M:%S) \[$RESET${RED}\]"
 NORMAL_USER="\[${RESET}${BOLD}${BLACK}${cyan}\]${ARCH_ICON} \u \[${RESET}${CYAN}\]\[$RESET\]"
 
-PS1="$DIRECTORY $TIME\n$NORMAL_USER \[$RESET\]"
+TIME="\[${BOLD}${IND_RED}\]${HAND_ARROW} \[${BOLD}${GREY}\]\$(date +%H:%M:%S)"
+DIRECTORY="\[${BOLD}${PINK}\]${DIR_ICON}\w "
+DARK_THEMED_USER="\[${RESET}${BOLD}${YELLOW}\] ${FLAME2} \[${CYAN}\]\u\[$RESET\]"
+
+# export PS1="$DIRECTORY $SEQ $TIME\n$NORMAL_USER \[$RESET\]"
+export PS1="$DIRECTORY $TIME\n$DARK_THEMED_USER $SEQ \[$RESET\]"
 # (cat ~/.cache/wal/sequences &)

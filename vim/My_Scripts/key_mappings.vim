@@ -43,5 +43,5 @@ nnoremap <C-q> :bdelete<CR>
 nnoremap <silent> <F2> :setlocal paste!<CR>
 
 inoremap {<CR> {<CR>}<Esc>O
-inoremap " ""<Esc>i
+" inoremap " ""<Esc>i
 "======================[ End ]======================
