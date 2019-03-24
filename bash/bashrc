@@ -15,6 +15,8 @@ export EDITOR='vim'
 export PAGER='less'
 export EMAIL='phenomenal_ab@linuxmail.org'
 export BROWSER='qutebrowser --target tab %s'
+
+export PATH="$PATH:/home/balor/Applications/android-studio/bin/"
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #===============[ Aliases ]=================#{{{
@@ -26,11 +28,14 @@ alias vp="source ~/.local/Virtual_Python/bin/activate"
 alias tmuxw="tmux -2u  new -s Workspace"
 alias addbook="python /home/balor/Workspace/Projects/Book_Manager/books_db.py"
 alias pcl="python ~/Workspace/Projects/PCloud/pcloud.py"
-alias yt="youtube-dl --write-auto-sub"
+alias yt="youtube-dl --write-auto-sub --add-metadata"
 
 alias scraper='python ~/Workspace/Projects/Scraper/main.py'
 alias vimplugger="bash ~/Workspace/Projects/Vim-Plugger/vim-plugger.sh"
-alias pydm="python ~/Workspace/Python/modules/multiprocessing/process/Downloader.py"
+alias pydm="python ~/Workspace/projects/PyDownloader/main.py"
+
+alias g++='g++ -Wall -Wextra -O2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover'
+alias cf='python /home/balor/Workspace/Projects/Codeforces_Checker/main.py'
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #==============[ Functions ]====================
@@ -44,68 +49,25 @@ ebookmgr() {
     python ~/Workspace/Projects/Ebook_Manager/Ebook_Manager.py "$1" "$2"
 }
 
-#=============[ Prompt ]================
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"                    # command : used to not trigger the Infinite Recursion
+}
 
-# =====[Background Colors]====={{{
-none=$(tput setab 0)
-red=$(tput setab 1)
-green=$(tput setab 2)
-yellow=$(tput setab 3)
-blue=$(tput setab 4)
-pink=$(tput setab 5)
-cyan=$(tput setab 6)
-white=$(tput setab 15)
-black=$(tput setab 0)
-purple=$(tput setab 93)
-ind_red=$(tput setab 203)
-# +-+-+-+-+-+-+-+-+-++-+-++-+-+
-#}}}
+THEME_PATH="$HOME/Dots/bash/prompts"
+THEME="dark_knight"
+# THEME="powerline"
 
-# ========[Foreground Colors]======{{{
-NONE=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-PINK=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BLACK=$(tput setaf 16)
-PURPLE=$(tput setaf 93)
-GREY=$(tput setaf 246)
-FLR=$(tput setaf 166)
-IND_RED=$(tput setaf 203)
-IND_GREEN=$(tput setaf 34)
-# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
+PS1=""
+if [ -f "$THEME_PATH/$THEME.bash" ] || [ -L "$THEME_PATH/$THEME.bash" ] 
+then
+    source "$THEME_PATH/$THEME.bash"
+else
+    echo "[ERROR]: Theme File can't be found"
+fi
 
-# ========[ Modifiers Codes ]========={{{
-BOLD=$(tput bold)
-DIM=$(tput dim)
-BLINK=$(tput blink)
-RESET=$(tput sgr0)
-# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
-
-# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
-
-DIR_ICON="   "
-ARCH_ICON="  "
-SEP=""
-FLAME1="  "
-FLAME2=" "
-ARR=""
-CLOCK_ICON=""
-HAND_ARROW=" "
-SEQ="\[${BOLD}${IND_RED}${ARR}${WHITE}${ARR}${IND_GREEN}${ARR}\]"
-
-# DIR_PART="\[$black$BOLD$PURPLE\]$DIR_ICON \w $FLAME1\[$RESET\]"
-DIRECTORY="\[${BOLD}${RED}${white}\]${DIR_ICON}\w \[${RESET}${WHITE}${red}\]"
-TIME="\[${BOLD}${WHITE}${red}\]${CLOCK_ICON} \$(date +%H:%M:%S) \[$RESET${RED}\]"
-NORMAL_USER="\[${RESET}${BOLD}${BLACK}${cyan}\]${ARCH_ICON} \u \[${RESET}${CYAN}\]\[$RESET\]"
-
-TIME="\[${BOLD}${IND_RED}\]${HAND_ARROW} \[${BOLD}${GREY}\]\$(date +%H:%M:%S)"
-DIRECTORY="\[${BOLD}${PINK}\]${DIR_ICON}\w "
-DARK_THEMED_USER="\[${RESET}${BOLD}${YELLOW}\] ${FLAME2} \[${CYAN}\]\u\[$RESET\]"
-
-# export PS1="$DIRECTORY $SEQ $TIME\n$NORMAL_USER \[$RESET\]"
-export PS1="$DIRECTORY $TIME\n$DARK_THEMED_USER $SEQ \[$RESET\]"
-# (cat ~/.cache/wal/sequences &)

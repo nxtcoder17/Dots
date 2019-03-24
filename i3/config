@@ -162,7 +162,7 @@ bindsym $alt + shift + plus     exec --no-startup-id $majorInc
 # -> Minor Decrement
 bindsym $alt + minus            exec --no-startup-id $minorDec
 # -> Major Decrement
-bindsym $alt + shift + minus    exec --no-startup-id $minorDec
+bindsym $alt + shift + minus    exec --no-startup-id $majorDec
 
 # -> Toggle Mute
 bindsym Control + exclam           exec --no-startup-id $toggleMute
@@ -173,13 +173,14 @@ bindsym Control + exclam           exec --no-startup-id $toggleMute
 #=========== ==> [ Executing Applications ] <== =============={{{
 
 # -> Opening Terminal
-set $term konsole --hide-menubar
+# set $term konsole --hide-menubar
 # set $term xfce4-terminal --hide-menubar
 set $term st
 bindsym $mod + Return               exec --no-startup-id $term
 
 # -> Executing Rofi Desktop Run Window
-bindsym $mod + d exec --no-startup-id rofi -show drun -lines 5 -width 600
+# bindsym $mod + d exec --no-startup-id rofi -show drun -lines 5 -width 600
+bindsym $mod + d exec --no-startup-id dmenu_run
 
 # -> Executing Rofi Run Window
 # bindsym $mod + shift + d exec --no-startup-id rofi -show run -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
@@ -234,7 +235,11 @@ exec --no-startup-id             compton --xrender-sync-fence
 exec --no-startup-id            dunst
 
 # TouchPad: Tap To Click
-exec --no-startup-id            xinput list-props "SynPS/2 Synaptics TouchPad" 286 1
+exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput Tapping Enabled' 1
+
+# Redshift
+exec --no-startup-id            redhshift -l 26:85
+
 
 #===================[End: Auto-startup Applications ]=========================}}}
 

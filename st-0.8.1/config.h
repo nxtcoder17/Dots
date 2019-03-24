@@ -5,11 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-// static char *font = "FantasqueSansMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
-// static char *font = "IBM Plex Mono:pixelsize=18:antialias=true:autohint=true";
 static char *font = "Hack Nerd Font:pixelsize=17:antialias=true:autohint=true";
-// static char *font = "BlexMono Nerd Font:size=13:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -87,7 +83,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-unsigned int alpha = 0xEE;
+unsigned int alpha = 0xAF;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -98,7 +94,7 @@ static const char *colorname[] = {
 	"yellow3",
 	"blue2",
 	"magenta3",
-	"cyan",
+	"cyan3",
 	"gray90",
 
 	/* 8 bright colors */
@@ -117,8 +113,7 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"black",
-	/* Added 1 line below : for green color */
-	"#3bff38",
+	"#3bff38", // Green Color
 	"#3ee53b"
 };
 
@@ -127,7 +122,6 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-// unsigned int defaultfg = 7;
 unsigned int defaultfg = 260;
 unsigned int defaultbg = 258;
 static unsigned int defaultcs = 256;
@@ -189,7 +183,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
 };
 
 /*

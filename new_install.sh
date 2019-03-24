@@ -24,6 +24,10 @@ i3() {
 }
 
 Bash() {
+    ([ -f $HOME/.pretty_colors.sh ] || [ -l $HOME/.pretty_colors.sh ]) && \
+        rm $HOME/.pretty_colors.sh
+    ln -s $CUR_DIR/bash/pretty_colors.sh $HOME/.pretty_colors.sh
+
     [[ -f ~/.bashrc ]] && \
         cp ~/.bashrc ~/.bashrc.original && \
         rm ~/.bashrc

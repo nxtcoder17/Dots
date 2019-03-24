@@ -57,3 +57,110 @@ bool isPrime(int64_t x)
     return true;
 }
 endsnippet
+
+snippet tree "A Snippet that generates a typical Tree Data Structure" b
+template <typename T>
+struct Node 
+{
+    T value;
+    Node* left;
+    Node* right;
+    Node* parent;
+
+    Node(int value) 
+    {
+        this -> value = value;
+        this -> left = nullptr;
+        this -> right = nullptr;
+        this -> parent = nullptr;
+    }
+};
+
+template <typename T>
+struct Tree
+{
+    Node<T>* root;
+
+    Tree() { root = nullptr; }
+    bool insert(T value);
+
+    void preorder_traversal(Node<T>* ptr, vector<T>& result);
+    void inorder_traversal(Node<T>* ptr, vector<T>& result);
+    void postorder_traversal(Node<T>* ptr, vector<T>& result);
+
+    Node<T>* search(Node<T>* ptr, T value);
+};
+
+template <typename T>
+bool Tree<T>::insert(T value)
+{
+    Node<T>* new_node = new Node<T>(value);
+
+    if (root == nullptr)
+        root = new_node;
+    else {
+        Node<T>* ptr = root;
+        Node<T>* parent = nullptr;
+        while (ptr != nullptr) {
+            parent = ptr;
+            if (value == ptr->value)
+                return false;
+            if (value > ptr -> value)
+                ptr = ptr -> right;
+            else
+                ptr = ptr -> left;
+        }
+        new_node -> parent = parent;
+        if (value > parent -> value)
+            parent -> right = new_node;
+        else
+            parent -> left = new_node;
+        
+    }
+    return true;
+}
+
+template <typename T>
+void Tree<T>::preorder_traversal(Node<T>* ptr, vector<T>& result)
+{
+    if (ptr != nullptr) {
+        result.push_back(ptr->value);
+        preorder_traversal(ptr->left, result);
+        preorder_traversal(ptr->right, result);
+    }
+}
+
+template <typename T>
+void Tree<T>::inorder_traversal(Node<T>* ptr, vector<T>& result)
+{
+    if (ptr != nullptr) {
+        inorder_traversal(ptr -> left, result);
+        result.push_back(ptr -> value);
+        inorder_traversal(ptr -> right, result);
+    }
+}
+
+template <typename T>
+void Tree<T>::postorder_traversal(Node<T>* ptr, vector<T>& result)
+{
+    if (ptr != nullptr) {
+        postorder_traversal(ptr -> left, result);
+        postorder_traversal(ptr -> right, result);
+        result.push_back(ptr -> value);
+    }
+}
+
+template <typename T>
+Node<T>* Tree<T>::search(Node<T>* ptr, T value)
+{
+    if (ptr != nullptr) {
+        if (value == ptr->value)
+            return ptr;
+        if (value < ptr -> value)
+            return search(ptr -> left, value);
+        else
+            return search(ptr -> right, value);
+    }
+    return nullptr;
+}
+endsnippet

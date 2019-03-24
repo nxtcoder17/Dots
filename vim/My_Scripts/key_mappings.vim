@@ -42,6 +42,8 @@ nnoremap <C-q> :bdelete<CR>
 
 nnoremap <silent> <F2> :setlocal paste!<CR>
 
+" nnoremap > :call AutoCompleteHTMLTags()<ESC>i
+
 inoremap {<CR> {<CR>}<Esc>O
 " inoremap " ""<Esc>i
 "======================[ End ]======================

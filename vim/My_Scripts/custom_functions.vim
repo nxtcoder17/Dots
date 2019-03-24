@@ -202,4 +202,27 @@ function! MyTabAutoComplete()
 endfunction
 "=================[ End ]===================}}}
 
+" HTML Tags AutoComplete
+function! AutoCompleteHTMLTags()
+    if (&filetype != 'html')
+        return ""
+    endif
+
+    let subText = strpart(getline('.'), -1, col('.')+1)
+    let current_word = matchstr(subText,"[^ \t]*$")
+    let element  = matchstr(current_word, "<.*>")
+    if (strlen(element) == 0)
+        return ""
+    else
+        let tag = matchstr(element, "[^<].*[^>]")
+        let close_element = '</'. tag . '>'
+        let length = strlen(close_element)
+        echo "Length: " . length
+        silent execute "normal!a" . close_element
+        silent execute "normal!" . (length-1). "h"
+        " return "". close_element
+    endif
+endfunction
 "========================[ End ]============================================
+
+

@@ -2,6 +2,9 @@
 
 #==========[ Some Must have defaults ]=========
 
+# Default page
+c.url.default_page = '/home/balor/Workspace/Projects/HomePage/index.html'
+
 # Always restore tabs when QuteBrowser is opened
 c.auto_save.session = True
 
@@ -9,7 +12,7 @@ c.auto_save.session = True
 c.search.incremental = True
 
 # Default Zoom
-c.zoom.default = '115%'
+c.zoom.default = '100%'
 
 c.tabs.favicons.scale = 1.2
 # Tabs Padding

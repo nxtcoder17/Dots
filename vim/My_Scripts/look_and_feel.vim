@@ -1,13 +1,12 @@
 "================[ Look And Feel ]==================
 set background=dark                  " Choosing the darker variant
-" set background=light
-" colorscheme gruvbox                 " Gruvbox Colorscheme
+colorscheme gruvbox                 " Gruvbox Colorscheme
 " colorscheme Tomorrow-Night-Bright
 " colorscheme PaperColor              " PaperColor: Material Design Colorscheme
 " colorscheme dracula
 " colorscheme solarized                 " Solarized Colorscheme
-" colorscheme github
-colorscheme onedark
+" colorscheme onedark
+" colorscheme balor
 set foldtext=MyFoldExpression() " Customised Fold Expression
 " set foldclose=all 				" AutoClose Folds when i move out of them
 

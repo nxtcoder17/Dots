@@ -4035,3 +4035,494 @@
 
 # 2018-12-19 18:07:42.652692
 +soup.json()
+
+# 2019-02-05 23:35:24.581122
++a = 1
+
+# 2019-02-05 23:35:27.214598
++eval(a)
+
+# 2019-02-05 23:35:43.333467
++eval("a*2")
+
+# 2019-02-09 23:04:09.013410
++a = [x for x in range(1, 11)]
+
+# 2019-02-09 23:04:11.453992
++a
+
+# 2019-02-12 16:17:52.023178
++from math import log
+
+# 2019-02-12 16:17:55.654347
++from math import log2
+
+# 2019-02-12 16:17:57.134564
++from math import log10
+
+# 2019-02-12 16:19:40.374579
++a = log10(8) /  log10(3)
+
+# 2019-02-12 16:19:41.278573
++a
+
+# 2019-02-12 16:19:58.670685
++from math import round
+
+# 2019-02-12 16:20:02.006250
++round(a)
+
+# 2019-02-12 16:20:11.567460
++a = log10(5) /  log10(3)
+
+# 2019-02-12 16:20:13.158494
++round(a)
+
+# 2019-02-21 17:09:07.803587
++def f(a, b):
++    if (a == 0):
++        return b
++    return f(a-1, b|1)
+
+# 2019-02-21 17:09:11.314843
++f(2, 3)
+
+# 2019-02-21 17:09:25.917377
++def f(a, b):
++    if (a == 0):
++        return b
++    return f(a-1, b|1)
+
+# 2019-02-21 17:09:37.203179
++f(2, 3)
+
+# 2019-02-21 17:09:52.699532
++3|1
+
+# 2019-02-21 17:10:39.667753
++5|1
+
+# 2019-02-21 22:01:29.469251
++def decor(result_func):
++    def distinction(marks):
++        for num in marks:
++            if num > 75:
++                print("Distinction Achieved")
+
+# 2019-02-21 22:09:58.688754
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: " + num)
+
+# 2019-02-21 22:10:55.106187
++@my_dec
++def oddEven(num):
++    print( ("odd" if num % 2 != 0 else "EVEN"))
+
+# 2019-02-21 22:11:04.245388
++oddEven(5)
+
+# 2019-02-21 22:11:20.866328
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: " + num)
+
+# 2019-02-21 22:11:28.322963
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: " + num)
++    return print_item()
+
+# 2019-02-21 22:11:38.229788
++@my_dec
++def oddEven(num):
++    print( ("odd" if num % 2 != 0 else "EVEN"))
+
+# 2019-02-21 22:13:10.246822
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: " + num)
++    return my_dec
+
+# 2019-02-21 22:13:14.251219
++@my_dec
++def oddEven(num):
++    print( ("odd" if num % 2 != 0 else "EVEN"))
+
+# 2019-02-21 22:14:57.165187
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: " + num)
++        oddEven(num)
++    return print_item
+
+# 2019-02-21 22:15:00.972206
++@my_dec
++def oddEven(num):
++    print( ("odd" if num % 2 != 0 else "EVEN"))
+
+# 2019-02-21 22:15:06.994055
++oddEven(6)
+
+# 2019-02-21 22:15:29.447116
++def my_dec(oddEven):
++    def print_item(num):
++        print("Item: ", num)
++        oddEven(num)
++    return print_item
+
+# 2019-02-21 22:15:32.037515
++@my_dec
++def oddEven(num):
++    print( ("odd" if num % 2 != 0 else "EVEN"))
+
+# 2019-02-21 22:15:35.518265
++oddEven(6)
+
+# 2019-02-21 22:17:55.926632
++def is_odd(n):
++    return True if n % 2 is not 0 else False
+
+# 2019-02-21 22:20:09.774519
++def oddDecorator(func):
++    def printer(x):
++        print(f'Number {x} is :' + "ODD" if func(x) else "EVEN")
++    return printer
+
+# 2019-02-21 22:20:54.886007
++@oddDecorator
++def is_odd(n):
++    return True if n % 2 is not 0 else False
+
+# 2019-02-21 22:21:47.920168
++is_odd(5)
+
+# 2019-02-21 22:22:34.874004
++def oddDecorator(func):
++    def printer(x):
++        print(f'Not calling the caller')
++    return printer
+
+# 2019-02-21 22:22:39.694674
++@oddDecorator
++def is_odd(n):
++    return True if n % 2 is not 0 else False
+
+# 2019-02-21 22:22:43.834746
++is_odd(5)
+
+# 2019-02-21 22:25:10.029781
++def oddDecorator(func):
++    def printer(x):
++        if (x < 0):
++            print("Number ain't positive")
++        else:
++            print(f'Number {x} : ', is_odd(x))
++    return printer
+
+# 2019-02-21 22:25:15.512301
++@oddDecorator
++def is_odd(n):
++    return True if n % 2 is not 0 else False
+
+# 2019-02-21 22:25:25.061991
++is_odd(-5)
+
+# 2019-02-21 22:25:27.256264
++is_odd(5)
+
+# 2019-02-21 22:25:57.513391
++def oddDecorator(func):
++    def printer(x):
++        if (x < 0):
++            print("Number ain't positive")
++        else:
++            print(f'Number {x} : ', func(x))
++    return printer
+
+# 2019-02-21 22:26:00.996030
++@oddDecorator
++def is_odd(n):
++    return True if n % 2 is not 0 else False
+
+# 2019-02-21 22:26:04.791177
++is_odd(5)
+
+# 2019-02-21 22:26:09.636487
++is_odd(-7)
+
+# 2019-02-21 22:26:53.078017
++d = {'add': sum }
+
+# 2019-02-21 22:27:07.471597
++l = [x for x in range(1, 11)]
+
+# 2019-02-21 22:27:10.072787
++l
+
+# 2019-02-21 22:27:13.601943
++sum(l)
+
+# 2019-02-21 22:27:27.116476
++d['add']
+
+# 2019-02-21 22:27:38.181153
++d['add']()
+
+# 2019-02-21 22:27:44.099443
++d['add'](l)
+
+# 2019-02-21 22:29:19.167487
++s = set()
+
+# 2019-02-21 22:29:24.821541
++s.insert(6)
+
+# 2019-02-21 22:29:27.756181
++s.add(6)
+
+# 2019-02-21 22:29:30.810415
++s.add(7)
+
+# 2019-02-21 22:29:32.059041
++s
+
+# 2019-02-21 22:29:49.430367
++s.add([1, 23, 4])
+
+# 2019-02-21 22:38:42.151326
++set((1, 4, 2, 1, 7, 9))
+
+# 2019-02-21 22:38:53.543109
++set((1, 4, 2, 1, 7, 9, 13, 4, 1, 57, 89, 2, 1))
+
+# 2019-03-05 20:40:06.087715
++text = '<div class="hello">Hello 1 from div</div>'
+
+# 2019-03-05 20:40:08.008039
++text
+
+# 2019-03-05 20:41:06.369086
++text += "<div class='sample'> Sample 1 </div>"
+
+# 2019-03-05 20:41:08.348816
++text
+
+# 2019-03-05 20:41:38.809519
++from bs4 import BeautifulSopu
+
+# 2019-03-05 20:41:44.553374
++from bs4 import BeautifulSoup
+
+# 2019-03-05 20:41:55.545706
++soup = BeautifulSoup(text, 'html.parser')
+
+# 2019-03-05 20:41:57.385341
++soup
+
+# 2019-03-05 20:42:20.345004
++def f(element):
++    return element.name == 'div'
+
+# 2019-03-05 20:42:28.544260
++soup.find_all(f)
+
+# 2019-03-05 20:42:46.309523
++def f(element):
++    return element.name == 'div' and element.get('class') == 'sample'
+
+# 2019-03-05 20:42:47.896202
++soup.find_all(f)
+
+# 2019-03-05 20:43:09.227871
++def f(element):
++    return element.name == 'div' and element.has_attr('class')
+
+# 2019-03-05 20:43:11.903696
++soup.find_all(f)
+
+# 2019-03-05 20:43:30.236240
++def f(element):
++    return element.name == 'div' and element.has_attr('class') and element.get('class')
+
+# 2019-03-05 20:43:32.214647
++soup.find_all(f)
+
+# 2019-03-05 20:43:45.359152
++def f(element):
++    return element.name == 'div' and element.has_attr('class') and element.get('class') == 'sample'
+
+# 2019-03-05 20:43:46.596982
++soup.find_all(f)
+
+# 2019-03-05 20:44:04.607395
++element = text
+
+# 2019-03-05 20:44:27.039026
++element.has_attr('class')
+
+# 2019-03-05 20:44:58.526584
++soup.div.has_attr('class')
+
+# 2019-03-05 20:45:06.750737
++soup.div.get('class')
+
+# 2019-03-05 20:45:16.867928
++soup.div[1].get('class')
+
+# 2019-03-05 20:45:23.878277
++soup.div.get('class')
+
+# 2019-03-05 20:45:26.431239
++soup
+
+# 2019-03-05 20:45:46.950200
++soup.div.contents
+
+# 2019-03-05 20:45:57.070011
++soup.div[0]
+
+# 2019-03-05 20:45:58.628861
++soup.div
+
+# 2019-03-05 20:46:05.110107
++soup
+
+# 2019-03-05 20:46:18.117718
++text
+
+# 2019-03-05 20:46:50.414590
++text = "<div class='c1'> c1 class </div>"
+
+# 2019-03-05 20:47:38.594820
++text += "<div class='c2'> c2 class </div>"
+
+# 2019-03-05 20:47:57.059805
++soup = BeautifulSoup(text, 'html.parser')
+
+# 2019-03-05 20:47:58.549002
++soup
+
+# 2019-03-05 20:48:06.357718
++soup.prettify()
+
+# 2019-03-05 20:48:15.130449
++f
+
+# 2019-03-05 20:48:20.853219
++soup.find(f)
+
+# 2019-03-05 20:48:23.331749
++soup.find_all(f)
+
+# 2019-03-05 20:49:01.058581
++def f(e):
++    e['class'] in ['c1']
+
+# 2019-03-05 20:49:03.149459
++soup.find_all(f)
+
+# 2019-03-05 20:49:12.901337
++soup.div
+
+# 2019-03-05 20:49:15.453775
++soup
+
+# 2019-03-05 20:49:26.477242
++soup.find_all('div')
+
+# 2019-03-05 20:49:30.653190
++soup.find_all('div')[0]
+
+# 2019-03-05 20:49:32.532402
++soup.find_all('div')[1]
+
+# 2019-03-05 20:49:43.587934
++soup.find_all('div')[1].find_all(f)
+
+# 2019-03-07 18:13:06.265402
++from bs4 import BeautifulSoup
+
+# 2019-03-07 18:13:10.210916
++import requests
+
+# 2019-03-07 18:13:36.905018
++response = requests.get('https://codeforces.com/problemset/problem/96/A')
+
+# 2019-03-07 18:13:43.555935
++response.content
+
+# 2019-03-07 18:14:05.935438
++soup = BeautifulSoup(response.content, 'html.parser')
+
+# 2019-03-07 18:14:11.361994
++soup
+
+# 2019-03-07 18:14:23.447456
++soup.prettify()
+
+# 2019-03-07 18:16:18.015999
++soup.find('div', attrs={'class': 'sample-text'})
+
+# 2019-03-07 18:16:35.826491
++a = soup.find('div', attrs={'class': 'sample-text'})
+
+# 2019-03-07 18:16:36.239761
++a
+
+# 2019-03-07 18:16:45.750318
++a = soup.find('div', attrs={'class': 'sample-test'})
+
+# 2019-03-07 18:16:46.509076
++a
+
+# 2019-03-07 18:17:43.653349
++x = a.find_all('div', attrs={'class': 'input'})
+
+# 2019-03-07 18:17:44.525444
++x
+
+# 2019-03-07 18:18:16.313980
++for item in x:
++    print(x.pre)
+
+# 2019-03-07 18:18:36.567635
++for item in x:
++    print(item.pre.get_text())
+
+# 2019-03-07 18:18:44.411416
++for item in x:
++    print(item.pre)
+
+# 2019-03-07 18:18:49.273892
++x
+
+# 2019-03-07 18:19:33.505271
++for item in x:
++    print(item.pre)
+
+# 2019-03-07 18:19:42.628610
++for item in x:
++    print(item.pre.string)
+
+# 2019-03-07 18:19:50.510807
++for item in x:
++    print(item.pre.get_text)
+
+# 2019-03-07 18:19:54.306691
++for item in x:
++    print(item.pre.get_text())
+
+# 2019-03-07 18:20:02.139189
++for item in x:
++    print(item.pre.extract())
+
+# 2019-03-07 18:22:09.593552
++for item in x:
++    string = item.pre.extract()
++    string = string.replace('<pre>', '')
++    string =string.replace('<br/>', '\n')
++    print(string)
+
+# 2019-03-07 18:22:24.095445
++x

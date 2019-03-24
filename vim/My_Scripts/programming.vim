@@ -5,5 +5,5 @@ endfunction
 
 augroup programming
     autocmd!
-    autocmd BufNewFile *.cxx,*.cpp call ReadCxx()
+    " autocmd BufNewFile *.cxx,*.cpp call ReadCxx()
 augroup END
