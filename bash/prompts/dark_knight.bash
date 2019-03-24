@@ -21,7 +21,7 @@ FLAME=$(echo -e $'\uf490')          #  : f490
 #       PROMPT COMPONENTS
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
-FLAG="\[${BOLD}${IND_RED}\]${ARROW}"            # Indian Red  
+FLAG="\[${BOLD}\]\[${IND_RED}\]${ARROW}"            # Indian Red  
 FLAG+="\[${WHITE}\]${ARROW}"                    # Indian White
 FLAG+="\[${IND_GREEN}\]${ARROW}\[$RESET\]"      # Indian Green
 
@@ -30,16 +30,16 @@ DIR_PATH+="  \w\[$RESET\]"                      # $(PWD)
 
 PROMPT_TIME="\[${BOLD}${IND_RED}\] ${HAND_RIGHT} \[${BOLD}${GREY}\] \$(date +%H:%M:%S)\[$RESET\]"
 FLAME="\[${RESET}${BOLD}${YELLOW}\] ${FLAME} \[$RESET\]"
-USER="\[${BOLD}${CYAN}\]\u\[$RESET\]"
+USER_NAME="\[${BOLD}\]\[${CYAN}\]\u\[$RESET\]"
 
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 #       PROMPT 
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
-# PS1=" $DIR_PATH"
-# PS1+=" $PROMPT_TIME"
-# PS1+="\n"
-# PS1+="$FLAME"
-# PS1+=" $USER"
-# PS1+=" $FLAG "
-
-export PS1=" $DIR_PATH $PROMPT_TIME\n${FLAME} $USER $FLAG "
+PS1=" $DIR_PATH"
+PS1+=" $PROMPT_TIME"
+PS1+="\n"
+PS1+="$FLAME"
+PS1+=" $USER_NAME"
+PS1+=" $FLAG "
+# export PS1=" $DIR_PATH $PROMPT_TIME\n${FLAME} $USER_NAME $FLAG "
+export PS1
