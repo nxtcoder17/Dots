@@ -59,6 +59,14 @@ man() {
     command man "$@"                    # command : used to not trigger the Infinite Recursion
 }
 
+# Firing up iradio
+############################
+# Present in: /usr/local/share/iradio
+############################
+iradio() {
+    command iradio $(cat ~/.STATIONS | grep -i $1)
+}
+
 THEME_PATH="$HOME/Dots/bash/prompts"
 THEME="dark_knight"
 # THEME="powerline"

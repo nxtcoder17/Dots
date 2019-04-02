@@ -67,8 +67,8 @@ function! CommentHtmlXml()
 endfunction
 
 function! CommentJavaJsCppC()
-    silent execute 'normal!^I// '
-    silent execute 'normal!$'
+    silent execute 'normal!^I/* '
+    silent execute 'normal!A */'
     silent execute 'normal!j^'
 endfunction
 
@@ -95,6 +95,7 @@ endfunction
 "[ Java, Js, C++, C ]
 function! UncommentJavaJsCppC()
     silent execute 'normal!^3x'
+    silent execute 'normal!$2h3x'
 endfunction
 
 "[ Html, XML, FXML ]

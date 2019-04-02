@@ -6,7 +6,7 @@
 
 # Monaco just everywhere
 # set font "Monaco for Powerline 12"
-# set font "monaco 12pt"
+set font "Monaco 12"
 
 # Access the Clipboard
 set selection-clipboard clipboard

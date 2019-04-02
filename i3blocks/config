@@ -1,11 +1,11 @@
 # /* vim: set ft=i3 :*/
 
-[ Music ]
+# [ Music ]
 # label=
-color=#00ff00
-interval=01
-markup=pango
-command=echo "<span background='#f7f300' foreground='#00000000'>$(echo  )<b> $(mpc current) </b></span>"
+#color=#00ff00
+#interval=01
+#markup=pango
+#command=echo "<span background='#f7f300' foreground='#00000000'>$(echo  )<b> $(mpc current) </b></span>"
 
 # For System Volume Information
 [ Volume ]
@@ -23,4 +23,4 @@ command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | aw
 [ Date and Time ]
 interval=01
 markup=pango
-command=echo "<span background='#f72c51' foreground='#00000000'><i> $(echo   )</i><b> $(date +%T) </b> </span>"
+command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(date +%T) </b> </span>"

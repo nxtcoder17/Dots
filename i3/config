@@ -174,8 +174,8 @@ bindsym Control + exclam           exec --no-startup-id $toggleMute
 
 # -> Opening Terminal
 # set $term konsole --hide-menubar
-# set $term xfce4-terminal --hide-menubar
-set $term st
+set $term xfce4-terminal --hide-menubar
+# set $term st
 bindsym $mod + Return               exec --no-startup-id $term
 
 # -> Executing Rofi Desktop Run Window
