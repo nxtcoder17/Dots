@@ -1,7 +1,7 @@
 
 #===============================[ General Configurations ]=================================={{{
 # [ Recommended for i3-gaps ]
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 0
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
@@ -16,14 +16,14 @@ font pango: Furacode Nerd Font Mono 10
 #============================[ Workspace Configuration ]==========================={{{
 
 #============[ Workspace Names ]===============
-set $ws1 Code
-set $ws3 Browse
+set $ws1 "1:  "
+set $ws3 "3:  "
 set $ws10 study
 
 #=================[ Accessing the Worspaces 1 to 10 ]================={{{
-bindsym $mod+1 workspace 1 $ws1
+bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3 $ws3
+bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -34,9 +34,9 @@ bindsym $mod+0 workspace 10 $ws10
 #=================[ End: Accessing the Workspaces ]====================}}}
 
 #=======================[ Moving Focused Container to specific workspaces ]================={{{
-bindsym $mod+Shift+1 move container to workspace 1 $ws1
+bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3 $ws3
+bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -75,8 +75,8 @@ popup_during_fullscreen             smart
 bindsym $mod+Tab                    workspace back_and_forth
 
 # -> Splitting Choices
-bindsym $alt + v                    split vertical
-bindsym $alt + h                    split horizontal
+bindsym $alt + Shift + v            split vertical
+bindsym $alt + Shift + h            split horizontal
 
 #========= ==> [End: Controlling i2 wm ] <== =======}}}
 
@@ -122,6 +122,25 @@ bindsym $mod+Shift+Up move up
 # ==> End-> Key-Scheme 2 : Direction Keys <== }}}
 
 #============= ==>[ End : Navigation around Splits ] <== ============}}}
+
+# Resizing Splits {{{
+# =================
+
+# Key-Scheme 1: Vim-Lovers {{{ 
+bindsym $alt + h        resize shrink width 10 px or 1 ppt
+bindsym $alt + l        resize grow width 10 px or 1 ppt
+bindsym $alt + k        resize shrink height 10 px or 1 ppt
+bindsym $alt + j        resize grow height 10 px or 1 ppt
+# }}}
+
+# Key-Scheme 2: Direction Keys {{{
+bindsym $alt + Left     resize shrink width 10 px or 1 ppt
+bindsym $alt + Right    resize grow width 10 px or 1 ppt
+bindsym $alt + Up       resize shrink height 10 px or 1 ppt
+bindsym $alt + Down     resize grow height 10 px or 1 ppt
+# }}}
+
+# Resizing Splits }}}
 
 #========= ==> [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== ============{{{
 #
