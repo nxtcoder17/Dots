@@ -16,7 +16,8 @@ export PAGER='less'
 export EMAIL='phenomenal_ab@linuxmail.org'
 export BROWSER='qutebrowser --target tab %s'
 
-export PATH="$PATH:/home/balor/Applications/android-studio/bin/"
+export PATH="$PATH:/home/balor/builds/android-studio/bin/"
+export PATH="$PATH:/home/balor/builds/javafx-sdk-11.0.2/lib"
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #===============[ Aliases ]=================#{{{
@@ -30,8 +31,8 @@ alias addbook="python /home/balor/Workspace/Projects/Book_Manager/books_db.py"
 alias pcl="python ~/Workspace/Projects/PCloud/pcloud.py"
 alias yt="youtube-dl --write-auto-sub --add-metadata"
 
-alias scraper='python ~/Workspace/Projects/Scraper/main.py'
-alias vimplugger="bash ~/Workspace/Projects/Vim-Plugger/vim-plugger.sh"
+alias scraper='python ~/Workspace/projects/Scraper/main.py'
+alias vimplugger="bash ~/Workspace/projects/VimPlugger/vim_plugger.sh"
 alias pydm="python ~/Workspace/projects/PyDownloader/main.py"
 
 alias g++='g++ -Wall -Wextra -O2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover'

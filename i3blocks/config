@@ -7,6 +7,11 @@
 #markup=pango
 #command=echo "<span background='#f7f300' foreground='#00000000'>$(echo  )<b> $(mpc current) </b></span>"
 
+[ Music ]
+interval=1
+markup=pango
+command=echo "<span background='#123d3b' foreground='#2eff00'>$(echo Music:)<b> $(tail -1 /tmp/music.log | sed 's/\..*//g') </b></span>"
+
 # For System Volume Information
 [ Volume ]
 #label= 

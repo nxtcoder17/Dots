@@ -47,6 +47,7 @@ let g:file_types={
       \ 'xml'           : 'XML',
       \ 'fxml'          : 'FXML',
       \ 'sql'           : 'SQL',
+      \ 'php'           : 'PHP',
       \ 'vimplug'       : 'Plugins',
       \ 'snippets'      : 'UltiSnips'
       \ }

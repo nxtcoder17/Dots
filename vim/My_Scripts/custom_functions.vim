@@ -54,7 +54,7 @@ endfunction
 
 "=========[ Commenting in Code ]=================={{{
 
-function! CommentPythonSh()
+function! CommentPythonShPhp()
     silent execute 'normal!^I# '
     silent execute 'normal!j^'
 endfunction
@@ -88,7 +88,7 @@ endfunction
 "===========[ Uncommenting_In_The_Code ]==============={{{
 
 "[ Python, Shell, Vim ]
-function! UncommentPythonShVim()
+function! UncommentPythonShVimPhp()
     silent execute 'normal!^2x'
 endfunction
 

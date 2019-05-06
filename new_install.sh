@@ -59,6 +59,10 @@ setup_tmux() {
         rm ~/.tmux.conf
 
     ln -s $CUR_DIR/tmux/tmux.conf ~/.tmux.conf
+
+    # Setting up the Tmux Plugin Manager
+    echo "Cloning Tmux Plugin Manager: " && \
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm >> /dev/null
 }
 
 setup_mpd_ncmpcpp() {
@@ -81,11 +85,19 @@ setup_zathura() {
     ln -s $CUR_DIR/zathura ~/.config
 }
 
+setup_qutebrowser () 
+{
+    ([[ -d ~/.config/qutebrowser ]] || [[ -L ~/.config/qutebrowser ]]) && \
+        rm -r ~/.config/qutebrowser
+    ln -s $CUR_DIR/qutebrowser ~/.config/
+}
+
 setup_bash
 setup_i3
 setup_vim
 setup_tmux
 setup_mpd_ncmpcpp
 setup_zathura
+setup_qutebrowser
 
 cd $CUR_DIR

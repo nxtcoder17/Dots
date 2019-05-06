@@ -11,15 +11,16 @@ augroup vimrc
     autocmd FileType python,cpp,c,conf,javascript,vim call Persistent_Undo()
 
     "=======[ Commenting: dynamic mapping of <leader>c for commenting ]========================
-    autocmd FileType python,sh map <leader>c :call CommentPythonSh()<CR>
+    autocmd FileType python,sh map <leader>c :call CommentPythonShPhp()<CR>
     autocmd FileType vim map <leader>c :call CommentVim()<CR>
     autocmd FileType cpp,c,javascript map <leader>c :call CommentJavaJsCppC()<CR>
     autocmd BufRead,BufNewFile *.java map <leader>c :call CommentJavaJsCppC()<CR>
     autocmd FileType html,xml map <leader>c :call CommentHtmlXml()<CR>
     autocmd FileType css map <leader>c :call CommentCss()<CR>
+    autocmd FileType php map <leader>c :call CommentPythonShPhp()<CR>
 
     "=======[ UnCommenting: leader + shift + c ]================
-    autocmd FileType python,sh,vim map <leader>x :call UncommentPythonShVim()<CR>
+    autocmd FileType python,sh,vim,php map <leader>x :call UncommentPythonShVimPhp()<CR>
     autocmd FileType javascript,cpp,c map <leader>x :call UncommentJavaJsCppC()<cr>
     autocmd BufRead,BufNewFile *.java map <leader>x :call UncommentJavaJsCppC()<CR>
     autocmd FileType html,xml map <leader>x :call UnCommentHtmlXml()<CR>
@@ -47,5 +48,9 @@ augroup vimrc
 
     "============== [ Setting Dynamic FileTYpe ]==========
     autocmd BufNewFile,BufRead *.fxml setf fxml
+
+    "============[ Generating Help Tags for Plugins ]================
+    " autocmd BufRead,BufNewFile *.* helptags ~/.vim/pack/plugins/start/ultisnips/doc
+    " autocmd BufRead,BufNewFile *.* helptags ~/.vim/pack/plugins/start/vim-snippets/doc
 augroup end
 "=====================[ End ]=====================

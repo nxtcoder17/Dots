@@ -21,6 +21,8 @@ view
 *.netrwhist
 *.swp
 *.~
+plugins
+vim/pack/*
 plugged
 
 #=== Mpd Special ===

@@ -1,7 +1,7 @@
 
 #===============================[ General Configurations ]=================================={{{
 # [ Recommended for i3-gaps ]
-# for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 0
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
@@ -145,7 +145,7 @@ bindsym $alt + Down     resize grow height 10 px or 1 ppt
 #========= ==> [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== ============{{{
 #
 # -> Toggles b/w play and pause
-bindsym $mod + Pause exec --no-startup-id mpc toggle
+# bindsym $mod + Pause exec --no-startup-id mpc toggle
 # -> Plays the next song
 bindsym $mod + greater      exec --no-startup-id mpc next
 # -> Plays the previous song
@@ -225,6 +225,8 @@ bindsym $mod + x            exec --no-startup-id ~/.config/i3/scripts/lock.sh
 # ========== ==> [End: Executing External Scripts ] <== ===========}}}
 
 bindsym $mod+Shift+Delete	exec lmc truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+
+bindsym Pause exec --no-startup-id curl -d "" "http://localhost:11111/pause"
 #===========================[ Key Mappings ]==============================}}}
 
 #===================[ Auto-startup Applications ]============================{{{

@@ -28,3 +28,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set runtimepath+="/home/balor/.vim/balor-snippets/"
+
+
+" Shortcut for opening FFF SPlit
+nnoremap <leader>f :F<CR>
+" Additions for Using fff FileManager for Project Tree Exploration in Vim
+let g:fff#split = "30vnew"
+" Open split on the left side (NERDtree style).
+let g:fff#split_direction = "nosplitbelow nosplitright"
