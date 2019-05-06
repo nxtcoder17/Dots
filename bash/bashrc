@@ -18,6 +18,8 @@ export BROWSER='qutebrowser --target tab %s'
 
 export PATH="$PATH:/home/balor/builds/android-studio/bin/"
 export PATH="$PATH:/home/balor/builds/javafx-sdk-11.0.2/lib"
+
+export DOTS="$HOME/Dots"
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #===============[ Aliases ]=================#{{{
