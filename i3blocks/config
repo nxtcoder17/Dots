@@ -10,7 +10,7 @@
 [ Music ]
 interval=1
 markup=pango
-command=echo "<span background='#123d3b' foreground='#2eff00'>$(echo Music:)<b> $(tail -1 /tmp/music.log | sed 's/\..*//g') </b></span>"
+command=echo "<span background='#123d3b' foreground='#2eff00'>$(echo  )<b> $((tail -1 /tmp/music.log | sed 's/\..*//g') && ([[ $BLOCK_BUTTON -eq 1 ]] && /home/balor/Dots/scripts/music_i3blocks.sh 1)) </b></span>"
 
 # For System Volume Information
 [ Volume ]
@@ -26,6 +26,6 @@ markup=pango
 command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | awk '{print $4}' | sed s/,//) </b> </span>"
 
 [ Date and Time ]
-interval=01
+interval=5
 markup=pango
-command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(date +%T) </b> </span>"
+command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b> </span>"

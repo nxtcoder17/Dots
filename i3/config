@@ -241,7 +241,7 @@ exec_always --no-startup-id      setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id      xcape -e 'Control_L=Escape'
 
 # -> Wallpaper Setup
-exec_always --no-startup-id      feh --bg-scale ~/.wallpaper.jpg
+# exec_always --no-startup-id      feh --bg-scale ~/.wallpaper.jpg
 
 # -> Music Player Daemon [mpd]
 exec --no-startup-id             mpd
@@ -261,6 +261,11 @@ exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput
 # Redshift
 exec --no-startup-id            redhshift -l 26:85
 
+# Wallpaper Slideshow
+exec                            "/home/balor/Dots/scripts/wallpaper.sh"
+
+# Tmux Script for new status bar
+exec_always                            "/home/balor/Dots/tmux/tmux_config.sh"
 
 #===================[End: Auto-startup Applications ]=========================}}}
 

@@ -7,6 +7,7 @@ colorscheme gruvbox                 " Gruvbox Colorscheme
 " colorscheme solarized                 " Solarized Colorscheme
 " colorscheme onedark
 " colorscheme balor
+" colorscheme focuspoint
 set foldtext=MyFoldExpression() " Customised Fold Expression
 " set foldclose=all 				" AutoClose Folds when i move out of them
 
@@ -14,7 +15,7 @@ set foldtext=MyFoldExpression() " Customised Fold Expression
 "hi TabLineFill  ctermfg=Black  ctermbg=0     cterm=bold
 "hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-hi Normal guibg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE
 
 hi Comment guifg=#0f9b78

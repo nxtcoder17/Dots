@@ -1,0 +1,77 @@
+:root {
+	-my-background: #1d2228;
+}
+
+/* Changes in active Tab */
+
+.tab-content[selected=true] {
+    color: #ddff00 !important;
+    background-color: #1d2228 !important;
+    border-top: 3px solid #ddff00 !important;
+}
+.tab-content {
+    color: #1cff45 !important;
+    background-color: #1d2228 !important;
+}
+
+.tab-label {
+    color: #1cff45 !important;
+    font-weight: bold !important;
+    font-family: "Cantarell";
+    /* font-family: "Monaco"; */
+    font-size: 14px;
+}
+
+/* Tab Close Icon */
+/* Source of Icon: https://www.flaticon.com/authors/pixelmeetup */
+/* .tab-close-button { */
+    /* display: block !important; */
+    /* list-style-image: url (./icons/delete.svg) !important; */
+    /* -moz-image-region: auto !important; */
+/* } */
+
+.tab-label[selected=true]{
+    color: #ddff00 !important;
+    /* background-color: #16441f !important; */
+    font-weight: bold !important;
+}
+
+/* New Tab Add Icon */
+/* .tabs-newtab-button { */
+    /* list-style-image: url (./icons/delete.svg) !important; */
+/* } */
+
+
+#nav-bar{
+    background-color: #1d2228 !important;
+}
+
+/* toolbar,toolbarbutton,toolbaritem { */
+    /* background-color: #1d2228 !important; */
+/* } */
+
+#urlbar[focused=true],#urlbar:hover {
+    border: 1px solid #00ffbb !important;
+}
+
+textbox[id=urlbar] {
+    border: none !important;
+}
+
+#urlbar {
+    background-color: #1d2228 !important;
+}
+
+/* URLBar Input  */
+.urlbar-input {
+    color: #1cff45 !important;
+    /* background-color: #1d2228 !important; */
+    font-weight: bold !important;
+    font-size: 16px !important;
+
+}
+
+
+menupopup {
+    background-color: red !important;
+}
