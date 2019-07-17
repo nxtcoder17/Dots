@@ -1,0 +1,211 @@
+body {
+    /* background-image: url('https://www.hdwallpapers.in/download/selena_gomez_for_elle_2018_4k-1366x768.jpg'); */
+    /* background-color: rgb(0,0,0) !important; */
+
+    /* Variables */
+    --my-pale-yellow: #a8c655;
+    --my-pale-blue: #4ea3aa;
+    --my-label-blue: #32b7ff;
+    --my-green: #00ff61;
+    --my-less-orange: #e88937;
+    --my-less-orange2: #b78d49;
+    --font-monofur: "Monofur Nerd Font";
+
+    /* color: var(--my-pale-yellow) !important; */
+}
+
+/* General All Websites:START */
+body,div,span,p,a,
+h1,h2,h3,h4,h5,h6 {
+    /* color: var(--my-pale-yellow) !important; */
+    /* background-color: rgb(0,0,0) !important; */
+}
+/* General All Websites:END */
+
+/* Google Search Customisation */
+@-moz-document domain(google.com) {
+/* Sign In Button Mod : START */
+    .gb_1 {
+        background: none !important;
+        border: 2px solid dodgerblue !important;
+        color: dodgerblue !important;
+        font-family: var(--font-monofur) !important;
+    }
+
+    /* Hover effect on Sign In Button */
+    .gb_1:hover {
+        background: dodgerblue !important;
+        color: black !important;
+        cursor: pointer !important;
+        font-weight: bold !important;
+    }
+/* Sign In Button Mod: END */
+
+/* Body of Entire Google Search */
+    body{
+        background-color: rgb(0,0,0) !important;
+        background-attachment: fixed !important;
+        color: #a8c655 !important;
+        border: none !important;
+
+    }
+
+    /* Removing Borders that look so ugly once i set the dark background */
+    .kp-blk {
+        border: none !important;
+    }
+
+    /* SEARCH BAR MOD: START */
+    /* The Search Bar on the Google Search Results Page */
+    div.RNNXgb{
+        background: none !important;
+        color: #a8c655 !important;
+        border: none !important;
+    }
+    
+    /* Wrapper around the Search Bar's input element */
+    div.vdLsw {
+        background: #202021 !important;
+        border: none !important;
+    }
+
+    /* Styling the input element of Search bar */
+    input.gLFyf {
+        color: #00ff61 !important;
+        font-weight: bold !important;
+        padding-left: 5px !important;
+    }
+
+    input.gLFyf:hover:active {
+        border: 1px solid var(--my-green) !important;
+    }
+    /* SEARCH BAR MOD: END */
+
+    /* div.sfbg.nojsv:  On scroll the element around google search box whose position is fixed*/
+    .sfbgx,div.sfbg.nojsv {
+        /* background: rgba(0,0,0,0.8) !important; */
+        background: none !important;
+        color: #a8c655 !important;
+    }
+
+    /* Cards on Google Search containing some spicy description */
+    g-inner-card { font-family: var(--font-monofur) !important; background: none !important; }
+    /* div.mRnBbe, cite, span.f: Info/News Cards in Google Search */
+    /* div.mB12kf, div.zECGdd: Video Cards in Google Search */
+    g-inner-card div.mRnBbe,div.mB12kf{ color: var(--my-less-orange) !important; }
+    g-inner-card cite,div.zECGdd { color: var(--my-green) !important; }
+    g-inner-card span.f { color: var(--my-label-blue) !important; }
+
+    /* Removing border around Cars */
+    g-inner-card.cv2VAd { border: none !important; }
+
+    /* Bottom Border of Previous Element above AppBar */
+    div#hdtb { border-bottom: none !important; }
+    /* div#appbar: Element wrapping 1,233434,000 results found in 0.9 seconds */
+    div#appbar { background: none !important; }
+    /* div#hdtbSum: Element wrapping navigators like All, News, Images, Videos, Maps etc. */
+    div#hdtbSum { background: none !important; }
+
+    /* Search Titles */
+    .LC20lb,g-link a{
+        color: var(--my-less-orange) !important;
+        font-weight: bold !important;
+        font-size: 20px !important; 
+        /* font-family: "Operator Mono Book" !important; */
+        /* font-family: var(--font-monofur) !important; */
+        font-family: "Cantarell" !important;
+    }
+
+    /* Search Results URL */
+    .iUh30 {
+        color: var(--my-label-blue) !important;
+        font-family: "Operator Mono Book" !important;
+        /* font-weight: bold !important; */
+        font-size: 15px !important;
+    }
+
+    /* Search Results Description */
+    .st {
+        color: var(--my-pale-yellow) !important;
+        font-family: "Monofur Nerd Font" !important;
+        font-size: 15px !important;
+    }
+
+    /* Labels in Search Results */
+    /* Like: Years Active, Spouse, Relatives etc.*/
+    .VNLkW,.st span.f {
+        color: var(--my-label-blue) !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        font-family: "Operator Mono Book" !important;
+    }
+
+    /* Emphasised Matched Keywords in Search Results */
+    .st em {
+        color: var(--my-pale-blue) !important;
+        font-weight: bold !important;
+        font-size: 15px !important;
+        font-family: var(--font-monofur) !important;
+    }
+
+    div#fbar.mSAqxd {
+        /* background: rgba(0,0,0,0.8) !important; */
+        background: none !important;
+    }
+
+    /* Related Links on the footer of search window */
+    /* g-more-link: More info on Selena Gomez below the cards */
+    a,g-more-link { color: var(--my-less-orange2) !important; }
+
+    /* Removing the Text "Search Related to Something" */
+    h3.med.dPAwzb { display: none !important; }
+
+    /* Removing the cached pages action menu button */
+    div.ab_ctl.action_menu {display: none !important;}
+
+    /* Information Available on the Right Pane */
+    /* See this: https://www.google.com/search?q=selena+gomez */
+    div.kno-ecr-pt, div.kno-fb-ctx{ 
+        color: var(--my-pale-yellow) !important; 
+        font-family: var(--font-monofur) !important;
+    }
+
+    /* Removing the "Available On" header */
+    div.Ss2Faf { display: none !important; }
+
+    /* Sidebar Navigation Links to Different Sites, like  */
+    /* Spotify Playlist, Movies IMDB, Youtube Accounts etc. */
+    div.ellip span {
+        color: var(--my-less-orange) !important;
+    }
+
+    /* There are borders over the top and bottom of above */
+    /* Navigation Links */
+    td.ellip {
+        border: none !important;
+    }
+
+    /* See Searches About in the Right Pane */
+    /* See Link: https://www.google.com/search?client=firefox-b-d&q=GNU */
+
+    div.RJn8N {
+        color: var(--my-less-orange) !important;
+    }
+
+    /* div.zloOqf URL: https://www.google.com/search?client=firefox-b-d&q=hello */
+    div.izHQgf,div.zloOqf {
+        color: var(--my-pale-yellow) !important;
+    }
+
+    div.y8Jpof:hover { background: none !important; border: 2px 0px 2px 0px solid var(--my-less-orange) !important; }
+}
+
+/* Google Search Customisation: END */
+
+/* Geeks For Geeks */
+@-moz-document domain("geeksforgeeks.org") {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}

@@ -1,9 +1,5 @@
-:root {
-	-my-background: #1d2228;
-}
 
 /* Changes in active Tab */
-
 .tab-content[selected=true] {
     color: #ddff00 !important;
     background-color: #1d2228 !important;

@@ -5,7 +5,7 @@ Copy this file to ~/.ptpython/config.py
 """
 from __future__ import unicode_literals
 from prompt_toolkit.filters import ViInsertMode
-from prompt_toolkit.key_binding.input_processor import KeyPress
+from prompt_toolkit.key_binding.key_processor import KeyPress
 from prompt_toolkit.keys import Keys
 from pygments.token import Token
 
@@ -26,7 +26,7 @@ def configure(repl):
     repl.show_signature = True
 
     # Show docstring (bool).
-    repl.show_docstring = True
+    repl.show_docstring = False
 
     # Show the "[Meta+Enter] Execute" message when pressing [Enter] only
     # inserts a newline instead of executing the code.
@@ -40,7 +40,7 @@ def configure(repl):
     repl.completion_menu_scroll_offset = 0
 
     # Show line numbers (when the input contains multiple lines.)
-    repl.show_line_numbers = True
+    repl.show_line_numbers = False
 
     # Show status bar.
     repl.show_status_bar = True
@@ -83,7 +83,7 @@ def configure(repl):
 
     # Enable auto suggestions. (Pressing right arrow will complete the input,
     # based on the history.)
-    repl.enable_auto_suggest = True
+    repl.enable_auto_suggest = False
 
     # Enable open-in-editor. Pressing C-X C-E in emacs mode or 'v' in
     # Vi navigation mode will open the input in the current editor.
@@ -101,11 +101,17 @@ def configure(repl):
     repl.enable_input_validation = True
 
     # Use this colorscheme for the code.
-    repl.use_code_colorscheme('vim')
+    repl.use_code_colorscheme('pastie')
 
-    # Enable 24bit True color. (Not all terminals support this. -- maybe check
-    # $TERM before changing.)
-    repl.true_color = True
+    # Set color depth (keep in mind that not all terminals support true color).
+
+    #repl.color_depth = 'DEPTH_1_BIT'  # Monochrome.
+    #repl.color_depth = 'DEPTH_4_BIT'  # ANSI colors only.
+    #repl.color_depth = 'DEPTH_8_BIT'  # The default, 256 colors.
+    repl.color_depth = 'DEPTH_24_BIT'  # True color.
+
+    # Syntax.
+    repl.enable_syntax_highlighting = True
 
     # Install custom colorscheme named 'my-colorscheme' and use it.
     """
@@ -114,29 +120,33 @@ def configure(repl):
     """
 
     # Add custom key binding for PDB.
+    """
     @repl.add_key_binding(Keys.ControlB)
     def _(event):
         ' Pressing Control-B will insert "pdb.set_trace()" '
         event.cli.current_buffer.insert_text('\nimport pdb; pdb.set_trace()\n')
+    """
 
     # Typing ControlE twice should also execute the current command.
     # (Alternative for Meta-Enter.)
+    """
     @repl.add_key_binding(Keys.ControlE, Keys.ControlE)
     def _(event):
-        b = event.current_buffer
-        if b.accept_action.is_returnable:
-            b.accept_action.validate_and_handle(event.cli, b)
+        event.current_buffer.validate_and_handle()
+    """
 
 
     # Typing 'jj' in Vi Insert mode, should send escape. (Go back to navigation
     # mode.)
+    """
     @repl.add_key_binding('j', 'j', filter=ViInsertMode())
     def _(event):
         " Map 'jj' to Escape. "
-        event.cli.input_processor.feed(KeyPress(Keys.Escape))
-
+        event.cli.key_processor.feed(KeyPress(Keys.Escape))
     """
+
     # Custom key binding for some simple autocorrection while typing.
+    """
     corrections = {
         'impotr': 'import',
         'pritn': 'print',

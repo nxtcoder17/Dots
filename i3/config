@@ -193,8 +193,8 @@ bindsym Control + exclam           exec --no-startup-id $toggleMute
 
 # -> Opening Terminal
 # set $term konsole --hide-menubar
-set $term xfce4-terminal --hide-menubar
-# set $term st
+# set $term xfce4-terminal --hide-menubar
+set $term st
 bindsym $mod + Return               exec --no-startup-id $term
 
 # -> Executing Rofi Desktop Run Window
@@ -213,7 +213,7 @@ bindsym $mod + Print                exec --no-startup-id $shot -u
 bindsym $mod + r                    exec $term -e ranger
 
 # Executing firefox
-set $browser notify-send 'Firefox started' && ~/Applications/firefox/firefox
+set $browser notify-send 'Firefox started' && ~/builds/firefox/firefox
 bindsym $mod + b                    exec $browser
 #=========== ==> [End: Executing Applications ] <== ==============}}}
 
@@ -259,13 +259,16 @@ exec --no-startup-id            dunst
 exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput Tapping Enabled' 1
 
 # Redshift
-exec --no-startup-id            redhshift -l 26:85
+# exec --no-startup-id            redhshift -l 26:85
 
-# Wallpaper Slideshow
-exec                            "/home/balor/Dots/scripts/wallpaper.sh"
+# Wallpaper Slideshow: Don't want it now, irritating
+# exec                           "/home/balor/Dots/scripts/wallpaper.sh"
 
 # Tmux Script for new status bar
-exec_always                            "/home/balor/Dots/tmux/tmux_config.sh"
+# Firstly execute tmux, it will automatically restore the panes and windows
+exec                            tmux new -s Workspace
+# Then, call the configuration script for tmux
+exec_always                           "/home/balor/Dots/tmux/tmux_config.sh"
 
 #===================[End: Auto-startup Applications ]=========================}}}
 

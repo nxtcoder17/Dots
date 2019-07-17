@@ -1,19 +1,12 @@
+" [Icons]
+"  : e0b0
+"  : e0b2
 
-"========================================================================
-"               Status Line Generator For Vim 
-"========================================================================
-
-
-"Icons
- "  : e0b0
- "  : e0b2
-"   : eob1
-"   : e0b3
-
+" Make StatusLine always visible
 set statusline=2
 
 let g:current_vim_mode={
-      \ 'n': 'NORMAL',
+      \ 'n': 'normal',
       \ 'v': 'VISUAL',
       \ 'V': 'V-LINE',
       \ 'i': 'INSERT',
@@ -53,83 +46,109 @@ let g:file_types={
       \ }
 
 " highlight statusline        ctermfg=07      ctermbg=235     cterm=None      guibg=#2d2c2c   guifg=#000000
-highlight statusline        ctermfg=15      ctermbg=01      cterm=None      guifg=#FFFFFF   guibg=#2d2c2c
+highlight! statusline        ctermfg=15      ctermbg=01      cterm=None      guifg=#FFFFFF   guibg=#2d2c2c
 
 "highlight VimMode           ctermfg=15      ctermbg=33      cterm=None      guifg=#26ff4a   guibg=#1f2021
-highlight VimMode           ctermfg=15      ctermbg=33      cterm=bold      guifg=#000000   guibg=#ecff1e
-highlight VimMode_Suffix    guifg=#ecff1e   guibg=#0b1019   gui=reverse
+"highlight VimMode           ctermfg=15      ctermbg=33      cterm=bold      guifg=#000000   guibg=#ecff1e
+highlight! VimMode           gui=bold,italic        guibg=#ffff00   guifg=#000000 cterm=bold,italic
+highlight! VimMode_Suffix    guifg=#ffff00   guibg=#000000
 
 "highlight FileName          ctermfg=01      ctermbg=07      cterm=bold      guifg=#dd3e3e  guibg=#FFFFFF
-highlight FileName          ctermfg=01      ctermbg=07      cterm=bold      guifg=#dd3e3e  guibg=#0b1019
-highlight FileName_Suffix   ctermfg=07      ctermbg=235     cterm=None      guifg=#0b1019  guibg=#2d2c2c
-highlight SpaceC            ctermfg=232     ctermbg=232     cterm=bold
+highlight! FileName          ctermfg=01      ctermbg=07      cterm=italic      guifg=#dd3e3e  guibg=#0b1019
+" highlight! FileName          guifg=#ed3131   guibg=#000000   gui=bold
+highlight! FileName          guifg=#00ff00   guibg=#000000   gui=bold,italic
+highlight! FileName_Suffix   ctermfg=07      ctermbg=235     cterm=None      guifg=#0b1019  guibg=#2d2c2c
+highlight! FileName_Suffix   guifg=#000000   guibg=#000000
+highlight! SpaceC            ctermfg=232     ctermbg=232     cterm=bold
 
-highlight link FileType VimMode
-highlight link FileType_Prefix VimMode_Suffix
+highlight! link FileType VimMode
+highlight! link FileType_Prefix VimMode_Suffix
 
-highlight link BufNo FileName
-highlight link BufNo_Prefix FileName_Suffix
+highlight! link BufNo FileName
+highlight! link BufNo_Prefix FileName_Suffix
 
 " highlight BufNo_Prefix      ctermfg=07      ctermbg=235     cterm=None
 
 " highlight Cursor            ctermfg=15      ctermbg=28      cterm=None      guifg=#12edab   guibg=#2d2c2c
-highlight Cursor            ctermfg=15      ctermbg=28      cterm=None      guifg=#12edab   guibg=#0b1019
-highlight Cursor_Prefix     ctermfg=28      ctermbg=33      cterm=None      guifg=#0b1019   guibg=#ecff19
+" highlight Cursor            ctermfg=15      ctermbg=28      cterm=None      guifg=#12edab   guibg=#0b1019
+"highlight Cursor            guibg=default   guifg=default
+highlight! Position          guibg=#000000   guifg=#00bbff   gui=None  cterm=italic
+highlight! Position_Prefix   guibg=#ffff00   guifg=#000000
+
+highlight! Cursor_Prefix     ctermfg=28      ctermbg=33      cterm=None      guifg=#0b1019   guibg=#ecff19
 
 "highlight PasteMode     ctermfg=11    ctermbg=33    cterm=Bold
-highlight link PasteMode BufNo
+highlight! link PasteMode BufNo
 
-set laststatus=2
-" Show my current Vim Mode
-"
+set laststatus=2 " Show my current Vim Mode
+set statusline=%!BuildStatusLine()
+
 "*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
 "|                      BUILDING THE STATUS LINE                           |
 "*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
 
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-" * [1]. Displaying Current Vim Mode  *
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-set statusline=%#VimMode#                                           " 1. Set highlighting for the Mode
-set statusline+=\ %{get(g:current_vim_mode,mode(),'V-BLOCK')}       " 2. Get the Current Mode & display a/q to the Dict
-set statusline+=\ %#VimMode_Suffix#                                " 3. End display with a beautiful Arrow
+function! BuildStatusLine()
+    let status = ""             " Starting with an empty string
 
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-" * [2]. Displaying Current File Name *
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-set statusline+=%<                                                  " 1. Truncate Here if we run out of Space
-set statusline+=%#FileName#                                         " 2. Set Hightlighting for the File Name
-set statusline+=\                                                  " 3. Unicode Icon (Beautify)
-set statusline+=\ %F                                                " 4. Finally, display the filename
-set statusline+=\ %m                                                " 5. Modifier flag show [+], [RO] stuff
-set statusline+=%#FileName_Suffix#                                 " 6. End part with a beautiful Arrow
-set statusline+=%0*                                                 " 7. Restoring Normal Hightlighting for remaining part
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+        " * [1]. Displaying Current Vim Mode  *
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
 
-" Right Side of the Moon
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-" * [3]. Buffer Number and Paste Flag *
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-set statusline+=%=%#BufNo_Prefix#                                  " 1. Left Arrow (beautify) & it's highlighting
-set statusline+=%=%#BufNo#                                          " 2. Hightlighting for buffer number
-set statusline+=%=[%n]                                              " 3. Buffer Number
-set statusline+=%=%#PasteMode#                                      " 4. Highlighting for Paste Mode Display
-set statusline+=%=%{&paste?'\ \ ':''}                              " 5. Conditional Checking for PASTE Mode & Display icon
+    " (a). Setting Highlight for the Mode
+    let status .= "%#VimMode#"
+    " (b). Get the Current Mode & display a/q to the Dict
+    let status .= "\ %{get(g:current_vim_mode, mode(), 'V-BLOCK')}"
+    " (c). Colors for Beautiful Powerline Arrow
+    let status .= "\ %#VimMode_Suffix# "
 
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-" * [4]. File Type Specification  *
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-set statusline+=%=%#FileType_Prefix#                               " 1. Highlighting for Arrow Separation
-set statusline+=%=%#FileType#                                       " 2. Highlighting for File Type Text
-set statusline+=%=\ %{get(g:file_types,&filetype,'conf')}           " 3. Read corresponding value from Dict (defaults to 'conf')
-set statusline+=%=%#Cursor_Prefix#                                 " 4. End Part with next part highlighting arrow separation
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+        " * [2]. Displaying Current File Name *
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
 
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-" * [5]. Cursor (Line No. & Col No.) Display    *
-" *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
-set statusline+=%=%#Cursor#                                         " 1. Highlighting for Cursor Details
-set statusline+=%=\ \ %l/%L                                        " 2. Line Number Icon & format <current>/<total>
-set statusline+=%=\ \ %c                                           " 3. Column Number Icon & format <col-no-current>
-" set statusline+=%=%#Cursor#%(%=\ \ %l/%L\ \ %c%)
-" set statusline+=%=\  
-set statusline+=%=%#FileType_Prefix#\                              " 1. Highlighting for Arrow Separation
+    " (a). Setting the Highlightings for FileName
+    let status .= "%#FileName#"
+    " (b). Setting the FileName
+    let status .= "%F"
+    " (c). Highlightings for Beautiful Arrow
+    let status .= "%#FileName_Suffix#"
 
-"==============[ End ]===============
+                " Right Side of the Moon
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+        " * [3]. Buffer Number and Paste Flag *
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+
+    let r_status = "%="
+    let r_status .= "%#BufNo_Prefix#"
+    let r_status .= "%#BufNo#"
+    let r_status .= "[%n]"
+
+    let r_status .= "%#PasteMode#"
+    " ︈︈ : foea
+    let r_status .= "%{&paste? '\  ': ''}"
+
+
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+        " * [4]. File Type Specification  *
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+    " (a). Highlighting for FileType Prefix Arrow
+    let r_status .= "%#FileType_Prefix#"
+    " (b). Highlighting for displaying FileType
+    let r_status .= "%#FileType#"
+    " (c). Displaying the FileType
+    let r_status .= "\ %{get(g:file_types,&filetype,'conf')}"
+
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+        " * [5]. Cursor (Line No. & Col No.) Display    *
+        " *-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*
+    
+    let r_status .= "%#Position_Prefix#"
+    let r_status .= "%#Position#"
+    " : e0a1,  : e0a3
+    let r_status .= "\  %l/%L"
+    let r_status .= "\  %c"
+
+    let r_status .= "%#FileType_Prefix# "
+
+    return status. r_status
+endfunction
+

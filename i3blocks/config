@@ -26,6 +26,6 @@ markup=pango
 command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | awk '{print $4}' | sed s/,//) </b> </span>"
 
 [ Date and Time ]
-interval=5
+interval=1
 markup=pango
 command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b> </span>"
