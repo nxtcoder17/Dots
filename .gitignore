@@ -1,6 +1,7 @@
 
 # === Ignore .git directory too ===
 .git/*
+.VIM_UNDO_FILES
 
 # === Compiled Source Code ===
 *.com
