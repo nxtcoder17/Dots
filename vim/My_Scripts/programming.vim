@@ -1,5 +1,5 @@
 function! ReadCxx()
-    silent execute "-1r ".expand(g:VIM_HOME). "My_Templates/template.cxx"
+    silent execute "-1r ".expand(g:VIM_HOME). "My_Templates/cpp_template.cxx"
     silent execute "normal!G2k"
 endfunction
 
@@ -10,6 +10,6 @@ endfunction
 
 augroup programming
     autocmd!
-    " autocmd BufNewFile *.cxx,*.cpp call ReadCxx()
+    autocmd BufNewFile *.cxx,*.cpp call ReadCxx()
     autocmd BufNewFile *.html,*.htm call ReadHtml()
 augroup END

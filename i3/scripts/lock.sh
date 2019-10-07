@@ -22,6 +22,7 @@ convert $SCREENSHOT -spread 5 -swirl 1000 $SCREENSHOT
 # Lock it up!
 # i3lock -e -f -c 000000 -i /tmp/screen.png
 i3lock -i $SCREENSHOT
+rm $SCREENSHOT
 
 # If still locked after 20 seconds, turn off screen.
 # sleep 20 && pgrep i3lock && xset dpms force off

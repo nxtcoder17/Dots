@@ -46,4 +46,13 @@ nnoremap <silent> <F2> :setlocal paste!<CR>
 
 inoremap {<CR> {<CR>}<Esc>O
 " inoremap " ""<Esc>i
+
+" Stolen from Steve Losh Configuration
+" ########## Change Case ##########
+nnoremap <C-u> gUiw
+inoremap <C-u> <ESC>gUiwea
+
+"hello
+" Substitution
+nnoremap <leader>s :%s//<left>
 "======================[ End ]======================

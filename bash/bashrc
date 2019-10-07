@@ -15,13 +15,18 @@ export EDITOR='vim'
 export PAGER='less'
 export EMAIL='phenomenal_ab@linuxmail.org'
 # export BROWSER='qutebrowser --target tab %s'
-export BROWSER='brave'
+# export BROWSER='~/builds/firefox/firefox'
+export BROWSER='~/builds/firefox/firefox'
 
-export PATH="$PATH:/home/balor/builds/android-studio/bin/"
+# export PATH="$PATH:/home/balor/builds/android-studio/bin/"
 export PATH="$PATH:/home/balor/builds/javafx-sdk-11.0.2/lib"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 
 export DOTS="$HOME/Dots"
 export JDK_HOME='/usr/lib/jvm/java-11-openjdk'
+
+export TERM='xterm-24bit'
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
 #===============[ Aliases ]=================#{{{
@@ -30,18 +35,17 @@ alias ls="ls --color=auto"
 
 alias mo="mount -t ext4 /dev/sda4 /My_Everything"
 alias vp="source ~/.local/Virtual_Python/bin/activate"
-alias tmuxw="tmux -2u  new -s Workspace"
 alias addbook="python /home/balor/Workspace/Projects/Book_Manager/books_db.py"
 alias pcl="python ~/Workspace/Projects/PCloud/pcloud.py"
 alias yt="youtube-dl --write-auto-sub --add-metadata"
 
-alias scraper='python ~/Workspace/projects/Scraper/main.py'
-alias vimplugger="bash ~/Workspace/projects/VimPlugger/vim_plugger.sh"
-alias pydm="python ~/Workspace/projects/PyDownloader/main.py"
-alias parser="python ~/Workspace/projects/CP_Helper/main.py"
+# alias scraper='python ~/Workspace/projects/Scraper/main.py'
+# alias vimplugger="bash ~/Workspace/projects/VimPlugger/vim_plugger.sh"
+# alias parser="python ~/Workspace/projects/CP_Helper/main.py"
 
-alias g++='g++ -Wall -Wextra -O2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover'
+alias g++='g++ -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2'
 alias cf='python /home/balor/Workspace/Projects/Codeforces_Checker/main.py'
+alias ec='emacsclient -ct'
 # alias vim='nvim'
 # alias vimdiff='nvim -d'
 
@@ -49,7 +53,12 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-}}}
 
-#==============[ Functions ]====================
+#==============[ Custom Functions ]==================== {{{
+tmuxw() { 
+    tmux -2u new -s workspace
+    source $HOME/bash/tmux/tmux_config.sh
+}
+
 em() {
     ebook-meta "$1" | head  -n 5
 }
@@ -74,8 +83,9 @@ man() {
 ############################
 # Present in: /usr/local/share/iradio
 ############################
+dir="/home/balor/Workspace/workspace/projects/iradio"
 iradio() {
-    command iradio $(cat ~/.STATIONS | grep -i $1)
+    command $dir/iradio $(cat ~/.STATIONS | grep -i $1)
 }
 
 unicode(){
@@ -89,11 +99,24 @@ bookmgr() {
     python $HOME/Workspace/projects/Safari_Ebooks_Manager/bookmgr.py $1 $2
 }
 
-PROJECTS="$HOME/Workspace/projects"
+PROJECTS="$HOME/Workspace/workspace/projects"
 
 cric () {
     python $PROJECTS/PyCricbuzz/Cricbuzz_Score_Fetcher.py | grep -A 4 -m 1 -i $1
 }
+
+pydm () {
+    python $PROJECTS/PyDownloader/main.py $*
+}
+
+music () {
+    python $PROJECTS/music-dl/music-dl.py $*
+}
+
+vimplugger () {
+    python $PROJECTS/PyVimPlugger/vimplugger.py
+}
+######################## }}}
 
 THEME_PATH="$HOME/Dots/bash/prompts"
 THEME="dark_knight"

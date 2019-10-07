@@ -15,7 +15,8 @@ set wildignore=*.pyc,*.o,*.~,*.git  " Ignore compiled or useless files/directori
 set matchtime=2                 " 2-tenth of a second to show matching brackets
 set ruler                       " Cursor Information at the bottom right
 set rulerformat=%30(%=\[Buffer\:%n\]\ %y%m%r%w\ %l,%c%V%)
-set fillchars=vert:\⏽,fold:\,diff:\, " unicode: vert: 23fd , fold: f068 [both available in NerdFonts]
+set fillchars=vert:\▞,fold:\,diff:\, " unicode: vert: 23fd , fold: f068 [both available in NerdFonts]
+" set fillchars=vert:\▞,fold:\⁂,diff:\, " unicode: vert: ▞ (U+259E), fold: ⁂  (U+2042) [both available in Unicode Fonts]
 set scrolloff=5                 " 5 Lines to keep while scrolling pages
 set splitright                  " Always split a window over right side
 set splitbelow                  " Always split a window over the bottom

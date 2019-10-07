@@ -50,7 +50,7 @@ bool isPrime(int64_t x)
     if (x <= 1)
         return false;
 
-    for (int64_t i=2; i <= sqrt(x); i++)
+    for (int64_t i=2; i*i <= x; i++)
         if (x % i == 0)
             return false;
 

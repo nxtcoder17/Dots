@@ -11,7 +11,7 @@ status, bat = bat.split(',')
 
 # f1e6:   fba4: ﮤ "
 
-indicator = " " if status == "Charging" else "ﮤ "
+indicator = " " if status == "Charging" else ""
 
 bat = int(bat.replace ('%', ''))
 

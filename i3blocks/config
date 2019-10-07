@@ -1,31 +1,24 @@
-# /* vim: set ft=i3 :*/
+# vim: set filetype=i3blocks:
+# full_text= 
+align=center
+separator=false
+separator_block_width=0
 
-# [ Music ]
-# label=
-#color=#00ff00
-#interval=01
-#markup=pango
-#command=echo "<span background='#f7f300' foreground='#00000000'>$(echo  )<b> $(mpc current) </b></span>"
+[ip]
+command=echo "<span background='#910bd4' foreground='#000000'><b>$(hostname -i)</b></span>"
+interval=once
+markup=pango
 
-[ Music ]
+[separator]
+
+[battery]
+command=echo -e "<span foreground='#00ff33' background='#910bd4'></span><span background='#00ff33' foreground='#000000'><b> $(acpi | grep -oP '\d+%')</b> </span>"
 interval=1
 markup=pango
-command=echo "<span background='#123d3b' foreground='#2eff00'>$(echo  )<b> $((tail -1 /tmp/music.log | sed 's/\..*//g') && ([[ $BLOCK_BUTTON -eq 1 ]] && /home/balor/Dots/scripts/music_i3blocks.sh 1)) </b></span>"
 
-# For System Volume Information
-[ Volume ]
-#label= 
-color=#e00b59
-interval=01
-markup=pango
-command=echo "<span background='#00e9ff' foreground='#00000000'><i>$(echo ' ') </i><b>$(pamixer --get-volume)</b> </span>"
-
-[ Battery ]
+[date_time]
+# Command is : echo $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T)
+# Clock Icon: \uf49b    source: octicons
+command=echo "<span foreground='#ff3333' background='#00ff33'></span><span background='#ff3333' foreground='#000000'><b>  $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
 interval=1
 markup=pango
-command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | awk '{print $4}' | sed s/,//) </b> </span>"
-
-[ Date and Time ]
-interval=1
-markup=pango
-command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b> </span>"

@@ -6,7 +6,7 @@
 set statusline=2
 
 let g:current_vim_mode={
-      \ 'n': 'normal',
+      \ 'n': 'NORMAL',
       \ 'v': 'VISUAL',
       \ 'V': 'V-LINE',
       \ 'i': 'INSERT',
@@ -50,15 +50,16 @@ highlight! statusline        ctermfg=15      ctermbg=01      cterm=None      gui
 
 "highlight VimMode           ctermfg=15      ctermbg=33      cterm=None      guifg=#26ff4a   guibg=#1f2021
 "highlight VimMode           ctermfg=15      ctermbg=33      cterm=bold      guifg=#000000   guibg=#ecff1e
-highlight! VimMode           gui=bold,italic        guibg=#ffff00   guifg=#000000 cterm=bold,italic
+highlight! VimMode           gui=bold        guibg=#ffff00   guifg=#000000 cterm=bold
 highlight! VimMode_Suffix    guifg=#ffff00   guibg=#000000
 
-"highlight FileName          ctermfg=01      ctermbg=07      cterm=bold      guifg=#dd3e3e  guibg=#FFFFFF
-highlight! FileName          ctermfg=01      ctermbg=07      cterm=italic      guifg=#dd3e3e  guibg=#0b1019
+" highlight! FileName          ctermfg=01      ctermbg=07      cterm=italic,bold      guifg=#dd3e3e  guibg=#0b1019
+highlight! FileName          gui=bold        guifg=#00FF00      guibg=#000000   cterm=bold
 " highlight! FileName          guifg=#ed3131   guibg=#000000   gui=bold
-highlight! FileName          guifg=#00ff00   guibg=#000000   gui=bold,italic
-highlight! FileName_Suffix   ctermfg=07      ctermbg=235     cterm=None      guifg=#0b1019  guibg=#2d2c2c
-highlight! FileName_Suffix   guifg=#000000   guibg=#000000
+" highlight! FileName          guifg=#00ff00   guibg=#000000   gui=bold,italic
+" highlight! FileName_Suffix   ctermfg=07      ctermbg=235     cterm=None      guifg=#0b1019  guibg=#2d2c2c
+highlight! FileName_Suffix      guifg=#000000   guibg=NONE
+" highlight! FileName_Suffix   guifg=#000000   guibg=#000000
 highlight! SpaceC            ctermfg=232     ctermbg=232     cterm=bold
 
 highlight! link FileType VimMode

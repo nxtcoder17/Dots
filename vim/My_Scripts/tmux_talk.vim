@@ -18,8 +18,9 @@ function! Execute_Java()
 endfunction
 
 function! Execute_Cpp()
-	let process = ' " clear; g++ %; ./a.out" '
-	execute 'Silent tmux send-keys -t 2 ' .expand(process). 'Enter'
+	let process = ' " clear; g++ % -o sol; ./sol" '
+	" execute 'Silent tmux send-keys -t 2 ' .expand(process). 'Enter'
+	execute 'Silent tmux send-keys -t 2 ' .expand(process)
 endfunction
 
 function! Execute_C()

@@ -20,3 +20,9 @@ hi LineNr guibg=NONE
 
 hi Comment guifg=#0f9b78
 hi customFunc guifg=#1ebf5c cterm=bold
+
+
+" ##### Styling Vim Vertical Split Indicator
+" Source: https://stackoverflow.com/questions/9001337/vim-split-bar-styling
+" hi VertSplit guifg=#fff41f guibg=NONE ctermbg=NONE ctermfg=NONE cterm=bold
+hi VertSplit guifg=#841fff guibg=NONE ctermbg=NONE ctermfg=NONE cterm=bold

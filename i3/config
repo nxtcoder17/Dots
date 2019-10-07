@@ -2,6 +2,9 @@
 #===============================[ General Configurations ]=================================={{{
 # [ Recommended for i3-gaps ]
 for_window [class="^.*"] border pixel 0
+gaps inner 10
+# gaps outer so that Single Window consumes full space
+gaps outer -10
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
@@ -193,8 +196,8 @@ bindsym Control + exclam           exec --no-startup-id $toggleMute
 
 # -> Opening Terminal
 # set $term konsole --hide-menubar
-# set $term xfce4-terminal --hide-menubar
-set $term st
+set $term xfce4-terminal --hide-menubar
+# set $term st
 bindsym $mod + Return               exec --no-startup-id $term
 
 # -> Executing Rofi Desktop Run Window
@@ -263,12 +266,13 @@ exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput
 
 # Wallpaper Slideshow: Don't want it now, irritating
 # exec                           "/home/balor/Dots/scripts/wallpaper.sh"
+exec                            feh --bg-scale /home/balor/Multimedia/walls/control_is_an_illusion.jpg
 
 # Tmux Script for new status bar
 # Firstly execute tmux, it will automatically restore the panes and windows
-exec                            tmux new -s Workspace
+# exec                            tmux new -s Workspace
 # Then, call the configuration script for tmux
-exec_always                           "/home/balor/Dots/tmux/tmux_config.sh"
+# exec_always                           "/home/balor/Dots/tmux/tmux_config.sh"
 
 #===================[End: Auto-startup Applications ]=========================}}}
 
@@ -297,7 +301,7 @@ bar {
 	# Font : Monaco
 	# font pango:Monaco for Powerline Regular 10
 	font pango: Furacode Nerd Font bold 10
-	# Separator Symbol
+	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
 	# WorkSpace Buttons
 	workspace_buttons yes	
