@@ -1,6 +1,7 @@
 #! /bin/bash
 
 TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh"
+CPP="clang llvm"
 FILES="unzip p7zip unrar tar nautilus ranger ntfs-3g"
 # DOCS="zathura pandoc libreoffice-fresh calibre"
 DOCS='zathura zathura-pdf-mupdf'

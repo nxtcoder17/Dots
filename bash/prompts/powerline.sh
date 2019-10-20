@@ -1,9 +1,9 @@
 #! /bin/bash
 
-if [ -f $HOME/.pretty_colors.sh ] || [ -L $HOME/pretty_colors.sh ]
+## Check if the sourcing is coming from the configured bash shell
+## then, THEME variable would be set
+if [[ -z $THEME ]]
 then
-    source $HOME/.pretty_colors.sh
-else
     echo "You don't have the attached color generator script in your $HOME"
     exit 1
 fi

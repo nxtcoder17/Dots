@@ -1,13 +1,13 @@
 #! /bin/bash
 
-if [ -f $HOME/.pretty_colors.sh ] || [ -L $HOME/.pretty_colors.sh ]
+## Check if the sourcing is coming from the configured bash shell
+## then, THEME variable would be set
+if [[ -z $THEME ]]
 then
-    source $HOME/.pretty_colors.sh
-else
     echo "You don't have the attached color generator script in your $HOME"
     exit 1
 fi
-
+		
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 #       UNICODE GLYMPHS
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
@@ -31,6 +31,9 @@ DIR_PATH+="  \w\[$RESET\]"                      # $(PWD)
 PROMPT_TIME="\[${BOLD}${IND_RED}\] ${HAND_RIGHT} \[${BOLD}${GREY}\] \$(date +%H:%M:%S)\[$RESET\]"
 FLAME="\[${RESET}${BOLD}${YELLOW}\] ${FLAME} \[$RESET\]"
 USER_NAME="\[${BOLD}\]\[${CYAN}\]\u\[$RESET\]"
+
+### Requires git_branch function to be sourced in the shell prior to sourcing this file
+## GIT_BRANCH="\[${BOLD}${IND_RED}\] ${HAND_RIGHT} \[${BOLD}${GREY}\] \$(git_branch)\[$RESET\]"
 
 #+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 #       PROMPT 
