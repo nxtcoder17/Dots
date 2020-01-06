@@ -2,17 +2,18 @@
 
 TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh"
 CPP="clang llvm"
-FILES="unzip p7zip unrar tar nautilus ranger ntfs-3g"
+FILES="unzip p7zip unrar tar ntfs-3g"
 # DOCS="zathura pandoc libreoffice-fresh calibre"
 DOCS='zathura zathura-pdf-mupdf'
 LANGUAGES="python kotlin ruby"
 # LANGUAGES='python'
-SOUND="pulseaudio alsa pulseaudio-alsa alsa-firmware alsa-utils alsa-plugins"
+# SOUND="pulseaudio alsa pulseaudio-alsa alsa-firmware alsa-utils alsa-plugins"
+SOUND="pulseaudio alsa pulseaudio-alsa"
 # VOLUME="pamixer pavucontrol"
 VOLUME="pamixer "
 MUSIC="mpd ncmpcpp mpc "
 
-DOWNLOADER="axel wget youtube-dl transmission-cli atomic-parsley"
+DOWNLOADER="axel wget youtube-dl transmission-cli"
 BATTERY="upower acpi"
 # NETWORK="net-tools tcpdump wireshark-cli wireshark-gtk"
 VIDEO="mpv"

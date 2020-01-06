@@ -19,15 +19,16 @@ font pango: Furacode Nerd Font Mono 10
 #============================[ Workspace Configuration ]==========================={{{
 
 #============[ Workspace Names ]===============
-set $ws1 "1:  "
-set $ws3 "3:  "
+set $ws1 "Tmux:  "
+set $ws3 "firefox:  "
+set $ws4 "IntelliJ:  "
 set $ws10 study
 
 #=================[ Accessing the Worspaces 1 to 10 ]================={{{
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -40,7 +41,7 @@ bindsym $mod+0 workspace 10 $ws10
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -266,7 +267,7 @@ exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput
 
 # Wallpaper Slideshow: Don't want it now, irritating
 # exec                           "/home/balor/Dots/scripts/wallpaper.sh"
-exec                            feh --bg-scale /home/balor/Multimedia/walls/control_is_an_illusion.jpg
+exec                            feh --bg-scale /home/balor/.wallpaper.jpg
 
 # Tmux Script for new status bar
 # Firstly execute tmux, it will automatically restore the panes and windows
@@ -287,6 +288,7 @@ set $cornSilk       #fff7d9
 set $battleshipGrey #838581
 set $green 			#69db7c
 set $cyan 			#66d9e8
+set $orange         #ea5712
 
 bar {
 	status_command i3blocks
@@ -295,12 +297,12 @@ bar {
 	# position : Top | Bottom
 	position top
 	# mode : dock | hide | invisible
-	mode dock
+	mode hide
 	# modifier : Mod1-Mod5, Ctrl etc keys
 	modifier $mod
 	# Font : Monaco
 	# font pango:Monaco for Powerline Regular 10
-	font pango: Furacode Nerd Font bold 10
+	font pango: Pacifico regular 10
 	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
 	# WorkSpace Buttons
@@ -317,8 +319,9 @@ bar {
 		separator $green
 
 	#	 ColorClass			Border			Background			Text
-		focused_workspace   $transparent    $black       		$green
-		inactive_workspace  $transparent    $cornsilk    	    $tomatored
+		#focused_workspace   $transparent    $black       		$orange
+        focused_workspace   $transparent    $transparent        $green
+		inactive_workspace  $transparent    $transparent    	$orange
 		urgent_workspace    $transparent    $tomatoRed          $transparent
 	}
 }
@@ -327,12 +330,13 @@ bar {
 
 #================[ Fixing the Graphical Interface ]================== {{{
 
-floating_maximum_size 1366 x 748
+floating_maximum_size 1366 x 768
 
 for_window [window_role="pop_up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="GtkFileChooserDialog"] floating enable
 for_window [window_role='vlc-main'] floating enable
+for_window [class='jetbrains-.*'] floating enable
 
 for_window [class = 'gl'] floating enable
 #================[ End : Fixing the Graphical Interface ]============}}}
@@ -353,3 +357,7 @@ exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
 bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
 
 #========= ==> [End: ScratchPad ] <== =========== }}}
+
+# Binding IntelliJ to throw all of it's stuffs on Workspace 4
+assign [class="jetbrains-.*"] $ws4
+for_window [class="jetbrains-.*"] $ws4
