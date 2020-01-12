@@ -1,30 +1,51 @@
+############################################################################################################################
+# ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ #
+#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌#
+# ▀▀▀▀█░█▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ #
+#     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌               ▐░▌     ▐░▌          ▐░▌          #
+#     ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌     ▐░▌          ▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ #
+#     ▐░▌     ▐░░░░░░░░░░░▌     ▐░▌          ▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░▌▐░░░░░░░░▌▐░░░░░░░░░░░▌#
+#     ▐░▌      ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌          ▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌▐░█▀▀▀▀▀▀▀▀▀      ▐░▌     ▐░▌ ▀▀▀▀▀▀█░▌ ▀▀▀▀▀▀▀▀▀█░▌#
+#     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌    ▐░▌▐░▌▐░▌               ▐░▌     ▐░▌       ▐░▌          ▐░▌#
+# ▄▄▄▄█░█▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌▐░▌           ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌ ▄▄▄▄▄▄▄▄▄█░▌#
+#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌#
+# ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ #
+############################################################################################################################
 
-#===============================[ General Configurations ]=================================={{{
+## Text Generator URL: https://www.coolgenerator.com/ascii-text-generator
+## Font: Electric
+                                                                                                                          
+
+
+# [ General Configurations ] {{{
+
 # [ Recommended for i3-gaps ]
 for_window [class="^.*"] border pixel 0
-gaps inner 10
+gaps inner 5
 # gaps outer so that Single Window consumes full space
-gaps outer -10
+gaps outer -5
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
 set $alt Mod1
 
 # [ My Favourite Font ]
-# font pango:Monaco for Powerline Regular 10
-font pango: Furacode Nerd Font Mono 10
+font pango: mononoki Nerd Font Regular 10
 
-#===============================[ General Configurations ]==================================}}}
+# [ General Configurations ] }}}
 
-#============================[ Workspace Configuration ]==========================={{{
+# [ Workspace Configuration ] {{{
 
-#============[ Workspace Names ]===============
+# [ Workspace Names ] {{{
+
 set $ws1 "Tmux:  "
 set $ws3 "firefox:  "
 set $ws4 "IntelliJ:  "
 set $ws10 study
 
-#=================[ Accessing the Worspaces 1 to 10 ]================={{{
+# [ Workspace Names ] }}}
+
+# [ Accessing the Workspaces 1 to 10 ] {{{
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace $ws3
@@ -35,9 +56,10 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10 $ws10
-#=================[ End: Accessing the Workspaces ]====================}}}
+# [ Accessing the Workspaces ] }}}
 
-#=======================[ Moving Focused Container to specific workspaces ]================={{{
+# [ Moving Focused Container to specific workspaces ] {{{
+
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -48,48 +70,50 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10 $ws10
-#=======================[End: Moving Focused Container to specific workspaces ]===============}}}
 
-#============================[End: Workspace Configuration ]========================}}}
+# [ Moving Focused Container to specific workspaces ] }}}
 
-#===========================[ Key Mappings ]=============================={{{
+# [ Workspace Configuration ] }}}
 
-#========= ==> [ Controlling i3 wm ] <== ============{{{
-# -> Reload i3 
+# [ Key Mappings ] {{{
+
+# [ Controlling i3WM ] {{{
+
+# [ Reload i3 ]
 bindsym $mod + Shift + c            reload
 
-# -> Restart i3
+# [ Restart i3 ]
 bindsym $mod + Shift + r            restart
 
-# -> Killing Applications
+# [ Kill Applications ]
 bindsym $mod + shift + q            kill
 
-# -> Resizing Splits
+# [ Resizing Splits ]
 bindsym $mod+shift+minus            resize shrink width 2 px
 bindsym $mod+shift+plus             resize grow width 2 px
 
-# -> Floating Windows
+# [ Floating Windows ]
 bindsym $mod+space                  floating toggle
 
-# -> FullScreen i3 
+# [ Fullscreen i3 window ]
 bindsym $mod+f                      fullscreen toggle
 popup_during_fullscreen             smart
 
-# -> Switch Back and Forth b/w Workspaces
+# [ Switch Back and Forth b/w Workspaces ]
 bindsym $mod+Tab                    workspace back_and_forth
 
-# -> Splitting Choices
+# [ Splitting Choices ]
 bindsym $alt + Shift + v            split vertical
 bindsym $alt + Shift + h            split horizontal
 
-#========= ==> [End: Controlling i2 wm ] <== =======}}}
+# [ Controlling i3WM ] }}}
 
-#============ ==> [ Navigation around Splits ] <== ============={{{
+# [ Navigation around Splits ] {{{
 
 # focus : Focuses the Container over the given direction
 # move  : Moves the Container to the given position
 
-# ==> Key-Scheme 1 : Vim-Lovers <== {{{
+# [ Key-Scheme 1 : Vim-Lovers ] {{{
 # 	Mod+Vim-Keys    : change focus among containers
 # 	Mod+Shift +Keys : Moving the Container
 
@@ -107,7 +131,7 @@ bindsym $mod+Shift+k move up
 
 # ==> End -> Key-Scheme 1 : Vim-Lovers <== }}}
 
-# ==> Key-Scheme 2 : Direction Keys <== {{{
+# [ Key-Scheme 2 : Direction Keys ] {{{
 # 	Mod+Arrows       : change focus among Containers
 # 	Mod+Shift+Arrows : Moving the Container
 
@@ -125,58 +149,61 @@ bindsym $mod+Shift+Up move up
 
 # ==> End-> Key-Scheme 2 : Direction Keys <== }}}
 
-#============= ==>[ End : Navigation around Splits ] <== ============}}}
+# [ Navigation around Splits ] }}}
 
-# Resizing Splits {{{
-# =================
+# [ Resizing Splits ] {{{
 
-# Key-Scheme 1: Vim-Lovers {{{ 
+# [ Key-Scheme 1: Vim-Lovers ] {{{ 
 bindsym $alt + h        resize shrink width 10 px or 1 ppt
 bindsym $alt + l        resize grow width 10 px or 1 ppt
 bindsym $alt + k        resize shrink height 10 px or 1 ppt
 bindsym $alt + j        resize grow height 10 px or 1 ppt
 # }}}
 
-# Key-Scheme 2: Direction Keys {{{
+# [ Key-Scheme 2: Direction Keys ] {{{
 bindsym $alt + Left     resize shrink width 10 px or 1 ppt
 bindsym $alt + Right    resize grow width 10 px or 1 ppt
 bindsym $alt + Up       resize shrink height 10 px or 1 ppt
 bindsym $alt + Down     resize grow height 10 px or 1 ppt
 # }}}
 
-# Resizing Splits }}}
+# [ Resizing Splits ] }}}
 
-#========= ==> [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== ============{{{
-#
+# [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] {{{
+
 # -> Toggles b/w play and pause
-# bindsym $mod + Pause exec --no-startup-id mpc toggle
+bindsym $mod + Pause exec --no-startup-id mpc toggle
+
 # -> Plays the next song
 bindsym $mod + greater      exec --no-startup-id mpc next
+
 # -> Plays the previous song
 bindsym $mod + less         exec --no-startup-id mpc prev
+
 # -> Shuffles the Music Queue
 bindsym $mod + question     exec --no-startup-id mpc shuffle
 
-#========= ==> [End: MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== =========}}}
+# [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] }}}
 
-#============ ==> [ Volume Configuration: Pulse Audio + pamixer ] <== ============{{{
+# [ Volume Configuration: Pulse Audio + pamixer ] {{{
 
-#========[ Setting up Variables ]========={{{
+# [ Setting up Variables ] {{{
 
-# -> Decrementing Volume
+# [ Decrementing Volume ]
 set $minorDec --no-startup-id pamixer --allow-boost -d 5
 set $majorDec --no-startup-id pamixer --allow-boost -d 10
 
-# -> Incrementing Volume
+# [ Incrementing Volume ] 
 set $minorInc --no-startup-id pamixer --allow-boost -i 5
 set $majorInc --no-startup-id pamixer --allow-boost -i 10
 
-# -> Toggling Volume: Mute/Unmute
+# [ Toggling Volume: Mute/Unmute ]
 set $toggleMute --no-startup-id pamixer -t
 
-#========[End: Setting up Variables ]=========}}}
+# [End: Setting up Variables ] }}}
 
-#==========[ Setting up the Key Combinations ]==========={{{
+# [ Setting up the Key Combinations ] {{{
+
 # -> Minor Increment
 bindsym $alt + plus             exec --no-startup-id $minorInc
 # -> Major Increment
@@ -189,11 +216,12 @@ bindsym $alt + shift + minus    exec --no-startup-id $majorDec
 
 # -> Toggle Mute
 bindsym Control + exclam           exec --no-startup-id $toggleMute
-#==========[End: Setting up the Key Combinations ]===========}}}
 
-#============ ==> [End: Volume Configuration: Pulse Audio + pamixer ] <== ============}}}
+# [End: Setting up the Key Combinations ] }}}
 
-#=========== ==> [ Executing Applications ] <== =============={{{
+# [ Volume Configuration: Pulse Audio + pamixer ] }}}
+
+# [ Executing Applications ] {{{
 
 # -> Opening Terminal
 # set $term konsole --hide-menubar
@@ -217,23 +245,20 @@ bindsym $mod + Print                exec --no-startup-id $shot -u
 bindsym $mod + r                    exec $term -e ranger
 
 # Executing firefox
-set $browser notify-send 'Firefox started' && ~/builds/firefox/firefox
+set $browser notify-send 'Firefox started' && firefox -p r00t
 bindsym $mod + b                    exec $browser
 #=========== ==> [End: Executing Applications ] <== ==============}}}
 
-# ========== ==> [ Executing External Scripts ] <== ==========={{{
-# -> Executing i3lock script
+# [ Executing External Scripts ] {{{
+
+# [ Executing i3lock script ]
 bindsym $mod + x            exec --no-startup-id ~/.config/i3/scripts/lock.sh
 
-# -> 
-# ========== ==> [End: Executing External Scripts ] <== ===========}}}
+# [ Executing External Scripts ] }}}
 
-bindsym $mod+Shift+Delete	exec lmc truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+# [ Key Mappings ] }}}
 
-bindsym Pause exec --no-startup-id curl -d "" "http://localhost:11111/pause"
-#===========================[ Key Mappings ]==============================}}}
-
-#===================[ Auto-startup Applications ]============================{{{
+# [ Auto-startup Applications ] {{{
 
 # -> Setting Locale to en_US.UTF-8
 exec_always --no-startup-id      localectl set-locale LANG=en_US.UTF-8
@@ -245,7 +270,7 @@ exec_always --no-startup-id      setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id      xcape -e 'Control_L=Escape'
 
 # -> Wallpaper Setup
-# exec_always --no-startup-id      feh --bg-scale ~/.wallpaper.jpg
+exec_always --no-startup-id      feh --bg-scale ~/.wallpaper
 
 # -> Music Player Daemon [mpd]
 exec --no-startup-id             mpd
@@ -267,7 +292,7 @@ exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput
 
 # Wallpaper Slideshow: Don't want it now, irritating
 # exec                           "/home/balor/Dots/scripts/wallpaper.sh"
-exec                            feh --bg-scale /home/balor/.wallpaper.jpg
+# exec                            feh --bg-scale /home/balor/.wallpaper.jpg
 
 # Tmux Script for new status bar
 # Firstly execute tmux, it will automatically restore the panes and windows
@@ -277,7 +302,7 @@ exec                            feh --bg-scale /home/balor/.wallpaper.jpg
 
 #===================[End: Auto-startup Applications ]=========================}}}
 
-#===================[ Bar Configuration ]===================={{{
+# [ Bar Configuration ] {{{
 
 # Colors and Variables
 set $transparent    #00000000
@@ -302,7 +327,7 @@ bar {
 	modifier $mod
 	# Font : Monaco
 	# font pango:Monaco for Powerline Regular 10
-	font pango: Pacifico regular 10
+	font pango: mononoki Nerd Font regular 10
 	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
 	# WorkSpace Buttons
@@ -320,15 +345,15 @@ bar {
 
 	#	 ColorClass			Border			Background			Text
 		#focused_workspace   $transparent    $black       		$orange
-        focused_workspace   $transparent    $transparent        $green
-		inactive_workspace  $transparent    $transparent    	$orange
+        focused_workspace   $transparent    $black              $orange
+		inactive_workspace  $transparent    $black     	        $cornSilk
 		urgent_workspace    $transparent    $tomatoRed          $transparent
 	}
 }
 
 #===================[ END : Bar Configuration ]====================}}}
 
-#================[ Fixing the Graphical Interface ]================== {{{
+# [ Fixing the Graphical Interface ] {{{
 
 floating_maximum_size 1366 x 768
 
@@ -341,23 +366,27 @@ for_window [class='jetbrains-.*'] floating enable
 for_window [class = 'gl'] floating enable
 #================[ End : Fixing the Graphical Interface ]============}}}
 
-#========= ==> [ ScratchPad ] <== =========== {{{
+# [ ScratchPad ] {{{
 # for_window [instance="music"] floating enable
 # for_window [instance="music"] resize set 1000 300
 # for_window [instance="music"] move scratchpad
 # for_window [instance="music"] border pixel 5
 
-for_window [title="NCMPCPP"] floating enable
-for_window [title="NCMPCPP"] resize set 1000 300
-for_window [title="NCMPCPP"] move scratchpad
-for_window [title="NCMPCPP"] border pixel 5
+# for_window [title="NCMPCPP"] floating enable
+# for_window [title="NCMPCPP"] resize set 1000 300
+# for_window [title="NCMPCPP"] move scratchpad
+# for_window [title="NCMPCPP"] border pixel 5
 # exec_always --no-startup-id st -n music -e ncmpcpp
-exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
+# exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
 
-bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
+# bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
 
 #========= ==> [End: ScratchPad ] <== =========== }}}
 
-# Binding IntelliJ to throw all of it's stuffs on Workspace 4
+# [ Application Specific Configurations ] {{{
+
+# [ IntelliJ Idea ]
 assign [class="jetbrains-.*"] $ws4
-for_window [class="jetbrains-.*"] $ws4
+for_window [class="jetbrains-.*"] move container to $ws4
+
+# [ Application Specific Configurations ] }}}

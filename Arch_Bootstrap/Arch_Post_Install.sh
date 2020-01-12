@@ -1,21 +1,21 @@
 #! /bin/bash
 
-TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh"
+TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh sxiv pip npm"
 CPP="clang llvm"
 FILES="unzip p7zip unrar tar ntfs-3g"
 # DOCS="zathura pandoc libreoffice-fresh calibre"
 DOCS='zathura zathura-pdf-mupdf'
-LANGUAGES="python kotlin ruby"
+LANGUAGES="python kotlin ruby go php nodejs"
 # LANGUAGES='python'
-# SOUND="pulseaudio alsa pulseaudio-alsa alsa-firmware alsa-utils alsa-plugins"
-SOUND="pulseaudio alsa pulseaudio-alsa"
+SOUND="pulseaudio alsa pulseaudio-alsa alsa-firmware alsa-utils alsa-plugins"
+# SOUND="pulseaudio alsa pulseaudio-alsa"
 # VOLUME="pamixer pavucontrol"
 VOLUME="pamixer "
-MUSIC="mpd ncmpcpp mpc "
+# MUSIC="mpd ncmpcpp mpc "
 
 DOWNLOADER="axel wget youtube-dl transmission-cli"
 BATTERY="upower acpi"
-# NETWORK="net-tools tcpdump wireshark-cli wireshark-gtk"
+NETWORK="net-tools tcpdump wireshark-cli wireshark-gtk"
 VIDEO="mpv"
 CUSTOMISATION="lxappearance papirus-icon-theme"
 TOUCHPAD="libinput xf86-input-libinput"

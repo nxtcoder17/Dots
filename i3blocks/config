@@ -19,6 +19,7 @@ markup=pango
 [date_time]
 # Command is : echo $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T)
 # Clock Icon: \uf49b    source: octicons
-command=echo "<span foreground='#ff3333' background='#00ff33'></span><span background='#ff3333' foreground='#000000'><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
+# command=echo "<span foreground='#ff3333' background='#00ff33'></span><span background='#ff3333' foreground='#000000'><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
+command=echo "<span foreground='#7da577' background='#00ff33'></span><span background='#7da577' foreground='#000000'><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
 interval=1
 markup=pango
