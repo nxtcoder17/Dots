@@ -1,6 +1,6 @@
 ############################################################################################################################
-# ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ #
-#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌#
+# ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄ ▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ # ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌ 
+#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌ ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌#
 # ▀▀▀▀█░█▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ #
 #     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌               ▐░▌     ▐░▌          ▐░▌          #
 #     ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌     ▐░▌          ▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ #
@@ -21,9 +21,9 @@
 
 # [ Recommended for i3-gaps ]
 for_window [class="^.*"] border pixel 0
-gaps inner 5
+# gaps inner 5
 # gaps outer so that Single Window consumes full space
-gaps outer -5
+# gaps outer -5
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
@@ -230,8 +230,8 @@ set $term xfce4-terminal --hide-menubar
 bindsym $mod + Return               exec --no-startup-id $term
 
 # -> Executing Rofi Desktop Run Window
-# bindsym $mod + d exec --no-startup-id rofi -show drun -lines 5 -width 600
-bindsym $mod + d exec --no-startup-id dmenu_run
+bindsym $mod + d exec --no-startup-id rofi -show combi -lines 5 -width 600
+# bindsym $mod + d exec --no-startup-id dmenu_run
 
 # -> Executing Rofi Run Window
 # bindsym $mod + shift + d exec --no-startup-id rofi -show run -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
