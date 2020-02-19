@@ -1,0 +1,49 @@
+
+
+# AutoCompletions
+autoload -Uz compinit
+compinit
+
+# AutoCompletion movements with Arrows
+zstyle ':completion:*' menu select
+
+# Automatic Rehashing for New Commands
+zstyle ':completion:*' rehash true
+#
+# AutoCompletins for Aliases
+setopt COMPLETE_ALIASES
+
+export TERM="xterm-256color"
+
+PS1='%n %2~> '
+
+
+# Vi KeyBindings in ZSH
+bindkey -v
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$EPS1"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# Keylag to .1 seconds
+export KEYTIMEOUT=1
+
+
+# Source: https://gist.github.com/matthewmccullough/787142
+    
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=15000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
