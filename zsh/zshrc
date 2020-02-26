@@ -1,0 +1,45 @@
+#! /bin/zsh
+
+# Aliases
+alias ls='ls --color=auto'
+
+
+export PATH="$PATH:$HOME/builds/go/bin"
+TZ='Asia/Kolkata'; export TZ
+
+# AutoCompletion
+
+autoload -Uz compinit
+compinit
+
+# Select Items from AutoCompl list, using Arrows
+zstyle ':completion:*' menu select
+
+# AutoCompletion of switches for aliases
+setopt COMPLETE_ALIASES
+
+# AutoCompletion with sudo
+zstyle ':completion::complete:*' gain-privileges 1
+
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Building a ZSH Prompt
+PS1='%F{#42ff91}   %2~  '
+PS1+='%F{#dbf2aa} %T %f'
+PS1+=$'\n'
+PS1+=' %n  '
+
+export PS1
+
+source /home/NxtCoder/builds/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=15000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
