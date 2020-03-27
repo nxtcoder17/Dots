@@ -55,4 +55,9 @@ inoremap <C-u> <ESC>gUiwea
 "hello
 " Substitution
 nnoremap <leader>s :%s//<left>
+
+" make Y yank till end
+nnoremap Y y$
+vnoremap Y y$
+
 "======================[ End ]======================

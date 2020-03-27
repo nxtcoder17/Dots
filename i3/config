@@ -385,8 +385,4 @@ for_window [class = 'gl'] floating enable
 
 # [ Application Specific Configurations ] {{{
 
-# [ IntelliJ Idea ]
-assign [class="jetbrains-.*"] $ws4
-for_window [class="jetbrains-.*"] move container to $ws4
-
 # [ Application Specific Configurations ] }}}

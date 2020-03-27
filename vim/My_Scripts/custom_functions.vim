@@ -225,5 +225,3 @@ function! AutoCompleteHTMLTags()
     endif
 endfunction
 "========================[ End ]============================================
-
-
