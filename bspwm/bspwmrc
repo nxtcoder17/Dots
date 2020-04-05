@@ -1,0 +1,60 @@
+#! /bin/sh
+
+# If Refreshing bspwm, remove all previous rules to prevent doubling up
+bspwm rule -r "*"
+
+# Polybar
+$HOME/.config/polybar/launch.sh
+
+# AutoStartup Applications
+sxhkd &
+
+killall "nm-applet" 
+nm-applet &
+
+# xcape to swap caps with ctrl && escape
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+
+# make keys move super fast 
+xset r rate 200 50
+
+feh --bg-scale --no-fehbg ~/.wallpaper
+
+killall "dunst"
+dunst & 
+
+# Setting up workspaces on different monitors
+
+# If HDMI-1 is connected, only turn on HDMI-1 on
+monitor="eDP-1";
+xrandr -q | grep -E "HDMI-1.*connected"
+if [[ $? -eq 0 ]]
+then
+    xrandr --output HDMI-1 --scale 0.5x0.5
+    xrandr --output eDP-1 --off
+    bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 0
+fi
+
+# Global bspwm Setttings
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config pointer_modifier control
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+
+
+# BSPWM Monitor and Desktop padding stuffs
+bspc config top_padding 30
+bspc config right_padding 0
+bspc config left_padding 0
+bspc config down_padding 0
+
+# BSPWM Window gaps and Borders
+bspc config window_gap 10
+bspc config border_width 1

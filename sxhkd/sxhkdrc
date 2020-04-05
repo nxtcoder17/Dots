@@ -1,0 +1,60 @@
+## Window Manager: BSPWM Setup Configs
+
+# BSPWM: quit and reload
+super + alt + {q,r}
+    bspc {quit,wm -r}
+
+# kill Active Window
+super + shift + q
+    bspc node -c
+
+# alternate between the tiled and monocle layout
+# monocle layout: only one window visible at a time [stacked layout]
+super + m
+    bspc desktop -l next
+
+# Navigation and Swapping Windows with Vim Bindings
+super + {_,shift} + {h,j,k,l}
+    bspc node {-f,-s} {west,south,north,east}
+
+## setting the window state
+super + {t, shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Focus and move active window on a workspace
+super + {1-9,0}
+    bspc desktop -f ^{1-9,10}
+
+# Can't use shift instead of control as actual result of KeyPress, won't matter
+super + control + {1-9,0}
+    bspc node -d ^{1-9,10} --follow
+
+# Visibility of a Node: OFF
+super + v
+    bspc node -g hidden
+
+super + shift + v
+    bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
+
+### Window Manager Independent Configurations
+
+# Running Applications
+
+# opening a terminal
+super + Return
+    xfce4-terminal --hide-menubar
+
+# firefox
+super + b
+    $HOME/builds/firefox/firefox -P NxtCoder
+
+# trigerring dmenu
+super + {d,space}
+    dmenu_run
+
+# Laptop HotKeys
+XF86MonBrightnessDown
+    xbacklight -dec 15
+XF86MonBrightnessUp
+    xbacklight -inc 15
+
