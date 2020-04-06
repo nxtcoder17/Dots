@@ -1,25 +1,18 @@
 # vim: set filetype=i3blocks:
 # full_text= 
+
 align=center
 separator=false
 separator_block_width=0
 
-[ip]
-command=echo "<span background='#910bd4' foreground='#000000'><b>$(hostname -i)</b></span>"
-interval=once
+[date and time]
+command=echo -e "<span bgcolor='#6779b8' fgcolor='#000000'><b> $( ([[ $BLOCK_BUTTON -eq 1 ]] && date) || date '+%a %I:%M %p') </b></span>"
+interval=5
+min_width=1750
+align=center
 markup=pango
-
-[separator]
 
 [battery]
-command=echo -e "<span foreground='#00ff33' background='#910bd4'></span><span background='#00ff33' foreground='#000000'><b> $(acpi | grep -oP '\d+%')</b> </span>"
-interval=1
-markup=pango
-
-[date_time]
-# Command is : echo $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T)
-# Clock Icon: \uf49b    source: octicons
-# command=echo "<span foreground='#ff3333' background='#00ff33'></span><span background='#ff3333' foreground='#000000'><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
-command=echo "<span foreground='#7da577' background='#00ff33'></span><span background='#7da577' foreground='#000000'><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b></span>"
-interval=1
+command=/home/NxtCoder/builds/Dots/i3blocks/scripts/battery.sh 
+interval=5
 markup=pango

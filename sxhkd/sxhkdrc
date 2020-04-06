@@ -17,6 +17,15 @@ super + m
 super + {_,shift} + {h,j,k,l}
     bspc node {-f,-s} {west,south,north,east}
 
+# Navigation and Swapping Windows with Arrows
+super + {_,shift} + {Left,Down,Up,Right}
+    bspc node {-f,-s} {west,south,north,east}
+
+# Focus last window, desktop
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+
+
 ## setting the window state
 super + {t, shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -38,6 +47,10 @@ super + shift + v
 
 ### Window Manager Independent Configurations
 
+## Reloading sxhkd configuration
+alt + s + r
+    pkill sxhkd && sxhkd &
+
 # Running Applications
 
 # opening a terminal
@@ -51,6 +64,7 @@ super + b
 # trigerring dmenu
 super + {d,space}
     dmenu_run
+
 
 # Laptop HotKeys
 XF86MonBrightnessDown

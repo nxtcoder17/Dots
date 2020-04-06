@@ -21,9 +21,9 @@
 
 # [ Recommended for i3-gaps ]
 for_window [class="^.*"] border pixel 0
-# gaps inner 5
+gaps inner 10
 # gaps outer so that Single Window consumes full space
-# gaps outer -5
+gaps outer -10
 
 # [ Setting the Modifier Keys ]
 set $mod Mod4
@@ -38,10 +38,8 @@ font pango: mononoki Nerd Font Regular 10
 
 # [ Workspace Names ] {{{
 
-set $ws1 "Tmux:  "
-set $ws3 "firefox:  "
-set $ws4 "IntelliJ:  "
-set $ws10 study
+set $ws1 "1: Tmux:  "
+set $ws3 "3: firefox:  "
 
 # [ Workspace Names ] }}}
 
@@ -330,9 +328,10 @@ bar {
 	font pango: mononoki Nerd Font regular 10
 	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
+
 	# WorkSpace Buttons
 	workspace_buttons yes	
-	# Binding Mode Indicators
+
 	binding_mode_indicator no
 
 	colors {
