@@ -14,8 +14,6 @@
 
 ## Text Generator URL: https://www.coolgenerator.com/ascii-text-generator
 ## Font: Electric
-                                                                                                                          
-
 
 # [ General Configurations ] {{{
 
@@ -305,11 +303,12 @@ exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput
 # Colors and Variables
 set $transparent    #00000000
 set $black          #000000
+set $blue           #6779b8
 set $pacificBlue    #00a7c9
 set $tomatoRed      #ff5a4a
 set $cornSilk       #fff7d9
 set $battleshipGrey #838581
-set $green 			#69db7c
+set $green 			#4edeab
 set $cyan 			#66d9e8
 set $orange         #ea5712
 
@@ -342,11 +341,10 @@ bar {
 		# Separator     : Text color to be used for Separator
 		separator $green
 
-	#	 ColorClass			Border			Background			Text
-		#focused_workspace   $transparent    $black       		$orange
-        focused_workspace   $transparent    $black              $orange
-		inactive_workspace  $transparent    $black     	        $cornSilk
-		urgent_workspace    $transparent    $tomatoRed          $transparent
+	#	 ColorClass			Border			Background		   Foreground Text
+        focused_workspace   $transparent    $green             $black
+		inactive_workspace  $transparent    $blue              $black
+		urgent_workspace    $transparent    $tomatoRed         $transparent
 	}
 }
 
