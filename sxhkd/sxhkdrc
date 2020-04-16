@@ -8,6 +8,8 @@ super + alt + {q,r}
 super + shift + q
     bspc node -c
 
+super + Print
+
 # alternate between the tiled and monocle layout
 # monocle layout: only one window visible at a time [stacked layout]
 super + m
@@ -24,7 +26,6 @@ super + {_,shift} + {Left,Down,Up,Right}
 # Focus last window, desktop
 super + {grave,Tab}
     bspc {node,desktop} -f last
-
 
 ## setting the window state
 super + {t, shift + t,s,f}

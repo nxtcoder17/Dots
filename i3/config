@@ -45,13 +45,13 @@ set $ws3 "3: firefox:  "
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10 $ws10
+bindsym $mod+0 workspace 10
 # [ Accessing the Workspaces ] }}}
 
 # [ Moving Focused Container to specific workspaces ] {{{
@@ -59,13 +59,13 @@ bindsym $mod+0 workspace 10 $ws10
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10 $ws10
+bindsym $mod+Shift+0 move container to workspace 10
 
 # [ Moving Focused Container to specific workspaces ] }}}
 
@@ -243,6 +243,12 @@ bindsym $mod + r                    exec $term -e ranger
 # Executing firefox
 set $browser notify-send 'Firefox started' && $HOME/builds/firefox/firefox -p NxtCoder
 bindsym $mod + b                    exec $browser
+
+# Turning on the HDMI display, and laptop display to turn off
+
+set $turnHDMIon xrandr --output HDMI-1 --scale 0.5x0.5 --auto && xrandr --output eDP-1 --off
+bindsym $alt + shift + m                   exec "$turnHDMIon"
+bindsym $alt + m                           exec xrandr --output eDP-1 --auto
 #=========== ==> [End: Executing Applications ] <== ==============}}}
 
 # [ Executing External Scripts ] {{{

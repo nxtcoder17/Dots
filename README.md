@@ -6,6 +6,7 @@ This repository contains the dot files i use for my current Arch + i3 setup.
 + i3 & i3blocks
 + tmux
 + bash
++ zsh
 + mpd & ncmpcpp
 + st terminal build
 

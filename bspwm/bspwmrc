@@ -4,7 +4,7 @@
 bspwm rule -r "*"
 
 # Polybar
-# $HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 
 # AutoStartup Applications
 sxhkd &

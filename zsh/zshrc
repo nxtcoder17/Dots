@@ -1,59 +1,111 @@
 #! /bin/zsh
 
+# Exports
+export BROWSER="$HOME/builds/firefox/firefox"
+export SXHKD_SHELL=/usr/bin/bash
+
+# Enable Colors and Change prompt
+autoload -U colors && colors
+
 # Go into Vi-Mode
 setopt -o vi
+export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
-
 
 # Aliases
 alias ls='ls --color=auto'
 
-
 export PATH="$PATH:$HOME/builds/go/bin"
 TZ='Asia/Kolkata'; export TZ
 
-# AutoCompletion
-
+# Tab AutoCompletion
 autoload -Uz compinit
-compinit
-
-# Select Items from AutoCompl list, using Arrows
 zstyle ':completion:*' menu select
-
-# AutoCompletion of switches for aliases
-setopt COMPLETE_ALIASES
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # To include hidden files
 
 # AutoCompletion with sudo
 zstyle ':completion::complete:*' gain-privileges 1
 
-# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# AutoCompletion of switches for aliases
+setopt COMPLETE_ALIASES
 
-# Building a ZSH Prompt
-PS1='%F{#42ff91}   %2~  '
-PS1+='%F{#dbf2aa} %T %f'
-PS1+=$'\n'
-PS1+=' %n  '
+## Using Vim Keys in Tab Completion Menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -v '^?' backward-delete-char
 
-export PS1
 
-# source /home/NxtCoder/builds/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+## Source: Luke Smith zsh configuration
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+# preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Use Vim to edit the command line with <C-e>
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+source /home/NxtCoder/builds/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##############################################################################
 # History Configuration
 ##############################################################################
-HISTSIZE=5000               #How many lines of history to keep in memory
+HISTSIZE=5000000            #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
-SAVEHIST=15000               #Number of history entries to save to disk
-#HISTDUP=erase               #Erase duplicates in the history file
+SAVEHIST=15000              #Number of history entries to save to disk
+HISTDUP=erase               #Erase duplicates in the history file
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
+## Aliases
+alias vim='nvim'
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 
 ## Execute some optimisations scripts after the xserver is running 
-
 $( xset q &> /dev/null ) && $(xset r rate 200 50)
 
-## Path
+## : f467  : f440
+source /home/NxtCoder/builds/Dots/zsh/scripts/functions.sh
 
-export PATH="$PATH:$HOME/.local/bin/"
+ARCH=$(echo -e $'\uf303')           #  : f303
+DIR=$(echo -e $'\uf07c')            #  : f07c
+ARROW=$(echo -e $'\uf054')          #  : f054
+HAND_RIGHT=$(echo -e $'\uf0a4')     #  : f0a4
+FLAME=$(echo -e $'\uf490')          #  : f490
+GIT_LOGO=$(printf '\uf1d3')
+
+setopt PROMPT_SUBST
+
+# Building a ZSH Prompt
+# PS1='%F{#2bb1ff}   %2~  '
+PS1='%B%F{#ff6a00} $DIR  %2~ '
+PS1+='%F{#ff4255} $HAND_RIGHT %F{#9c9798} %* %f'
+PS1+='$(git_branch)'
+PS1+='$(gitInfo)'
+PS1+=$'%b\n'
+PS1+='%F{#5b91d4} $ARCH  %F{#2bffdc}%n %F{#ffff00}$FLAME  '
+
+export PS1

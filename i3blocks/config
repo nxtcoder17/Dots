@@ -13,7 +13,7 @@ align=center
 markup=pango
 
 [public IP]
-command=echo -e "<span bgcolor='black' fgcolor='#d2ff0a'><b> [IP] $(wget -qO - icanhazip.com) </b></span>"
+command=echo -e "<span bgcolor='black' fgcolor='#d2ff0a'><b> [IP] $(wget -qO - ipv4.icanhazip.com) </b></span>"
 interval=once
 markup=pango
 
