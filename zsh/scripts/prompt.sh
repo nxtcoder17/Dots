@@ -1,6 +1,4 @@
 #! /bin/zsh
-source functions.sh
-
 ARCH=$(echo -e $'\uf303')           #  : f303
 DIR=$(echo -e $'\uf07c')            #  : f07c
 ARROW=$(echo -e $'\uf054')          #  : f054
