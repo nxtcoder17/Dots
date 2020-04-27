@@ -247,8 +247,10 @@ bindsym $mod + b                    exec $browser
 # Turning on the HDMI display, and laptop display to turn off
 
 set $turnHDMIon xrandr --output HDMI-1 --scale 0.5x0.5 --auto && xrandr --output eDP-1 --off
+set $turnHDMIoff xrandr --output eDP-1 --auto && xrandr --output HDMI-1 --off
+
 bindsym $alt + shift + m                   exec "$turnHDMIon"
-bindsym $alt + m                           exec xrandr --output eDP-1 --auto
+bindsym $alt + m                           exec "$turnHDMIoff"
 #=========== ==> [End: Executing Applications ] <== ==============}}}
 
 # [ Executing External Scripts ] {{{
