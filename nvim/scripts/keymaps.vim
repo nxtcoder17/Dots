@@ -5,11 +5,15 @@ nnoremap <down> gj
 nnoremap k gk
 nnoremap <up> gk
 
+
+
+" For making Alt Key work in Linux Terminals
+
 " Swifter Navigation among Vim Splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 " Insane key press mistakes
 nnoremap ; :
@@ -21,11 +25,14 @@ let mapleader=','
 " Remove Search Highlights with ,/
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
+" Remove Highlights with 2 Esc Presses
+noremap <silent><esc> <esc>:noh<CR><esc>
+
 " Using <space> to scroll down 
-nnoremap <Space> <PageDown>
+" nnoremap <Space> <PageDown>
 
 " <C-Space> to scroll up
-nnoremap <C-Space> <PageUp>
+" nnoremap <C-Space> <PageUp>
 
 " Backspace and Delete Button deletes visual selection
 vnoremap <BS> x
@@ -47,6 +54,19 @@ nnoremap <A-C-s> :e $HOME/.config/nvim/init.vim<CR>
 nnoremap Y "+y
 nnoremap c "_c
 
+nmap <C-f> :GFiles<CR>
+nmap <C-M-F> :Files<CR>
+
+nmap <C-b> :Buffers<CR>
+nmap <C-h> :History<CR>
+
+nmap <S-f> :Files<CR>
+
+nmap <leader>l :BLines<CR>
+nmap <leader>L :Lines<CR>
+nmap <leader>' :Marks<CR>
+
 " To Stop accidently going to ex mode,
 " where i have to type visual to come out
 nnoremap Q <Nop>
+

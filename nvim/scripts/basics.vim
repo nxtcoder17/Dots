@@ -72,9 +72,14 @@ set autoread
 set t_Co=256
 
 " My Personal Terminal has True Color Support, so 
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set termguicolors
+" let &t_8f = \<Esc>[38;2;%lu;%lu;%lum
+" let &t_8b = \<Esc>[48;2;%lu;%lu;%lum
+if has("termguicolors")     " set true colors
+    set t_8f=\[[38;2;%lu;%lu;%lum
+    set t_8b=\[[48;2;%lu;%lu;%lum
+    set termguicolors
+endif
 
 let &t_SI = "\<Esc>[5 q"
 let &t_SR = "\<Esc>[4 q"

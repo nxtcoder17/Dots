@@ -1,6 +1,6 @@
 #! /bin/bash
 
-TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh sxiv pip npm"
+TOOLS="vim tmux git openssh xclip make cmake compton scrot xcape dunst imagemagick feh sxiv "
 CPP="clang llvm"
 FILES="unzip p7zip unrar tar ntfs-3g"
 # DOCS="zathura pandoc libreoffice-fresh calibre"
@@ -15,7 +15,7 @@ VOLUME="pamixer "
 
 DOWNLOADER="axel wget youtube-dl transmission-cli"
 BATTERY="upower acpi"
-NETWORK="net-tools tcpdump wireshark-cli wireshark-gtk"
+NETWORK="net-tools tcpdump" 
 VIDEO="mpv"
 CUSTOMISATION="lxappearance papirus-icon-theme"
 TOUCHPAD="libinput xf86-input-libinput"

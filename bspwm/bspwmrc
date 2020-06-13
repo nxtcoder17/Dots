@@ -26,6 +26,13 @@ feh --bg-scale --no-fehbg ~/.wallpaper
 killall "dunst"
 dunst & 
 
+## Tapping Enabled
+xinput set-prop 'Synaptics TM3276-022' 'libinput Tapping Enabled' 1
+
+####
+# for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+
 # Setting up workspaces on different monitors
 
 # If HDMI-1 is connected, only turn on HDMI-1 on

@@ -17,6 +17,6 @@ set ignorecase
 set smartcase
 
 " Search regex to be compatible with PERL Format with Very Magic Mode
-nmap / /\v
-vmap / /\v
+" nmap / /\v
+" vmap / /\v
 

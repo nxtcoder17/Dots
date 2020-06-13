@@ -18,6 +18,6 @@ interval=once
 markup=pango
 
 [battery]
-command=/home/NxtCoder/builds/Dots/i3blocks/scripts/battery.sh 
+command=~/.config/i3blocks/scripts/battery.sh 
 interval=5
 markup=pango

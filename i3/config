@@ -20,6 +20,7 @@
 # [ Recommended for i3-gaps ]
 for_window [class="^.*"] border pixel 0
 gaps inner 10
+
 # gaps outer so that Single Window consumes full space
 gaps outer -10
 
@@ -157,13 +158,26 @@ bindsym $alt + j        resize grow height 10 px or 1 ppt
 # }}}
 
 # [ Key-Scheme 2: Direction Keys ] {{{
-bindsym $alt + Left     resize shrink width 10 px or 1 ppt
-bindsym $alt + Right    resize grow width 10 px or 1 ppt
-bindsym $alt + Up       resize shrink height 10 px or 1 ppt
-bindsym $alt + Down     resize grow height 10 px or 1 ppt
+bindsym $alt + Shift + Left     resize shrink width 10 px or 1 ppt
+bindsym $alt + Shift + Right    resize grow width 10 px or 1 ppt
+bindsym $alt + Shift + Up       resize shrink height 10 px or 1 ppt
+bindsym $alt + Shift + Down     resize grow height 10 px or 1 ppt
 # }}}
 
 # [ Resizing Splits ] }}}
+
+## Brightness Controls
+bindsym XF86MonBrightnessUp exec "light -A -b 5"
+bindsym XF86MonBrightnessDown exec "light -U -b 5"
+## 
+
+## Pulse Audio controls
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+
+# Mute sound Toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] {{{
 
@@ -225,12 +239,13 @@ set $term xfce4-terminal --hide-menubar
 # set $term st
 bindsym $mod + Return               exec --no-startup-id $term
 
+
 # -> Executing Rofi Desktop Run Window
-# bindsym $mod + d exec --no-startup-id rofi -show combi -lines 5 -width 600
-bindsym $mod + d exec --no-startup-id dmenu_run
+bindsym $mod + d exec --no-startup-id rofi -show combi 
+# bindsym $mod + d exec --no-startup-id dmenu_run
 
 # -> Executing Rofi Run Window
-# bindsym $mod + shift + d exec --no-startup-id rofi -show run -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
+bindsym $mod + shift + d exec --no-startup-id rofi -show drun -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
 
 # -> Taking Screenshots: scrot 
 set $shot scrot -q 100
@@ -241,13 +256,13 @@ bindsym $mod + Print                exec --no-startup-id $shot -u
 bindsym $mod + r                    exec $term -e ranger
 
 # Executing firefox
-set $browser notify-send 'Firefox started' && $HOME/builds/firefox/firefox -p NxtCoder
+set $browser notify-send 'Firefox started' && $HOME/builds/firefox/firefox -p nxtcoder17
 bindsym $mod + b                    exec $browser
 
 # Turning on the HDMI display, and laptop display to turn off
 
-set $turnHDMIon xrandr --output HDMI-1 --scale 0.5x0.5 --auto && xrandr --output eDP-1 --off
-set $turnHDMIoff xrandr --output eDP-1 --auto && xrandr --output HDMI-1 --off
+set $turnHDMIon xrandr --output HDMI-2 --scale 0.5x0.5 --auto && xrando --output eDP-1 --off
+set $turnHDMIoff xrandr --output eDP-1 --auto && xrandr --output HDMI-2 --off
 
 bindsym $alt + shift + m                   exec "$turnHDMIon"
 bindsym $alt + m                           exec "$turnHDMIoff"
@@ -270,8 +285,9 @@ exec_always --no-startup-id      unset LANG
 exec_always --no-startup-id      source /etc/profile.d/locale.sh
 
 # -> Map CapsLock as Ctrl: xcape utility
-exec_always --no-startup-id      setxkbmap -option ctrl:nocaps
-exec_always --no-startup-id      xcape -e 'Control_L=Escape'
+# DONE in .xinitrc now
+# exec_always --no-startup-id      setxkbmap -option ctrl:nocaps
+# exec_always --no-startup-id      xcape -e 'Control_L=Escape'
 
 # -> Wallpaper Setup
 exec_always --no-startup-id      feh --bg-scale ~/.wallpaper
@@ -289,7 +305,10 @@ exec --no-startup-id             compton --xrender-sync-fence
 exec --no-startup-id            dunst
 
 # TouchPad: Tap To Click
-exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput Tapping Enabled' 1
+# Synaptics TM3276-022 
+# exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput Tapping Enabled' 1
+exec_always --no-startup-id     xinput set-prop 'Synaptics TM3276-022' 'libinput Tapping Enabled' 1
+
 
 # Redshift
 # exec --no-startup-id            redhshift -l 26:85
@@ -326,13 +345,17 @@ bar {
 
 	# position : Top | Bottom
 	position top
+
 	# mode : dock | hide | invisible
 	mode hide
+
 	# modifier : Mod1-Mod5, Ctrl etc keys
 	modifier $mod
+
 	# Font : Monaco
 	# font pango:Monaco for Powerline Regular 10
 	font pango: mononoki Nerd Font regular 10
+
 	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
 
@@ -344,8 +367,10 @@ bar {
 	colors {
 		# Background	: defines the background Color
 		background $transparent
+
 		# Statusline    : Text Color to be used for Statusline
 		statusline $cyan
+
 		# Separator     : Text color to be used for Separator
 		separator $green
 
@@ -389,5 +414,9 @@ for_window [class = 'gl'] floating enable
 #========= ==> [End: ScratchPad ] <== =========== }}}
 
 # [ Application Specific Configurations ] {{{
+
+###
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 # [ Application Specific Configurations ] }}}

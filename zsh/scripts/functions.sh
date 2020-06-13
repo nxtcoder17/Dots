@@ -5,10 +5,12 @@ git_branch() {
 	git branch &> /dev/null
 
 	# if return status of previous command is 0, then only proceed
-	[[ $? -ne 0 ]] && exit 1
-
-	local git_branch=$(git branch | grep '*' | awk '{print $2}')
-	echo -ne "%F{#4de393}" $GIT_LOGO "" $git_branch "%f"
+	gitStatus=$?
+    [[ $gitStatus -ne 0 ]] && echo -ne ""
+    if [[ $gitStatus -eq 0 ]]; then
+        local git_branch=$(git branch | grep '*' | awk '{print $2}')
+        echo -ne "%F{#4de393}" $GIT_LOGO "" $git_branch "%f"
+    fi
 }
 
 
@@ -16,9 +18,10 @@ git_branch() {
 
 gitInfo()  {
     git branch &> /dev/null
-    [[ $? -ne 0 ]] && exit
+    gitStatus=$?
+    [[ $gitStatus -ne 0 ]] && echo ""
 
-	git status --porcelain | awk '
+    [[ $gitStatus -eq 0 ]] && git status --porcelain | awk '
 		BEGIN { 
 			ORS="";
 			mod=0; dirty=0; 

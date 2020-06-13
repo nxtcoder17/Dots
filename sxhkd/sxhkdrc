@@ -60,11 +60,17 @@ super + Return
 
 # firefox
 super + b
-    $HOME/builds/firefox/firefox -P NxtCoder
+    $HOME/builds/firefox/firefox -P nxtcoder17
 
 # trigerring dmenu
-super + {d,space}
-    dmenu_run
+
+# Executing Rofi Combi Mode
+super + d
+    rofi -show combi 
+
+# -> Executing Rofi Desktop Run Window
+super + shift + d
+    rofi -show drun -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
 
 
 # Laptop HotKeys
