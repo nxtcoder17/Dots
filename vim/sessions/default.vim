@@ -2,16 +2,16 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/
+cd ~/builds/Dots
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 /tmp/zshwPlbaz
+badd +0 ./zsh/zshrc
 argglobal
 %argdel
-$argadd /tmp/zshwPlbaz
-edit /tmp/zshwPlbaz
+$argadd ./zsh/zshrc
+edit ./zsh/zshrc
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -27,11 +27,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 20) / 41)
+let s:l = 79 - ((45 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+79
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

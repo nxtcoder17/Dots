@@ -75,7 +75,7 @@ export KEYTIMEOUT=1
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-export npm_config_registry=http://madregistry
+# export npm_config_registry=http://services:4873
 NPM_PACKAGES="${HOME}/.local-node"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 

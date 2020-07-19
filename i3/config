@@ -1,6 +1,6 @@
 ############################################################################################################################
-# ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄ ▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ # ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌ 
-#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌ ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌#
+# ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄ ▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄# 
+#▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌ ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌ 
 # ▀▀▀▀█░█▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ #
 #     ▐░▌               ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌               ▐░▌     ▐░▌          ▐░▌          #
 #     ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌     ▐░▌          ▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ #
@@ -18,7 +18,13 @@
 # [ General Configurations ] {{{
 
 # [ Recommended for i3-gaps ]
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 4
+
+# Smart Borders mean no border if only one window is open
+smart_borders on
+
+# client.focused #00C1FF #00C1FF #000088 #00C1FF
+client.focused #86bd8e #86bd8e #000088 #86bd8e
 gaps inner 10
 
 # gaps outer so that Single Window consumes full space
@@ -30,6 +36,9 @@ set $alt Mod1
 
 # [ My Favourite Font ]
 font pango: mononoki Nerd Font Regular 10
+
+focus_follows_mouse false
+hide_edge_borders vertical
 
 # [ General Configurations ] }}}
 
@@ -102,6 +111,9 @@ bindsym $mod+Tab                    workspace back_and_forth
 # [ Splitting Choices ]
 bindsym $alt + Shift + v            split vertical
 bindsym $alt + Shift + h            split horizontal
+
+# [ Make a window stick to the screen ]
+bindsym $alt + s                    sticky toggle
 
 # [ Controlling i3WM ] }}}
 
@@ -339,6 +351,9 @@ set $green 			#4edeab
 set $cyan 			#66d9e8
 set $orange         #ea5712
 
+set $navyBlue       #2d3e75
+set $orangeRed      #ff6303
+
 bar {
 	status_command i3blocks
 	i3bar_command i3bar -t
@@ -354,7 +369,8 @@ bar {
 
 	# Font : Monaco
 	# font pango:Monaco for Powerline Regular 10
-	font pango: mononoki Nerd Font regular 10
+	font pango: mononoki Nerd Font bold 10
+	# font pango: Operator Mono Lig Book Bold 10
 
 	# Separator Symbol: Emptying it, will do a custom one from i3blocks
 	separator_symbol " " 
@@ -375,8 +391,8 @@ bar {
 		separator $green
 
 	#	 ColorClass			Border			Background		   Foreground Text
-        focused_workspace   $transparent    $green             $black
-		inactive_workspace  $transparent    $blue              $black
+        focused_workspace   $transparent    $navyBlue          $battleshipGrey
+		inactive_workspace  $transparent    $battleshipGrey          $black
 		urgent_workspace    $transparent    $tomatoRed         $transparent
 	}
 }
