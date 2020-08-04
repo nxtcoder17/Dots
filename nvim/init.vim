@@ -37,4 +37,7 @@ LoadFile 'custom-functions.vim'
 
 LoadFile 'autocommands.vim'
 
+" Also load, copy pasted scripts
+LoadFile "copy-pasted/hl-next.vim"
+
 hi Normal guibg=NONE ctermbg=NONE

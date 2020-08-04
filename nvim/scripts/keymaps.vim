@@ -5,22 +5,23 @@ nnoremap <down> gj
 nnoremap k gk
 nnoremap <up> gk
 
-
-
 " For making Alt Key work in Linux Terminals
 
 " Swifter Navigation among Vim Splits
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
 
 " Insane key press mistakes
 nnoremap ; :
 cnoremap W w
 
 " Leader
-let mapleader=','
+let mapleader='\\'
+
+nnoremap <space> \
+xnoremap <space> \
 
 " Remove Search Highlights with ,/
 nnoremap <silent> <leader>/ :nohlsearch<CR>

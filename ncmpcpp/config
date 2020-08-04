@@ -11,14 +11,14 @@
 ## ncmpcpp.
 ##
 #
-#ncmpcpp_directory = ~/.ncmpcpp
+ncmpcpp_directory = ~/.ncmpcpp
 #
 ##
 ## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.lyrics
 #
 ##### connection settings #####
 #
@@ -30,7 +30,7 @@
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = "~/Music"
+mpd_music_dir = "~/Multimedia/Music"
 #
 #mpd_crossfade_time = 5
 #

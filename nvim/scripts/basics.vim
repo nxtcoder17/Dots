@@ -68,14 +68,18 @@ set autoindent
 " the contents
 set autoread
 
+" fast scrolling
+set ttyfast
+set lazyredraw
+
+" Always use Vertical diffs
+
 " Terminal Colors
 set t_Co=256
 
-" My Personal Terminal has True Color Support, so 
-" set termguicolors
-" let &t_8f = \<Esc>[38;2;%lu;%lu;%lum
-" let &t_8b = \<Esc>[48;2;%lu;%lu;%lum
-if has("termguicolors")     " set true colors
+
+" set true colors
+if has("termguicolors")     
     set t_8f=\[[38;2;%lu;%lu;%lum
     set t_8b=\[[48;2;%lu;%lu;%lum
     set termguicolors
@@ -84,4 +88,8 @@ endif
 let &t_SI = "\<Esc>[5 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+" Makes wild menu options, have some transparency
+set wildoptions=pum
+set pumblend=25
 

@@ -8,6 +8,10 @@ endif
 call plug#begin()
 
 Plug 'junegunn/fzf.vim'
+
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<C-y>"
+
 Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
@@ -63,81 +67,3 @@ let g:rainbow_active = 1
 
 " AutoClosing File Tags in JSX Files too
 let g:closetag_filenames = '*.jsx, *.html, *.md'
-
-"" Conquer of Completion: Coc.nvim {{{
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Navigate snippet placeholders using tab
-let g:coc_snippet_next = '<Tab>'
-let g:coc_snippet_prev = '<S-Tab>'
-
-" Use enter to accept snippet expansion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
-
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" list of the extensions required
-let g:coc_global_extensions = [
-            \'coc-yank',
-            \'coc-pairs',
-            \'coc-json',
-            \'coc-css',
-            \'coc-html',
-            \'coc-tsserver',
-            \'coc-yaml',
-            \'coc-lists',
-            \'coc-snippets',
-            \'coc-ultisnips',
-            \'coc-python',
-            \'coc-clangd',
-            \'coc-prettier',
-            \'coc-xml',
-            \'coc-syntax',
-            \'coc-flutter',
-            \'coc-git'
-            \]
-
-
-" show docs on things with K
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-"" coc mappings
-" multi cursor shortcuts
-nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <silent> <C-a> <Plug>(coc-cursors-word)
-xmap <silent> <C-a> <Plug>(coc-cursors-range)
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" for global rename
-nmap <leader>rn <Plug>(coc-rename)
-
-" jump stuff
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-"}}}

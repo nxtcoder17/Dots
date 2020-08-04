@@ -418,14 +418,14 @@ for_window [class = 'gl'] floating enable
 # for_window [instance="music"] move scratchpad
 # for_window [instance="music"] border pixel 5
 
-# for_window [title="NCMPCPP"] floating enable
-# for_window [title="NCMPCPP"] resize set 1000 300
-# for_window [title="NCMPCPP"] move scratchpad
-# for_window [title="NCMPCPP"] border pixel 5
-# exec_always --no-startup-id st -n music -e ncmpcpp
-# exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
+for_window [title="NCMPCPP"] floating enable
+for_window [title="NCMPCPP"] resize set 1000 300
+for_window [title="NCMPCPP"] move scratchpad
+for_window [title="NCMPCPP"] border pixel 5
+exec_always --no-startup-id st -n music -e ncmpcpp
+exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
 
-# bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
+bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
 
 #========= ==> [End: ScratchPad ] <== =========== }}}
 
