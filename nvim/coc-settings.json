@@ -1,0 +1,35 @@
+{
+	"languageserver": {
+		"ccls": {
+			"command": "ccls",
+			"filetypes": [
+				"h",
+				"c",
+				"cpp",
+				"cxx",
+				"c++",
+				"C"
+			],
+			"rootPatterns": [
+				".ccls",
+				"compile_commands.json",
+				".vim/",
+				".git/",
+				".hg/"
+			],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/tmp/ccls"
+				}
+			}
+		},
+        "intelephense": {
+            "command": "intelephense",
+            "args": ["--stdio"],
+            "filetypes": ["php"],
+            "initializationOptions": {
+                "storagePath": "/tmp/intelephense"
+            }
+        }
+	}
+}
