@@ -162,34 +162,26 @@ bindsym $mod+Shift+Up move up
 
 # [ Resizing Splits ] {{{
 
-# [ Key-Scheme 1: Vim-Lovers ] {{{ 
-bindsym $alt + h        resize shrink width 10 px or 1 ppt
-bindsym $alt + l        resize grow width 10 px or 1 ppt
-bindsym $alt + k        resize shrink height 10 px or 1 ppt
-bindsym $alt + j        resize grow height 10 px or 1 ppt
-# }}}
-
-# [ Key-Scheme 2: Direction Keys ] {{{
-bindsym $alt + Shift + Left     resize shrink width 10 px or 1 ppt
-bindsym $alt + Shift + Right    resize grow width 10 px or 1 ppt
-bindsym $alt + Shift + Up       resize shrink height 10 px or 1 ppt
-bindsym $alt + Shift + Down     resize grow height 10 px or 1 ppt
-# }}}
+bindsym $alt + Left     resize shrink width 10 px or 1 ppt
+bindsym $alt + Right    resize grow width 10 px or 1 ppt
+bindsym $alt + Up       resize shrink height 10 px or 1 ppt
+bindsym $alt + Down     resize grow height 10 px or 1 ppt
 
 # [ Resizing Splits ] }}}
 
-## Brightness Controls
+## Brightness Controls{{{
 bindsym XF86MonBrightnessUp exec "light -A -b 5"
 bindsym XF86MonBrightnessDown exec "light -U -b 5"
-## 
+## }}}
 
-## Pulse Audio controls
+## Pulse Audio controls{{{
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 
 # Mute sound Toggle
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+## Pulse Audio controls}}}
 
 # [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] {{{
 
@@ -422,7 +414,6 @@ for_window [title="NCMPCPP"] floating enable
 for_window [title="NCMPCPP"] resize set 1000 300
 for_window [title="NCMPCPP"] move scratchpad
 for_window [title="NCMPCPP"] border pixel 5
-exec_always --no-startup-id st -n music -e ncmpcpp
 exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
 
 bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center

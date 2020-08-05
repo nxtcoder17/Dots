@@ -18,6 +18,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'luochen1990/rainbow'
 Plug 'hzchirs/vim-material'                             " material color themes
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}  " Multicursors
 
 " snippets
 Plug 'SirVer/ultisnips'

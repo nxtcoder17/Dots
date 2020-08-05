@@ -28,11 +28,11 @@ LoadFile 'look-and-feel.vim'
 LoadFile 'basics.vim'
 
 LoadFile 'tabs.vim'
-
+     
 LoadFile 'search.vim'
-
+   
 LoadFile 'statusline.vim'
-
+ 
 LoadFile 'keymaps.vim'
 
 LoadFile 'custom-functions.vim'
@@ -41,6 +41,5 @@ LoadFile 'autocommands.vim'
 
 " Also load, copy pasted scripts
 LoadFile "copy-pasted/hl-next.vim"
-
 
 hi Normal guibg=NONE ctermbg=NONE
