@@ -70,6 +70,7 @@ function! BuildStatusLine()
     " Additions for coc
     " Note: Need to check if coc is installed or not
     " let r_status .= "%{coc#status()} "
+    let r_status .="%{coc#status()}%{get(b:,'coc_current_function','')}"
 
     " Paste Mode Status
     let r_status .= "%#PASTE#"

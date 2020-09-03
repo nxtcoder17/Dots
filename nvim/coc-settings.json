@@ -23,13 +23,40 @@
 				}
 			}
 		},
-        "intelephense": {
-            "command": "intelephense",
-            "args": ["--stdio"],
-            "filetypes": ["php"],
-            "initializationOptions": {
-                "storagePath": "/tmp/intelephense"
-            }
-        }
-	}
+		"intelephense": {
+			"command": "intelephense",
+			"args": ["--stdio"],
+			"filetypes": ["php"],
+			"initializationOptions": {
+				"storagePath": "/tmp/intelephense"
+			}
+		}
+	},
+
+	/* Kind of not that intuituve in NeoVim */
+	/* "codeLens.enable": true, */
+	/* "diagnostic.virtualText": false, */
+
+	"eslint.autoFixOnSave": true,
+
+	// TODO add more labels and give them cool glyphs
+	"suggest.completionItemKindLabels": {
+		"text": "t",
+		"method": "m",
+		"function": ""
+	},
+
+	"diagnostic.errorSign": "✘",
+	"diagnostic.warningSign": " ",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": " ",
+
+	"git.realtimeGutters": true,
+	"git.enableGutters": true,
+
+	"javascript.suggest.autoImports": true,
+
+	"typescript.suggestionActions.enabled": false,
+	"javascript.suggestionActions.enabled": false,
+
 }

@@ -19,3 +19,11 @@ set shiftwidth=4
 
 " At BEG of line, TAB inserts Shiftwidth spaces and backspaces clears it
 set smarttab
+
+
+augroup JS
+    autocmd!
+
+    autocmd filetype javascript,javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+augroup end

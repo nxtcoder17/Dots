@@ -19,27 +19,32 @@ exec "set path+=". s:scriptsHome
 
 command! -nargs=1 LoadFile exec 'source'. expand(s:scriptsHome). '/'. <args>
 
-LoadFile 'plugin-configs.vim'
 
-LoadFile 'plugins.vim'
 
-LoadFile 'look-and-feel.vim'
+if (!exists("g:vscode"))
+    LoadFile 'plugins.vim'
 
-LoadFile 'basics.vim'
+    LoadFile 'plugin-configs.vim'
 
-LoadFile 'tabs.vim'
+    LoadFile 'look-and-feel.vim'
+
+    LoadFile 'basics.vim'
+
+    LoadFile 'tabs.vim'
+         
+    LoadFile 'search.vim'
+       
+    LoadFile 'statusline.vim'
      
-LoadFile 'search.vim'
-   
-LoadFile 'statusline.vim'
- 
+    LoadFile 'custom-functions.vim'
+
+    LoadFile 'autocommands.vim'
+
+    " Also load, copy pasted scripts
+    LoadFile "copy-pasted/hl-next.vim"
+
+endif
+
 LoadFile 'keymaps.vim'
-
-LoadFile 'custom-functions.vim'
-
-LoadFile 'autocommands.vim'
-
-" Also load, copy pasted scripts
-LoadFile "copy-pasted/hl-next.vim"
 
 hi Normal guibg=NONE ctermbg=NONE

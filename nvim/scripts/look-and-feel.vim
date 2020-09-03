@@ -1,8 +1,9 @@
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_background = 'hard'
 
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
 " colorscheme gruvbox
+colorscheme gruvbox-material
 set background=dark
 
 " Removing background from Theme

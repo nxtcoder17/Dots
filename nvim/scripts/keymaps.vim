@@ -5,7 +5,14 @@ nnoremap <down> gj
 nnoremap k gk
 nnoremap <up> gk
 
-" For making Alt Key work in Linux Terminals
+" Insane key press mistakes
+nnoremap ; :
+cnoremap W w
+
+map s <nop>
+
+" Tab to go to corresponding ends
+nnoremap <Tab> %
 
 " Swifter Navigation among Vim Splits
 nnoremap sh <C-w>h
@@ -13,27 +20,17 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 
-" Insane key press mistakes
-nnoremap ; :
-cnoremap W w
+"FZF Specifics
+nnoremap <space> :Rg<CR>
 
 " Leader
-let mapleader='\\'
-
-nnoremap <space> \
-xnoremap <space> \
+let mapleader=','
 
 " Remove Search Highlights with ,/
-nnoremap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader><space> :nohlsearch<CR><BS>
 
 " Remove Highlights with 2 Esc Presses
 noremap <silent><esc> <esc>:noh<CR><esc>
-
-" Using <space> to scroll down 
-" nnoremap <Space> <PageDown>
-
-" <C-Space> to scroll up
-" nnoremap <C-Space> <PageUp>
 
 " Backspace and Delete Button deletes visual selection
 vnoremap <BS> x
@@ -54,18 +51,6 @@ nnoremap <A-C-s> :e $HOME/.config/nvim/init.vim<CR>
 
 nnoremap Y "+y
 nnoremap c "_c
-
-nmap <C-f> :GFiles<CR>
-nmap <C-M-F> :Files<CR>
-
-nmap <C-b> :Buffers<CR>
-nmap <C-h> :History<CR>
-
-nmap <S-f> :Files<CR>
-
-nmap <leader>l :BLines<CR>
-nmap <leader>L :Lines<CR>
-nmap <leader>' :Marks<CR>
 
 " To Stop accidently going to ex mode,
 " where i have to type visual to come out
