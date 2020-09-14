@@ -13,6 +13,9 @@ filetype indent on
 " Enabling Mouse Support
 set mouse=a
 
+" Enabling CursorLine
+set cursorline
+
 " Backspacing over Everything
 set backspace=indent,eol,start
 
@@ -33,7 +36,7 @@ set matchtime=4
 set hidden
 
 " Ignore Compiled Files or not so useful directories
-set wildignore=*.pyc,*.o,.git
+set wildignore=*.pyc,*.o,.git,node_modules
 
 " Always split on the Right and at Bottom
 set splitright
@@ -95,12 +98,3 @@ let &t_EI = "\<Esc>[2 q"
 " Makes wild menu options, have some transparency
 set wildoptions=pum
 set pumblend=25
-
-
-" NetRw
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 15
-"

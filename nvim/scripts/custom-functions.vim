@@ -113,6 +113,17 @@ nnoremap <A-S-P> :echo SyntaxAttributes()<CR>
 
 " ++++++ Syntax Highlighting Groups +++++ }}}
 
+" JS Object to JSON converter
+function JStoJSON(jsObj)
+	" echo a:jsObj
+	let a = '"' . a:jsObj . '"'
+	let l:command = 'let a = '. expand(a) .'; console.log(a)'
+	execute '!node -e "'.  expand(l:command). '"'
+endfunction
+" 
+
+
+
 " Tmux Talk{{{
 " We create a command Silent that will help redraw the Vim Screen just after executing a shell command
 command! -nargs=1 Silent

@@ -19,8 +19,6 @@ exec "set path+=". s:scriptsHome
 
 command! -nargs=1 LoadFile exec 'source'. expand(s:scriptsHome). '/'. <args>
 
-
-
 if (!exists("g:vscode"))
     LoadFile 'plugins.vim'
 
@@ -47,4 +45,11 @@ endif
 
 LoadFile 'keymaps.vim'
 
+" Color Highlighter
+lua require'colorizer'.setup()
+
 hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=#2f3030 ctermbg=NONE
+hi CursorLineNr guibg=NONE guifg=#00beff gui=bold
+hi LineNr guibg=NONE guifg=#7e969e
+

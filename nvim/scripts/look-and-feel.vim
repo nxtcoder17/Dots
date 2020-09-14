@@ -1,16 +1,15 @@
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_background = 'hard'
 
-" colorscheme gruvbox-material
-" colorscheme gruvbox
+" colorscheme onedark
+" colorscheme nord
 colorscheme gruvbox-material
+" colorscheme palenight
 set background=dark
 
 " Removing background from Theme
-hi Normal guibg=NONE ctermbg=NONE
-hi NonText guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE
-
+" hi Normal guibg=NONE ctermbg=NONE
+" hi NonText guibg=NONE ctermbg=NONE
 
 " hi Comment guifg=#0f9b78
 

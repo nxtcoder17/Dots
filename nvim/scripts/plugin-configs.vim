@@ -5,7 +5,7 @@ let g:SuperTabDefaultCompletionType = "<C-y>"
 
 " [FZF] {{{
 
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
+let g:fzf_layout = { 'window': { 'width': 0.85, 'height': 0.85 } }
 
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:60%'
@@ -35,7 +35,7 @@ endfunction
 
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-nmap <C-f> :Rg %<CR>
+nmap <C-f> :Rg<CR>
 nmap <C-M-F> :GFiles<CR>
 nmap <S-f> :Files<CR>
 nmap <C-b> :Buffers<CR>
@@ -150,7 +150,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-nmap <M-CR>  <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -171,7 +170,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -183,15 +182,24 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+nmap <silent><nowait> <space>e :CocCommand explorer<CR>
+
+
+" Intellij Like
+nmap <A-CR> :CocAction<CR>
+
 " [COC] }}}
 
 " [Vim Rainbow]  {{{ 
 let g:rainbow_active = 1
+
+let g:rainbow_guifgs = ['#64cfed', '#96c96f', '#cfa865', '#4bc9b5']
 " [Vim Rainbow]}}}
 
 " [vim-closetag] {{{ 
-" AutoClosing File Tags in JSX Files too
+
 let g:closetag_filenames = '*.jsx, *.html, *.md'
+
 " [vim-closetag]}}}
 
 " [Ultisnips] {{{ 
@@ -217,7 +225,32 @@ let g:NERDToggleCheckAllLines = 1
 
 " [NerdCommenter] }}}
 
-
-" rnvimr
+" rnvimr: Ranger in Vim {{{
 nnoremap <silent> <M-o> :RnvimrToggle<CR>
 tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+" }}}
+
+" Vim which key{{{
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> s :WhichKey 's'<CR>"}}}
+
+" Vim Rooter {{{
+let g:rooter_cd_cmd = 'lcd'
+let g:rooter_silent_chdir = 1
+let g:rooter_resolve_links = 1
+let g:rooter_patterns = ['.root', '.git']
+"}}}
+
+" Nvim Treesitter {{{ 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { 
+        --    "c", "rust" 
+    },  -- list of language that will be disabled
+  },
+}
+EOF
+" }}}

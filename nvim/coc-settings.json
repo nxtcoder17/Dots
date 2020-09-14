@@ -56,7 +56,16 @@
 
 	"javascript.suggest.autoImports": true,
 
-	"typescript.suggestionActions.enabled": false,
-	"javascript.suggestionActions.enabled": false,
+	"typescript.suggestionActions.enabled": true,
+	"javascript.suggestionActions.enabled": true,
 
+	"explorer.width": 50,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+	"explorer.icon.enableVimDevicons": false,
+	"explorer.keyMappings": {
+		"<cr>": ["expandable?", "expand", "open"],
+		"v": "open:vsplit"
+  },
+  "coc.preferences.extensionUpdateCheck": "daily",
 }

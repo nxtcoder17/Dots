@@ -4,9 +4,6 @@ augroup vimrc
     " Saving the cursor position and open up there next time
     autocmd bufreadpost * call setpos(".", getpos("'\""))
 
-    " Disable AutoCommeting on new line
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
     "+++++ Commenting: Mapped to <leader>c +++++
     " autocmd FileType python,sh map <leader>c :call CommentPythonShPhp()<CR>
     " autocmd FileType vim map <leader>c :call CommentVim()<CR>
@@ -22,10 +19,12 @@ augroup vimrc
     " autocmd BufRead,BufNewFile *.java map <leader>x :call UncommentJavaJsCppC()<CR>
     " autocmd FileType html,xml map <leader>x :call UnCommentHtmlXml()<CR>
     " autocmd FileType css map <leader>x :call UnCommentCss()<CR>
-"
     "=======[ restoring folds ]====================================================
     autocmd FileType vim,python,cpp,c call Restorefolds()
     autocmd FileType conf,javascript,html,tmux call Restorefolds()
+
+    "Auto source vim files after i have saved them
+    autocmd! bufwritepost *.vim source %
 
     " TmuxTalk
     " autocmd FileType cpp map <C-e> :call Execute_Cpp()<CR>
