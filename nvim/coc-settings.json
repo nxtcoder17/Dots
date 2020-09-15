@@ -67,5 +67,5 @@
 		"<cr>": ["expandable?", "expand", "open"],
 		"v": "open:vsplit"
   },
-  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

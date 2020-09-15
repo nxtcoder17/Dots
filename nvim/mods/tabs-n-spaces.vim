@@ -23,7 +23,6 @@ set smarttab
 
 augroup JS
     autocmd!
-
     autocmd filetype javascript,javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
 augroup end
+

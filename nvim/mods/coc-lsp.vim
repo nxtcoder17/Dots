@@ -1,62 +1,5 @@
-
-" [SuperTab] {{{
-let g:SuperTabDefaultCompletionType = "<C-y>"
-" [SuperTab] }}}
-
-" [FZF] {{{
-
-let g:fzf_layout = { 'window': { 'width': 0.85, 'height': 0.85 } }
-
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:60%'
-
-let $FZF_DEFAULT_OPTS="--reverse "                      " top to bottom
-
-let $FZF_DEFAULT_OPTS="--reverse "                      " top to bottom
-
-" use rg by default
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-  set grepprg=rg\ --vimgrep
-endif
-
-
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.config/nvim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
-
-" advanced grep(faster with preview)
-function! RipgrepFzf(query, fullscreen)
-    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-    let initial_command = printf(command_fmt, shellescape(a:query))
-    let reload_command = printf(command_fmt, '{q}')
-    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
-
-nmap <C-f> :Rg<CR>
-nmap <C-M-F> :GFiles<CR>
-nmap <S-f> :Files<CR>
-nmap <C-b> :Buffers<CR>
-nmap <C-S-h> :History<CR>
-nmap <leader>l :BLines<CR>
-nmap <leader>L :Lines<CR>
-nmap <leader>' :Marks<CR>
-
-nmap sf :Files<CR>
-nmap sb :Buffers<CR>
-nmap <C-l> :Lines<CR>
-nmap sm :Marks<CR>
-nmap sc :Commands<CR>
-
-" end: [FZF] }}}
-
-" [COC] {{{ 
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
+" longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -155,10 +98,10 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -184,73 +127,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 nmap <silent><nowait> <space>e :CocCommand explorer<CR>
 
-
 " Intellij Like
 nmap <A-CR> :CocAction<CR>
-
-" [COC] }}}
-
-" [Vim Rainbow]  {{{ 
-let g:rainbow_active = 1
-
-let g:rainbow_guifgs = ['#64cfed', '#96c96f', '#cfa865', '#4bc9b5']
-" [Vim Rainbow]}}}
-
-" [vim-closetag] {{{ 
-
-let g:closetag_filenames = '*.jsx, *.html, *.md'
-
-" [vim-closetag]}}}
-
-" [Ultisnips] {{{ 
-let g:UltiSnipsExpandTrigger="<C-tab>"
-" end: [Ultisnips] }}}
-
-" [NerdCommenter] {{{ 
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
- " Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1"
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
- " Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
- " Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
-
-" [NerdCommenter] }}}
-
-" rnvimr: Ranger in Vim {{{
-nnoremap <silent> <M-o> :RnvimrToggle<CR>
-tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
-" }}}
-
-" Vim which key{{{
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-nnoremap <silent> s :WhichKey 's'<CR>"}}}
-
-" Vim Rooter {{{
-let g:rooter_cd_cmd = 'lcd'
-let g:rooter_silent_chdir = 1
-let g:rooter_resolve_links = 1
-let g:rooter_patterns = ['.root', '.git']
-"}}}
-
-" Nvim Treesitter {{{ 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",     -- one of "all", "language", or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { 
-        --    "c", "rust" 
-    },  -- list of language that will be disabled
-  },
-}
-EOF
-" }}}

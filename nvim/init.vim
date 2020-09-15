@@ -1,55 +1,40 @@
-"
-"  ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
-" ▐░▌             ▐░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-"  ▐░▌           ▐░▌  ▀▀▀▀█░█▀▀▀▀ ▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
-"   ▐░▌         ▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌          
-"    ▐░▌       ▐░▌        ▐░▌     ▐░▌ ▐░▐░▌ ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌          
-"     ▐░▌     ▐░▌         ▐░▌     ▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌▐░▌          
-"      ▐░▌   ▐░▌          ▐░▌     ▐░▌   ▀   ▐░▌▐░█▀▀▀▀█░█▀▀ ▐░▌          
-"       ▐░▌ ▐░▌           ▐░▌     ▐░▌       ▐░▌▐░▌     ▐░▌  ▐░▌          
-"        ▐░▐░▌        ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄▄▄ 
-"         ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌
-"          ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀ 
-
 let s:VIM_HOME = "$HOME/.config/nvim"
 
-let s:scriptsHome = expand(s:VIM_HOME) . '/scripts'
-exec "set rtp+=". s:scriptsHome
-exec "set path+=". s:scriptsHome
+let s:MOD_DIR = expand(s:VIM_HOME) . "/mods"
+exec "set rtp+=". s:MOD_DIR
+exec "set path+=". s:MOD_DIR
 
-command! -nargs=1 LoadFile exec 'source'. expand(s:scriptsHome). '/'. <args>
+command! -nargs=1 LoadFile exec 'source '. expand(s:MOD_DIR) . '/'. <args>
 
-if (!exists("g:vscode"))
-    LoadFile 'plugins.vim'
+set number
 
-    LoadFile 'plugin-configs.vim'
+if (!exists("g:vscode")) 
+	" Some Defaults that i like to have
+	LoadFile 'nxt-defaults.vim'
 
-    LoadFile 'look-and-feel.vim'
+	" Plugins and their configurations
+	LoadFile 'plugins.vim'
 
-    LoadFile 'basics.vim'
+    " Look and Feel
+    LoadFile 'look-n-feel.vim'
 
-    LoadFile 'tabs.vim'
-         
-    LoadFile 'search.vim'
-       
+    " StatusBar
     LoadFile 'statusline.vim'
-     
-    LoadFile 'custom-functions.vim'
 
+    " Coc Nvim LSP Configuration
+	LoadFile 'coc-lsp.vim'
+
+    " LoadFile 'nvim-lsp.vim'
+
+	" Tabs and Spaces
+	LoadFile 'tabs-n-spaces.vim'
+
+    " Custom playground stuffs
+    LoadFile 'playground.vim'
+
+    " Vim AutoCommands
     LoadFile 'autocommands.vim'
 
-    " Also load, copy pasted scripts
-    LoadFile "copy-pasted/hl-next.vim"
-
+	" Key Mappings, so so important
+	LoadFile 'keymaps.vim'
 endif
-
-LoadFile 'keymaps.vim'
-
-" Color Highlighter
-lua require'colorizer'.setup()
-
-hi Normal guibg=NONE ctermbg=NONE
-" hi Normal guibg=#2f3030 ctermbg=NONE
-hi CursorLineNr guibg=NONE guifg=#00beff gui=bold
-hi LineNr guibg=NONE guifg=#7e969e
-
