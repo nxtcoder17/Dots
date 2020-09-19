@@ -2,16 +2,13 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/builds/Dots/nvim
+cd ~/
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +38 init.vim
 argglobal
 %argdel
-$argadd init.vim
-edit init.vim
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -19,6 +16,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
+enew
 setlocal fdm=marker
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -27,13 +25,6 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 38 - ((33 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-38
-normal! 0
-lcd ~/builds/Dots
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

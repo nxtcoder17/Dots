@@ -12,6 +12,9 @@ if (!exists("g:vscode"))
 	" Some Defaults that i like to have
 	LoadFile 'nxt-defaults.vim'
 
+	" Tabs and Spaces
+	LoadFile 'tabs-n-spaces.vim'
+
 	" Plugins and their configurations
 	LoadFile 'plugins.vim'
 
@@ -25,9 +28,6 @@ if (!exists("g:vscode"))
 	LoadFile 'coc-lsp.vim'
 
     " LoadFile 'nvim-lsp.vim'
-
-	" Tabs and Spaces
-	LoadFile 'tabs-n-spaces.vim'
 
     " Custom playground stuffs
     LoadFile 'playground.vim'

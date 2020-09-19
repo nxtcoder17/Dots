@@ -88,5 +88,9 @@ set incsearch
 	set ignorecase
 	set smartcase
 
-
+" Sane defaults for timeouts
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=1    " unnoticeable small value
 

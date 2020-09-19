@@ -3,7 +3,8 @@
 colorscheme gruvbox-material
 
 " Current Line number in different color
-hi CursorLineNr guibg=NONE guifg=#00beff gui=bold
+hi! CursorLineNr guibg=NONE guifg=#00beff gui=bold
+hi! Visual gui=reverse
 
 " +++++ Start: Fold Expression +++++ {{{
 

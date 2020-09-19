@@ -1,6 +1,10 @@
 " Use something not so useful as Esc key
 inoremap jj <Esc>
 
+" Make esc key work in terminal nmode too, this one does not play well with
+" FZF, ranger and all
+" tnoremap <Esc> <C-\><C-n>
+
 " Makes switching to command mode a breeze
 nnoremap ; :
 
@@ -20,11 +24,24 @@ noremap <silent><esc> <esc>:noh<CR><esc>
 " your Leader is the space key now
 let mapleader = " "
 
+function! HLCurrentLine(blinktime)
+  hi! CursorLine gui=reverse
+  redraw
+  exec 'sleep' . float2nr(a:blinktime * 1000). 'm'
+  hi! CursorLine gui=NONE
+  redraw
+endfunction
+
+nnoremap <M-i> :call HLCurrentLine(0.3)<CR>
+inoremap <M-i> <Esc>:call HLCurrentLine(0.1)<CR>
+
 "-------------------------------------------------------------
 " Rewriting my entire workflow around `s`: WHY? 
 "                                           Cause why not 
 " Inspiration from: https://www.youtube.com/watch?v=sSOfr2MtRU8 (@devaslife video )
 " -------------------------------------------------------------
+
+nnoremap <silent> <A-S-P> :e ~/.config/nvim/init.vim<CR>
 
 " Make s your sweet key
 map s <nop>
@@ -61,9 +78,20 @@ nmap <leader>' :Marks<CR>
 nmap sf :Files<CR>
 nmap sb :Buffers<CR>
 nmap <C-l> :Lines<CR>
-nmap sm :Marks<CR>
+nmap <C-m> :Marks<CR>
 nmap sc :Commands<CR>
 
 " Vim Commentary
 nmap s<space> gcc
 vmap s<space> gcc
+
+" Vim Tmux Navigator
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-Tab> :TmuxNavigatePrevious<cr>
+

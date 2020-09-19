@@ -18,4 +18,6 @@ augroup nxtvim
     "Auto source vim files after i have saved them
     autocmd! bufwritepost *.vim source %
 
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline 
+    au VimLeave,WinLeave,BufWinLeave * setlocal nocursorline 
 augroup end

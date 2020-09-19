@@ -50,12 +50,17 @@
 	"diagnostic.warningSign": " ",
 	"diagnostic.infoSign": "",
 	"diagnostic.hintSign": " ",
+	"diagnostic.enable": true,
+	"diagnostic.level": "error",
 
 	"git.realtimeGutters": true,
 	"git.enableGutters": true,
 
 	"javascript.suggest.autoImports": true,
+	"typescript.suggest.autoImports": true,
 
+	"typescript.validate.enable": true,
+	"javascript.validate.enable": true,
 	"typescript.suggestionActions.enabled": true,
 	"javascript.suggestionActions.enabled": true,
 
