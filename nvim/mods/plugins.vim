@@ -104,7 +104,8 @@ EOF
 endfunction
 
 " Cause causing Segmentation fault in terminal
-call TSHighlight()
+autocmd! BufEnter call TSHighlight()
+" call TSHighlight()
 
 " }}}
 
