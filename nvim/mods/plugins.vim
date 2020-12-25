@@ -1,6 +1,5 @@
 " Neovim Plugins File
-"
-" let g:polyglot_disabled=['jsx', 'javasscript']
+let g:polyglot_disabled = ['javascript', 'javascriptreact']
 
 " Plugins {{{
 " Auto Installing Vim Plug
@@ -13,8 +12,11 @@ endif
 call plug#begin()
 
 " Fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
 Plug 'junegunn/fzf.vim'
+
+" Supertab
+" Plug 'ervandew/supertab'
 
 " Gruvbox Material
 Plug 'sainnhe/gruvbox-material'
@@ -24,25 +26,26 @@ Plug 'airblade/vim-rooter'
 
 " TreeSitter : For Advanced Syntax Highlighting 
 "               as of 16th September, causing Segmentation Fault in Terminals
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'commit': 'master'}
 
 " Language Syntax Files
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-" Plug 'pangloss/vim-javascript'
-" Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
+Plug 'chemzqm/vim-jsx-improve'
+Plug 'mboughaba/i3config.vim'
 
 " Ranger inside Vim
 Plug 'kevinhwang91/rnvimr'
 
 " Vim Commentary
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
+
+" Vim Fugitive
+Plug 'tpope/vim-fugitive'
 
 " Vim Surround
 Plug 'tpope/vim-surround'
-
-" Undo Tree
-Plug 'mbbill/undotree'
 
 " Coc LSP
 Plug 'neoclide/jsonc.vim'
@@ -55,14 +58,8 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}  	" Multicursors
 Plug 'wellle/tmux-complete.vim'                         " complete words from a tmux panes
 
 " Color Highligher : Blazing Fast cause written in Lua
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" Neovim LSP
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
-
-" More targets for Motiond
-Plug 'wellle/targets.vim'
 
 " Vim Tmux Navigator
 Plug 'christoomey/vim-tmux-navigator'
@@ -71,43 +68,62 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'alvan/vim-closetag'
 
 Plug 'vim-test/vim-test'
-
 Plug 'tpope/vim-dispatch'
+
+" Floating Terminal: Does not need it
+" Plug 'voldikss/vim-floaterm'
+
+" Undo Tree visualizer
+Plug 'mbbill/undotree'
+
+" Snippet
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Vim Sneak
+Plug 'justinmk/vim-sneak'
+
+" Neovim LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+
+" Custom tsserver
+Plug 'nxtcoder17/coc-tsserver', {'branch': 'master',  'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 " }}}
 
 " Plugin Specific Configurations{{{
 
-" Rnvimr {{{
-" use Rnvimr as a File Picker
-let g:rnvimr_enable_picker = 1
-"}}}
+" Treesitter
+function! TSEnable()
 
-" Tree Sitter nvim{{{
-
-" -> Consistent Syntax Highlighting
-function! TSHighlight()
-lua <<EOF
-
+lua << EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
+    use_languagetree = false, -- Use this to enable language injection (this is very unstable)
     custom_captures = {
       -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
       ["foo.bar"] = "Identifier",
     },
   },
 }
-
 EOF
+
 endfunction
 
-" Cause causing Segmentation fault in terminal
-autocmd! BufEnter call TSHighlight()
-" call TSHighlight()
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<C-CR>"
 
-" }}}
+
+" Rnvimr {{{
+" use Rnvimr as a File Picker
+let g:rnvimr_enable_picker = 1
+"}}}
 
 " Vim Rooter {{{
 let g:rooter_cd_cmd = 'lcd'
@@ -158,15 +174,16 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 " Nvim Colorizer {{{
 
-lua require'colorizer'.setup()
+" lua require'colorizer'.setup()
 
 " }}}
 
-" Vim Tmux Navigator
+" Vim Tmux Navigator {{{
 let g:tmux_navigator_disable_when_zoomed = 1
+" }}}
 
-" Close Tag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+" Close Tag {{{
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -175,9 +192,36 @@ let g:closetag_regions = {
 	\ 'javascript.jsx': 'jsxRegion',
 	\ }
 let g:closetag_shortcut = '>'
+" }}}
 
-" Vim Test
+" Vim Test {{{
 let test#strategy = "dispatch"
+let g:test#javascript#runner = 'jest'
+let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
 
+" Vim Test  }}}
 
+" Markdown Preview
+" let g:mkdp_auto_start = 1
 " Plugin Specific Configurations : END}}}
+"
+" Vim Hexokinase
+let g:Hexokinase_refreshEvents = ["InsertLeave"] 
+let g:Hexokinase_ffEnabeled=["javascript", "javascriptreact","typescriptreact", "jsx", "css", "html"]
+let g:Hexokinase_highlighters = [ 'backgroundfull']
+
+"s Nerd Commenter 
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDTrimTrailingWhitespace = 1
+" let g:NERDCustomDelimiters = { 'typescriptreact': { 'left': '{ /*','right': '*/ }' } }
+let g:NERDCustomDelimiters = {
+	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+	\ 'typescript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+	\ }
+
+" vim Sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T

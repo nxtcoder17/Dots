@@ -10,7 +10,8 @@ setopt PROMPT_SUBST
 
 # Building a ZSH Prompt
 # PS1='%F{#2bb1ff}   %2~  '
-PS1='%B%F{#ff6a00} $DIR_ICON  %2~ '
+# PS1='%B%F{#ff6a00} $DIR_ICON  %2~ '
+PS1='%B%F{#fa925a} $DIR_ICON  %2~ '
 PS1+='%F{#ff4255} $HAND_RIGHT %F{#9c9798} %* %f'
 PS1+='$(git_branch)%f'
 PS1+='$(gitInfo)%f'

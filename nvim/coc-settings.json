@@ -34,8 +34,7 @@
 	},
 
 	/* Kind of not that intuituve in NeoVim */
-	/* "codeLens.enable": true, */
-	/* "diagnostic.virtualText": false, */
+	"codeLens.enable": false,
 
 	"eslint.autoFixOnSave": true,
 
@@ -46,31 +45,42 @@
 		"function": ""
 	},
 
+	"suggest.enablePreview": true,
+	"diagnostic.virtualText": false,
 	"diagnostic.errorSign": "✘",
 	"diagnostic.warningSign": " ",
 	"diagnostic.infoSign": "",
 	"diagnostic.hintSign": " ",
 	"diagnostic.enable": true,
-	"diagnostic.level": "error",
+	"diagnostic.level": "warning",
+	"diagnostic.refreshOnInsertMode": true,
 
-	"git.realtimeGutters": true,
-	"git.enableGutters": true,
+	"git.realtimeGutters": false,
+	"git.enableGutters": false,
+	"git.enableGlobalStatus": false,
 
-	"javascript.suggest.autoImports": true,
-	"typescript.suggest.autoImports": true,
 
-	"typescript.validate.enable": true,
+	/* "typescript.validate.enable": true, */
+	"typescript.validate.enable": false,
 	"javascript.validate.enable": true,
+
 	"typescript.suggestionActions.enabled": true,
 	"javascript.suggestionActions.enabled": true,
+	"javascript.suggest.autoImports": true,
+	"typescript.suggest.autoImports": true,
 
 	"explorer.width": 50,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.previewAction.onHover": false,
 	"explorer.icon.enableVimDevicons": false,
-	"explorer.keyMappings": {
+	"explorer.keyMappings.global": {
 		"<cr>": ["expandable?", "expand", "open"],
 		"v": "open:vsplit"
-  },
-  "coc.preferences.extensionUpdateCheck": "daily"
+	},
+	"coc.preferences.extensionUpdateCheck": "daily",
+
+	"python.jediEnabled": false,
+	/* "python.linting.enabled": true, */
+	"python.formatting.provider": "black"
+	/* "coc.preferences.formatOnSaveFiletypes": ["*.py"] */
 }

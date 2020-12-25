@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Tasks to be done
-cat << Balor
+cat << EOF
             ############################################
             #    Script processes the following        #
             ############################################
@@ -14,7 +14,7 @@ cat << Balor
             #            7. QuteBrowser Setup          #
             #            8. Zathura Setup              #
             ############################################
-Balor
+EOF
 
 CUR_DIR=$(pwd)
 

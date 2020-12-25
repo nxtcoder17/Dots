@@ -20,4 +20,6 @@ augroup nxtvim
 
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline 
     au VimLeave,WinLeave,BufWinLeave * setlocal nocursorline 
+
+    au BufEnter *.jsx set filetype=typescriptreact
 augroup end

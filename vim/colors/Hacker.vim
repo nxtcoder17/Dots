@@ -1,1 +1,0 @@
-/home/balor/Github/Vim_Configurations/Hacker.vim

@@ -5,18 +5,19 @@ set laststatus=2
 let g:modes = {
       \ 'n': '<N>',
       \ 'v': '<V>',
-      \ 'V': '<V-Line>',
-      \ 'CTRL-V': 'V-Block',
+      \ 'V': '<VL>',
+      \ '^V': '<VB>',
       \ 'i': '<I>',
       \ 'c': '<C>',
       \ 'R': '<R>',
+      \ 't': '<T>',
       \ }
 
 let g:color_maps = {
       \ 'n': '%#NORMAL_MODE#',
       \ 'v': '%#VISUAL_MODE#',
       \ 'V': '%#VISUAL_MODE#',
-      \ 'CTRL-V': '%#VISUAL_MODE#',
+      \ '^V': '%#VISUAL_MODE#',
       \ 'i': '%#INSERT_MODE#',
       \ 'c': '%#COMMAND_MODE#',
       \ 'R': '%#REPLACE_MODE#',
@@ -26,7 +27,7 @@ let g:modeSeprMaps = {
       \ 'n': '%#SEPR_NORMAL_MODE#',
       \ 'v': '%#SEPR_VISUAL_MODE#',
       \ 'V': '%#SEPR_VISUAL_MODE#',
-      \ 'CTRL-V': '%#SEPR_VISUAL_MODE#',
+      \ '^V': '%#SEPR_VISUAL_MODE#',
       \ 'i': '%#SEPR_INSERT_MODE#',
       \ 'c': '%#SEPR_COMMAND_MODE#',
       \ 'R': '%#SEPR_REPLACE_MODE#',
@@ -96,8 +97,10 @@ function! BuildStatusLine()
 
     " Additions for coc
     " Note: Need to check if coc is installed or not
-    " let r_status .= "%{coc#status()} "
-    let r_status .="%{coc#status()}%{get(b:,'coc_current_function','')}"
+    if exists(':CocCommand')
+          let r_status .= "%{coc#status()} "
+          " let r_status .="%{coc#status()}%{get(b:,'coc_current_function','')}"
+    endif
 
     " Paste Mode Status
     let r_status .= "%#PASTE#"
@@ -105,20 +108,20 @@ function! BuildStatusLine()
 
     " FileType
     let r_status .= "%#FILE_TYPE#"
-    let r_status .= &filetype
+    let r_status .= "%{expand(&filetype)}"
 
     " Cursor Position
-    let r_status .= "%#CURSOR_POSITION#"
-    " : e0a1,  : e0a3
-    let r_status .= "\  "
-    let r_status .= "%#CURRENT_LINE#"
-    let r_status .= "%l"
+    " let r_status .= "%#CURSOR_POSITION#"
+    " " : e0a1,  : e0a3
+    " let r_status .= "\  "
+    " let r_status .= "%#CURRENT_LINE#"
+    " let r_status .= "%l"
 
-    let r_status .= "%#CURSOR_POSITION#"
-    let r_status .= "/"
+    " let r_status .= "%#CURSOR_POSITION#"
+    " let r_status .= "/"
 
-    let r_status .= "%#TOTAL_LINE#"
-    let r_status .= "%L"
+    " let r_status .= "%#TOTAL_LINE#"
+    " let r_status .= "%L"
 
     let r_status .= "%#COLUMN_POSITION#"
     let r_status .= "\  %c "

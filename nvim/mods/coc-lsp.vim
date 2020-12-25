@@ -50,8 +50,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gY <Plug>(coc-type-definition)
+nmap <silent> gI <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
@@ -109,15 +109,15 @@ command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImpo
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>a  :<C-u>CocFzfList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocFzfList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c :<C-u>CocFzfList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocFzfList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocFzfList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -128,4 +128,9 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nmap <silent><nowait> <space>e :CocCommand explorer<CR>
 
 " Intellij Like
-nmap <A-CR> :CocAction<CR>
+nmap <A-CR> <Plug>(coc-codeaction)
+imap <A-CR> <Plug>(coc-codeaction)
+" nmap <A-CR> :CocFzfList actions<CR>
+" nmap <A-CR> <Plug>(coc-fix-current)
+" nmap <A-CR>  <Plug>(coc-codeaction)
+

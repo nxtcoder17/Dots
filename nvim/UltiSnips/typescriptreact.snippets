@@ -1,0 +1,30 @@
+snippet fcomp
+import React from 'react';
+
+const ${1:Sample} = () => {
+	return <>
+		${2}This is $1
+	</>;
+}
+$0
+endsnippet
+
+snippet salert
+const [showAlert, setShowAlert] = useState({
+	value: false,
+	severity: 'error',
+	message: '',
+});
+$0
+
+endsnippet
+
+snippet jsxalert
+<ShowAlert
+	open={showAlert.value}
+	onClose={() => setShowAlert({ ...showAlert, value: false })}
+	severity={showAlert.severity}
+	message={showAlert.message}
+/>
+$0
+endsnippet

@@ -1,3 +1,4 @@
+
 let s:VIM_HOME = "$HOME/.config/nvim"
 
 let s:MOD_DIR = expand(s:VIM_HOME) . "/mods"
@@ -5,8 +6,6 @@ exec "set rtp+=". s:MOD_DIR
 exec "set path+=". s:MOD_DIR
 
 command! -nargs=1 LoadFile exec 'source '. expand(s:MOD_DIR) . '/'. <args>
-
-set number
 
 if (!exists("g:vscode")) 
 	" Some Defaults that i like to have
@@ -16,7 +15,7 @@ if (!exists("g:vscode"))
 	LoadFile 'tabs-n-spaces.vim'
 
 	" Plugins and their configurations
-	LoadFile 'plugins.vim'
+    LoadFile 'plugins.vim'
 
     " Look and Feel
     LoadFile 'look-n-feel.vim'
@@ -25,7 +24,7 @@ if (!exists("g:vscode"))
     LoadFile 'statusline.vim'
 
     " Coc Nvim LSP Configuration
-	LoadFile 'coc-lsp.vim'
+    LoadFile 'coc-lsp.vim'
 
     " LoadFile 'nvim-lsp.vim'
 
@@ -34,6 +33,9 @@ if (!exists("g:vscode"))
 
     " Vim AutoCommands
     LoadFile 'autocommands.vim'
+
+    " Some Damian Conway Tricks
+    LoadFile "hl-next.vim"
 
 	" Key Mappings, so so important
 	LoadFile 'keymaps.vim'

@@ -1,11 +1,25 @@
+# vim: set ft=zsh
+
 #! /bin/zsh
 
-### Prompt Setup ###
+# nvim() {
+#     $HOME/builds/nvim-linux64/bin/nvim $*
+# }
+
+vim() {
+    # nvim
+    VIMRUNTIME="$HOME/builds/nvim-linux64/share/nvim/runtime"
+    $HOME/builds/nvim-linux64/bin/nvim $*
+}
+
+
+#Prompt Setup ###
 DIR="/home/nxtcoder17/builds/Dots/zsh"
 source "$DIR/scripts/alias.sh"
 source "$DIR/scripts/env.sh"
 source "$DIR/scripts/functions.sh"
 source "$DIR/scripts/prompt.sh"
+source "$DIR/scripts/lf-icons.sh"
 
 SECRETS_FILE="$HOME/.secrets"
 source $SECRETS_FILE
@@ -58,7 +72,8 @@ function zle-keymap-select {
 # ci{, ci(, di{ etc..  autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'};
+  do
     bindkey -M $m $c select-bracketed
   done
 done
@@ -82,5 +97,3 @@ source /usr/share/fzf/completion.zsh
 # export npm_config_registry=http://services:4873
 NPM_PACKAGES="${HOME}/.local-node"
 export PATH="$PATH:$NPM_PACKAGES/bin"
-
-

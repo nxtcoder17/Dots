@@ -11,3 +11,7 @@ alias nukeswap='rm -rf ~/.local/share/nvim/swap'
 cd() {
     builtin cd $1 && ls
 }
+
+# nvim() {
+#     /home/nxtcoder17/builds/nvim-linux64/bin/nvim $*
+# }

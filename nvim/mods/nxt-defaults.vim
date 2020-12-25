@@ -24,9 +24,6 @@ set backspace=indent,eol,start
 " Enabling Mouse Support
 set mouse=a
 
-" Enabling Cursor Line
-set cursorline
-
 " Shows Matching brackets
 set showmatch
 
@@ -36,9 +33,6 @@ set matchtime=4
 " Always split on the Right and at Bottom
 set splitright
 set splitbelow
-
-" Marker based Code folding
-set foldmethod=marker
 
 " Persistent Undo
 set undodir=~/.cache/nvim/undodir
@@ -72,7 +66,6 @@ set wildignore=*.pyc,*.o,.git,node_modules
 " Comlpetion options
 set completeopt=menuone,noinsert,noselect
 
-
 " AutoRead: Important as when formatters are run on the file save, Do reload the contents
 set autoread
 
@@ -84,9 +77,10 @@ set hlsearch
 
 " Incremental Search: Search as you type
 set incsearch
+
 " Ignorecase / Smartcase while you search
-	set ignorecase
-	set smartcase
+set ignorecase
+set smartcase
 
 " Sane defaults for timeouts
 set timeout           " for mappings

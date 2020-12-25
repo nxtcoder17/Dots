@@ -1,3 +1,5 @@
+# vim: set ft=i3config:
+
 ############################################################################################################################
 # ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄ ▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄# 
 #▐░░░░░░░░░░░▌▐░░░░░░░░░▐░░▌ ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌ 
@@ -238,10 +240,12 @@ bindsym Control + exclam           exec --no-startup-id $toggleMute
 # [ Executing Applications ] {{{
 
 # -> Opening Terminal
-# set $term konsole --hide-menubar
 set $term xfce4-terminal --hide-menubar
+set $term2 konsole --hide-menubar --hide-tabbar
+# set $term alacritty
 # set $term st
-bindsym $mod + Return               exec --no-startup-id $term
+bindsym $mod + Return                           exec --no-startup-id $term
+bindsym $mod + Control + Return                 exec --no-startup-id $term2
 
 
 # -> Executing Rofi Desktop Run Window
@@ -264,7 +268,7 @@ bindsym $mod + b                    exec $BROWSER
 
 # Turning on the HDMI display, and laptop display to turn off
 
-set $turnHDMIon xrandr --output HDMI-2 --scale 0.5x0.5 --auto && xrando --output eDP-1 --off
+set $turnHDMIon xrandr --output HDMI-2 --scale 0.65x0.65 --auto --right-of eDP-1
 set $turnHDMIoff xrandr --output eDP-1 --auto && xrandr --output HDMI-2 --off
 
 bindsym $alt + shift + m                   exec "$turnHDMIon"
@@ -296,7 +300,7 @@ exec_always --no-startup-id      source /etc/profile.d/locale.sh
 exec_always --no-startup-id      feh --bg-scale ~/.wallpaper
 
 # -> Music Player Daemon [mpd]
-exec --no-startup-id             mpd
+# exec --no-startup-id             mpd
 
 # -> Network Manager
 exec --no-startup-id             nm-applet
@@ -311,20 +315,6 @@ exec --no-startup-id            dunst
 # Synaptics TM3276-022 
 # exec_always --no-startup-id     xinput set-prop 'Synaptics TM3127-001' 'libinput Tapping Enabled' 1
 exec_always --no-startup-id     xinput set-prop 'Synaptics TM3276-022' 'libinput Tapping Enabled' 1
-
-
-# Redshift
-# exec --no-startup-id            redhshift -l 26:85
-
-# Wallpaper Slideshow: Don't want it now, irritating
-# exec                           "/home/balor/Dots/scripts/wallpaper.sh"
-# exec                            feh --bg-scale /home/balor/.wallpaper.jpg
-
-# Tmux Script for new status bar
-# Firstly execute tmux, it will automatically restore the panes and windows
-# exec                            tmux new -s Workspace
-# Then, call the configuration script for tmux
-# exec_always                           "/home/balor/Dots/tmux/tmux_config.sh"
 
 #===================[End: Auto-startup Applications ]=========================}}}
 
@@ -381,7 +371,7 @@ bar {
 		# Separator     : Text color to be used for Separator
 		separator $green
 
-	#	 ColorClass			Border			Background		   Foreground Text
+		#	 ColorClass			Border			Background		   Foreground Text
         focused_workspace   $transparent    $navyBlue          $battleshipGrey
 		inactive_workspace  $transparent    $battleshipGrey          $black
 		urgent_workspace    $transparent    $tomatoRed         $transparent
@@ -407,6 +397,7 @@ for_window [class = 'gl'] floating enable
 # for_window [instance="music"] floating enable
 # for_window [instance="music"] resize set 1000 300
 # for_window [instance="music"] move scratchpad
+
 # for_window [instance="music"] border pixel 5
 #
 
