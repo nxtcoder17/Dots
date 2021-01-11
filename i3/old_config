@@ -1,0 +1,317 @@
+
+#===============================[ General Configurations ]=================================={{{
+# [ Recommended for i3-gaps ]
+for_window [class="^.*"] border pixel 0
+
+# [ Setting the Modifier Keys ]
+set $mod Mod4
+set $alt Mod1
+
+# [ My Favourite Font ]
+# font pango:Monaco for Powerline Regular 10
+font pango: Furacode Nerd Font Mono 10
+
+#===============================[ General Configurations ]==================================}}}
+
+#============================[ Workspace Configuration ]==========================={{{
+
+#============[ Workspace Names ]===============
+set $ws1    
+
+#=================[ Accessing the Worspaces 1 to 10 ]================={{{
+bindsym $mod+1 workspace 1 $ws1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+#=================[ End: Accessing the Workspaces ]====================}}}
+
+#=======================[ Moving Focused Container to specific workspaces ]================={{{
+bindsym $mod+Shift+1 move container to workspace 1 $ws1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+#=======================[End: Moving Focused Container to specific workspaces ]===============}}}
+
+#============================[End: Workspace Configuration ]========================}}}
+
+#===========================[ Key Mappings ]=============================={{{
+
+#========= ==> [ Controlling i3 wm ] <== ============{{{
+# -> Reload i3 
+bindsym $mod + Shift + c            reload
+
+# -> Restart i3
+bindsym $mod + Shift + r            restart
+
+# -> Killing Applications
+bindsym $mod + shift + q            kill
+
+# -> Resizing Splits
+bindsym $mod+shift+minus            resize shrink width 2 px
+bindsym $mod+shift+plus             resize grow width 2 px
+
+# -> Floating Windows
+bindsym $mod+space                  floating toggle
+
+# -> FullScreen i3 
+bindsym $mod+f                      fullscreen toggle
+popup_during_fullscreen             smart
+
+# -> Switch Back and Forth b/w Workspaces
+bindsym $mod+Tab                    workspace back_and_forth
+
+# -> Splitting Choices
+bindsym $alt + v                    split vertical
+bindsym $alt + h                    split horizontal
+
+#========= ==> [End: Controlling i2 wm ] <== =======}}}
+
+#============ ==> [ Navigation around Splits ] <== ============={{{
+
+# focus : Focuses the Container over the given direction
+# move  : Moves the Container to the given position
+
+# ==> Key-Scheme 1 : Vim-Lovers <== {{{
+# 	Mod+Vim-Keys    : change focus among containers
+# 	Mod+Shift +Keys : Moving the Container
+
+bindsym $mod+h focus left
+bindsym $mod+Shift+h move left
+
+bindsym $mod+l focus right
+bindsym $mod+Shift+l move right
+
+bindsym $mod+j focus down
+bindsym $mod+Shift+j move down
+
+bindsym $mod+k focus up
+bindsym $mod+Shift+k move up
+
+# ==> End -> Key-Scheme 1 : Vim-Lovers <== }}}
+
+# ==> Key-Scheme 2 : Direction Keys <== {{{
+# 	Mod+Arrows       : change focus among Containers
+# 	Mod+Shift+Arrows : Moving the Container
+
+bindsym $mod+Left focus Left
+bindsym $mod+Shift+Left move left
+
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Down focus down
+bindsym $mod+Shift+Down move down
+
+bindsym $mod+Up focus up
+bindsym $mod+Shift+Up move up
+
+# ==> End-> Key-Scheme 2 : Direction Keys <== }}}
+
+#============= ==>[ End : Navigation around Splits ] <== ============}}}
+
+#========= ==> [ MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== ============{{{
+#
+# -> Toggles b/w play and pause
+bindsym $mod + Pause exec --no-startup-id mpc toggle
+# -> Plays the next song
+bindsym $mod + greater      exec --no-startup-id mpc next
+# -> Plays the previous song
+bindsym $mod + less         exec --no-startup-id mpc prev
+# -> Shuffles the Music Queue
+bindsym $mod + question     exec --no-startup-id mpc shuffle
+
+#========= ==> [End: MusicPlayer Controls: mpd + mpc + ncmpcpp ] <== =========}}}
+
+#============ ==> [ Volume Configuration: Pulse Audio + pamixer ] <== ============{{{
+
+#========[ Setting up Variables ]========={{{
+
+# -> Decrementing Volume
+set $minorDec --no-startup-id pamixer --allow-boost -d 5
+set $majorDec --no-startup-id pamixer --allow-boost -d 10
+
+# -> Incrementing Volume
+set $minorInc --no-startup-id pamixer --allow-boost -i 5
+set $majorInc --no-startup-id pamixer --allow-boost -i 10
+
+# -> Toggling Volume: Mute/Unmute
+set $toggleMute --no-startup-id pamixer -t
+
+#========[End: Setting up Variables ]=========}}}
+
+#==========[ Setting up the Key Combinations ]==========={{{
+# -> Minor Increment
+bindsym $alt + plus             exec --no-startup-id $minorInc
+# -> Major Increment
+bindsym $alt + shift + plus     exec --no-startup-id $majorInc
+
+# -> Minor Decrement
+bindsym $alt + minus            exec --no-startup-id $minorDec
+# -> Major Decrement
+bindsym $alt + shift + minus    exec --no-startup-id $minorDec
+
+# -> Toggle Mute
+bindsym Control + exclam           exec --no-startup-id $toggleMute
+#==========[End: Setting up the Key Combinations ]===========}}}
+
+#============ ==> [End: Volume Configuration: Pulse Audio + pamixer ] <== ============}}}
+
+#=========== ==> [ Executing Applications ] <== =============={{{
+
+# -> Opening Terminal
+set $term konsole --hide-menubar
+# set $term xfce4-terminal --hide-menubar
+set $term st
+bindsym $mod + Return               exec --no-startup-id $term
+
+# -> Executing Rofi Desktop Run Window
+bindsym $mod + d exec --no-startup-id rofi -show drun -lines 5 -width 600
+
+# -> Executing Rofi Run Window
+# bindsym $mod + shift + d exec --no-startup-id rofi -show run -lines 5 -eh 1 -width 600 -location 0 -hide-scrollbar -bw 4 -opacity 100 -bc "#283e26" -bg "#1f1513" -fg "$ffffff" -hlbg "#283e26" -hlfg "#ffffff" -bgalt "#527d41" -separator-style "solid" -padding 50 
+
+# -> Taking Screenshots: scrot 
+set $shot scrot -q 100
+bindsym Print                       exec --no-startup-id $shot
+bindsym $mod + Print                exec --no-startup-id $shot -u 
+ 
+# -> executing ranger
+bindsym $mod + r                    exec $term -e ranger
+
+# Executing firefox
+set $browser notify-send 'Firefox started' && ~/Applications/firefox/firefox
+bindsym $mod + b                    exec $browser
+#=========== ==> [End: Executing Applications ] <== ==============}}}
+
+# ========== ==> [ Executing External Scripts ] <== ==========={{{
+# -> Executing i3lock script
+bindsym $mod + x            exec --no-startup-id ~/.config/i3/scripts/lock.sh
+
+# -> 
+# ========== ==> [End: Executing External Scripts ] <== ===========}}}
+
+bindsym $mod+Shift+Delete	exec lmc truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+#===========================[ Key Mappings ]==============================}}}
+
+#===================[ Auto-startup Applications ]============================{{{
+
+# -> Setting Locale to en_US.UTF-8
+exec_always --no-startup-id      localectl set-locale LANG=en_US.UTF-8
+exec_always --no-startup-id      unset LANG
+exec_always --no-startup-id      source /etc/profile.d/locale.sh
+
+# -> Map CapsLock as Ctrl: xcape utility
+exec_always --no-startup-id      setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id      xcape -e 'Control_L=Escape'
+
+# -> Wallpaper Setup
+exec_always --no-startup-id      feh --bg-scale ~/.wallpaper.jpg
+
+# -> Music Player Daemon [mpd]
+exec --no-startup-id             mpd
+
+# -> Network Manager
+exec --no-startup-id             nm-applet
+
+# -> Composite Manager
+exec --no-startup-id             compton --xrender-sync-fence 
+
+# -> Notification daemon
+exec --no-startup-id            dunst
+
+# TouchPad: Tap To Click
+exec --no-startup-id            xinput list-props "SynPS/2 Synaptics TouchPad" 286 1
+
+# Polybar Setup
+exec_always --no-startup-id     $HOME/.config/polybar/launch.sh
+#===================[End: Auto-startup Applications ]=========================}}}
+
+#===================[ Bar Configuration ]===================={{{
+
+# Colors and Variables
+set $transparent    #00000000
+set $black          #000000
+set $pacificBlue    #00a7c9
+set $tomatoRed      #ff5a4a
+set $cornSilk       #fff7d9
+set $battleshipGrey #838581
+set $green 			#69db7c
+set $cyan 			#66d9e8
+
+bar {
+	status_command i3blocks
+	i3bar_command i3bar -t
+
+	# position : Top | Bottom
+	position top
+	# mode : dock | hide | invisible
+	mode dock
+	# modifier : Mod1-Mod5, Ctrl etc keys
+	modifier $mod
+	# Font : Monaco
+	# font pango:Monaco for Powerline Regular 10
+	font pango: Furacode Nerd Font 10
+	# Separator Symbol
+	separator_symbol " " 
+	# WorkSpace Buttons
+	workspace_buttons yes	
+	# Binding Mode Indicators
+	binding_mode_indicator no
+
+	colors {
+		# Background	: defines the background Color
+		background $transparent
+		# Statusline    : Text Color to be used for Statusline
+		statusline $cyan
+		# Separator     : Text color to be used for Separator
+		separator $green
+
+	#	 ColorClass			Border			Background			Text
+		focused_workspace   $transparent    $green        		$black
+		inactive_workspace  $transparent    $transparent    	$green
+		urgent_workspace    $transparent    $tomatoRed          $transparent
+	}
+}
+
+#===================[ END : Bar Configuration ]====================}}}
+
+#================[ Fixing the Graphical Interface ]================== {{{
+
+floating_maximum_size 1366 x 748
+
+for_window [window_role="pop_up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="GtkFileChooserDialog"] floating enable
+for_window [window_role='vlc-main'] floating enable
+
+for_window [class = 'gl'] floating enable
+#================[ End : Fixing the Graphical Interface ]============}}}
+
+#========= ==> [ ScratchPad ] <== =========== {{{
+# for_window [instance="music"] floating enable
+# for_window [instance="music"] resize set 1000 300
+# for_window [instance="music"] move scratchpad
+# for_window [instance="music"] border pixel 5
+
+for_window [title="NCMPCPP"] floating enable
+for_window [title="NCMPCPP"] resize set 1000 300
+for_window [title="NCMPCPP"] move scratchpad
+for_window [title="NCMPCPP"] border pixel 5
+# exec_always --no-startup-id st -n music -e ncmpcpp
+exec_always --no-startup-id xfce4-terminal --hide-menubar -T NCMPCPP -e ncmpcpp
+
+bindsym $mod + m			[title="NCMPCPP"] scratchpad show; [title="NCMPCPP"] move position center
+
+#========= ==> [End: ScratchPad ] <== =========== }}}

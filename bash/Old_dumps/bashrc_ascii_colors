@@ -1,0 +1,82 @@
+# This is my .bashrc file
+
+#           :)) phenomenal-ab
+#           :)) https://github.com/phenomenal-ab
+
+# My Common Aliases that i always use
+alias ls='ls --color=auto'
+alias conn='netctl start wlp19s0-ACET_BH23'
+alias mo='mount -t ext4 /dev/sda4 /My_Everything/'
+alias xc='xclip -selection clipboard -o '
+alias um='umount /dev/sda4'
+alias vp='source ~/.local/Virtual_Python/bin/activate'
+alias yt='youtube-dl --write-auto-sub --no-playlist'
+alias tmuxw='tmux -2u new -s Workspace'
+
+#=============[ Unusual Environment Variables ]=================
+export TERM='xterm-256color'
+# Aliases for tmux
+# alias tmux='tmux -2u'
+
+#=========[ Environment Variables ]==========
+export EDITOR='vim'
+export EMAIL='phenomenal_ab@linuxmail.org'
+export PAGER=less       # Use the less tool as my default pager
+export BROWSER='qutebrowser --target tab %s'
+
+#========[ Foreground Colors ]==========
+BLACK="\[\033[01;30m\]"
+RED="\[\033[01;31m\]"
+GREEN="\[\033[01;32m\]"
+YELLOW="\[\033[01;33\]"
+BLUE="\[\033[01;34m\]"
+MAGENTA="\[\033[01;35m\]" CYAN="\[\033[01;36m\]"
+WHITE="\[\033[01;37m\]"
+
+BLACK_DIM="\[\033[02;30m\]"
+RED_DIM="\[\033[02;31m\]"
+GREEN_DIM="\[\033[02;32m\]"
+YELLOW_DIM="\[\033[02;33\]"
+BLUE_DIM="\[\033[02;34m\]"
+MAGENTA_DIM="\[\033[02;35m\]"
+CYAN_DIM="\[\033[02;36m\]"
+WHITE_DIM="\[\033[02;37m\]"
+
+#========[ Background Colors ]===========
+black="\[\033[01;40m\]"
+red="\[\033[01;41m\]"
+green="\[\033[01;42m\]"
+yellow="\[\033[01;43\]"
+blue="\[\033[01;44m\]"
+magenta="\[\033[01;45m\]"
+cyan="\[\033[01;46m\]"
+white="\[\033[01;47m\]"
+
+black_dim="\[\033[02;40m\]"
+red_dim="\[\033[02;41m\]"
+green_dim="\[\033[04;42m\]"
+yellow_dim="\[\033[02;43\]"
+blue_dim="\[\033[02;44m\]"
+magenta_dim="\[\033[02;45m\]"
+cyan_dim="\[\033[02;46m\]"
+white_dim="\[\033[02;47m\]"
+
+NEUTRAL="\[\033[00m\]"
+DIRECTORY="${RED}${white} \w ${NEUTRAL}${WHITE}${NEUTRAL}"
+# DIRECTORY="${RED}${white} \w ${NEUTRAL}"
+DIR_SUFFIX="${WHITE}${yellow}${NEUTRAL}"
+NORMAL_USER="${BLACK}${cyan}  \u${NEUTRAL}${CYAN}${NEUTRAL}"
+ARCH="${CYAN}${green}ARCH${NEUTRAL}"
+
+# Source: https://stackoverflow.com/questions/10406926/how-do-i-change-the-default-virtualenv-prompt
+
+VENV=""
+if [[ -n "$VIRTUAL_ENV" ]]
+then
+    VENV_NAME="${VIRTUAL_ENV##*/}"
+    VENV="${WHITE}${yellow} ${VENV_NAME}${YELLOW}${NEUTRAL}"
+else
+    VENV_NAME=""
+fi
+
+PS1="${DIRECTORY}\n${NORMAL_USER} "

@@ -1,0 +1,61 @@
+#===============[ Just Some Variables ]====================
+# NORMAL_USERNAME='\[\033[01;32m\][\u]'
+# ROOT_USERNAME='\[\033[01;31m\][\u]'
+# DIRECTORY='\[\033[01;36m\][\w]'
+# NEUTRAL_COLOR='\[\033[00m\]'
+# PROMPT='\[\033[01;36m\]:)\[\033[00m\]'
+
+# #=============[ BackGround Colors ]============
+# none=$(tput setab 0)
+# red=$(tput setab 1)
+# green=$(tput setab 2)
+# yellow=$(tput setab 3)
+# blue=$(tput setab 4)
+# pink=$(tput setab 5)
+# cyan=$(tput setab 6)
+# white=$(tput setab 7)
+# black=$(tput setab 0)
+# #==============================================
+# 
+# #=============[ ForeGround Colors ]============
+# NONE=$(tput setaf 0)
+# RED=$(tput setaf 1)
+# GREEN=$(tput setaf 2)
+# YELLOW=$(tput setaf 3)
+# BLUE=$(tput setaf 4)
+# PINK=$(tput setaf 5)
+# CYAN=$(tput setaf 6)
+# WHITE=$(tput setaf 7)
+# BLACK=$(tput setaf 0)
+# #==============================================
+# 
+# BOLD=$(tput bold)
+# RESET=$(tput sgr0)
+# 
+# NORMAL_USERNAME="\[${BOLD}${BLACK}${cyan}\]  \u\[${RESET}${BOLD}${CYAN}${none}\]\[${RESET}\]"
+# ROOT_USERNAME='\[\033[01;31m\][\u]'
+# DIRECTORY="\[${BOLD}${RED}${white}\]  \w \[${RESET}${WHITE}\]\[$RESET\]"
+# # TIME="\[${BOLD}${RED}${white}$(date +%H:%M:%S)\]${BOLD}${WHITE}${pink}\[$RESET\]"
+# NEUTRAL_COLOR='\[\033[00m\]'
+# PROMPT='\[\033[01;36m\]:)\[\033[00m\]'
+
+# if [ $EUID -eq 0 ]
+# then
+    # # For My pacman : But Required only when user is root
+    # alias py='pacman -Syyyy'
+    # alias pu='pacman -Su'
+    # alias pyu='pacman -Syyyu'
+    # alias PS='pacman -S'
+    # alias edvd='umount /dev/sr0 && eject /dev/sr0'
+# 
+    # # My Variables for Root User
+    # Ba='/home/balor/'
+    # MBu='/My_Everything/Burned/'
+    # MTu='/My_Everything/Tutorials/'
+    # disk='/run/media/balor/'
+# 
+     # export PS1="$ROOT_USERNAME $DIRECTORY\n $PROMPT "
+# else
+     # #export PS1="$NORMAL_USERNAME $DIRECTORY\n $PROMPT "
+     # export PS1="${DIRECTORY} \n${NORMAL_USERNAME} $NEUTRAL_COLOR"
+# fi

@@ -1,0 +1,24 @@
+# vim: set filetype=i3blocks:
+
+align=center
+separator=false
+separator_block_width=0
+
+[date and time]
+# command=echo -e "<span bgcolor='#6779b8' fgcolor='#000000'><b> $( ([[ $BLOCK_BUTTON -eq 1 ]] && date) || date '+%a %I:%M %p') </b></span>"
+command=echo -e "<span fgcolor='black' bgcolor='#838581'><b> $( ([[ $BLOCK_BUTTON -eq 1 ]] && date) || date '+%a %I:%M %p') </b></span>"
+interval=5
+min_width=1550
+align=center
+markup=pango
+
+[public IP]
+# command=echo -e "<span bgcolor='black' fgcolor='#d2ff0a'><b> [IP] $(wget -qO - ipv4.icanhazip.com) </b></span>"
+command=echo -e "<span fgcolor='#ffa514' bgcolor='#424040'><b> [IP] $(wget -qO - ipv4.icanhazip.com) </b></span>"
+interval=once
+markup=pango
+
+[battery]
+command=~/.config/i3blocks/scripts/battery.sh 
+interval=5
+markup=pango

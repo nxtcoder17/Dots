@@ -1,0 +1,33 @@
+# [ Music ]
+# label=
+#color=#00ff00
+#interval=01
+#markup=pango
+#command=echo "<span background='#f7f300' foreground='#00000000'>$(echo  )<b> $(mpc current) </b></span>"
+
+[window]
+command=xtitle -s
+interval=persist
+
+[Music]
+interval=1
+markup=pango
+command=echo "<span background='#123d3b' foreground='#2eff00'>$(echo  )<b> $((tail -1 /tmp/music.log | sed 's/\..*//g') && ([[ $BLOCK_BUTTON -eq 1 ]] && /home/balor/Dots/scripts/music_i3blocks.sh 1)) </b></span>"
+
+# For System Volume Information
+[ Volume ]
+#label= 
+color=#e00b59
+interval=01
+markup=pango
+command=echo "<span background='#00e9ff' foreground='#00000000'><i>$(echo ' ') </i><b>$(pamixer --get-volume)</b> </span>"
+
+[ Battery ]
+interval=1
+markup=pango
+command=echo "<span background='#2cf74a' foreground='#00000000'> <b> $(acpi | awk '{print $4}' | sed s/,//) </b> </span>"
+
+[ Date and Time ]
+interval=1
+markup=pango
+command=echo "<span background='#f72c51' foreground='#ffffff'><i> $(echo   )</i><b> $(([[ $BLOCK_BUTTON -eq 1 ]] && date) || date +%T) </b> </span>"

@@ -1,0 +1,40 @@
+snippet fcomp
+import React from 'react';
+
+const ${1:Sample} = () => {
+	return <>
+		This is $1
+	</>;
+}
+
+export default $1;
+$0
+endsnippet
+
+snippet salert
+const [showAlert, setShowAlert] = useState({
+	value: false,
+	severity: 'error',
+	message: '',
+});
+$0
+
+endsnippet
+
+snippet jsxsalert
+<ShowAlert
+	open={showAlert.value}
+	onClose={() => setShowAlert({ ...showAlert, value: false })}
+	severity={showAlert.severity}
+	message={showAlert.message}
+/>
+$0
+endsnippet
+
+
+snippet epstore
+import { useStoreState, useStoreActions } from "easy-peasy";
+const data = useStoreState(state => state[${1:sampleKey}])
+const { setValue } = useStoreActions(actions => actions[$1])
+$0
+endsnippet

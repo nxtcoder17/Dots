@@ -1,0 +1,87 @@
+{
+	"languageserver": {
+		"ccls": {
+			"command": "ccls",
+			"filetypes": [
+				"h",
+				"c",
+				"cpp",
+				"cxx",
+				"c++",
+				"C"
+			],
+			"rootPatterns": [
+				".ccls",
+				"compile_commands.json",
+				".vim/",
+				".git/",
+				".hg/"
+			],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/tmp/ccls"
+				}
+			}
+		},
+		"intelephense": {
+			"command": "intelephense",
+			"args": ["--stdio"],
+			"filetypes": ["php"],
+			"initializationOptions": {
+				"storagePath": "/tmp/intelephense"
+			}
+		}
+	},
+
+	/* Kind of not that intuituve in NeoVim */
+	"codeLens.enable": false,
+
+	/* "eslint.autoFixOnSave": true, */ /* Handled through AutoCommands */
+	"eslint.format.enable": true,
+
+	// TODO add more labels and give them cool glyphs
+	"suggest.completionItemKindLabels": {
+		"text": "t",
+		"method": "m",
+		"function": ""
+	},
+
+	"suggest.enablePreview": true,
+	"diagnostic.virtualText": false,
+	"diagnostic.errorSign": "✘",
+	"diagnostic.warningSign": " ",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": " ",
+	"diagnostic.enable": true,
+	"diagnostic.level": "warning",
+	"diagnostic.refreshOnInsertMode": true,
+
+	"git.realtimeGutters": false,
+	"git.enableGutters": false,
+	"git.enableGlobalStatus": false,
+
+
+	/* "typescript.validate.enable": true, */
+	"typescript.validate.enable": true,
+	"javascript.validate.enable": true,
+
+	"typescript.suggestionActions.enabled": true,
+	"javascript.suggestionActions.enabled": true,
+	"javascript.suggest.autoImports": true,
+	"typescript.suggest.autoImports": true,
+
+	"explorer.width": 50,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+	"explorer.icon.enableVimDevicons": false,
+	"explorer.keyMappings.global": {
+		"<cr>": ["expandable?", "expand", "open"],
+		"v": "open:vsplit"
+	},
+	"coc.preferences.extensionUpdateCheck": "daily",
+
+	"python.jediEnabled": false,
+	/* "python.linting.enabled": true, */
+	"python.formatting.provider": "black"
+	/* "coc.preferences.formatOnSaveFiletypes": ["*.py"] */
+}
