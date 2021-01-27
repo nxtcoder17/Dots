@@ -143,5 +143,7 @@ nmap <silent><nowait> <space>e :CocCommand explorer<CR>
 
 " Intellij Like
 nmap <A-CR> <Plug>(coc-codeaction)
+vmap <A-CR> <Plug>(coc-codeaction)
 " nmap <A-CR> :CocFzfList actions<CR>
 
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>

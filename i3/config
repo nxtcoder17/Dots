@@ -1,4 +1,4 @@
-# vim: set ft=i3config:
+# vim: set ft=i4config:
 
 ############################################################################################################################
 # ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄ ▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄▄# 
@@ -267,8 +267,10 @@ bindsym $mod + Print                exec --no-startup-id $shot -u
 bindsym $mod + r                    exec $term -e ranger
 
 # Executing firefox
-bindsym $mod + b                    exec "$HOME/builds/firefox/firefox -p nxtcoder17"
-bindsym $mod + c					exec "google-chrome-stable --remote-debugging-port=9222"
+
+bindsym $mod + b                    exec  systemd-run --user --slice=firefox.slice ~/builds/firefox/firefox -desktop
+bindsym $mod + c					exec "systemd-run --user --slice=firefox.slice /usr/bin/google-chrome-stable --remote-debugging-port=9222"
+bindsym $alt + c                    exec  systemd-run --user --slice=firefox.slice /usr/bin/vivaldi-stable -desktop
 
 # Turning on the HDMI display, and laptop display to turn off
 

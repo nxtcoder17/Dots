@@ -97,3 +97,6 @@ source /usr/share/fzf/completion.zsh
 # export npm_config_registry=http://services:4873
 NPM_PACKAGES="${HOME}/.local-node"
 export PATH="$PATH:$NPM_PACKAGES/bin:$HOME/bin"
+
+
+[ -f './.sh.env' ] && source './.sh.env'

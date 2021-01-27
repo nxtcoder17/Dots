@@ -3,7 +3,9 @@ import React from 'react';
 
 const ${1:Sample} = () => {
 	return <>
-		This is $1
+	  <div>
+		  This is $1
+	  </div>
 	</>;
 }
 
@@ -36,5 +38,43 @@ snippet epstore
 import { useStoreState, useStoreActions } from "easy-peasy";
 const data = useStoreState(state => state[${1:sampleKey}])
 const { setValue } = useStoreActions(actions => actions[$1])
+$0
+endsnippet
+
+
+
+snippet pagectx
+import React, { createContext, useCallback, useContext, useState } from 'react';
+
+const ${1:initState} = {
+};
+
+const ${3: ${2:Comp}StateContext} = createContext(null);
+const ${4: $2ActionContext} = createContext(null);
+
+export const use$1Context = () => {
+  const state = useContext($3);
+  const action = useContext($4);
+  return [state, action];
+};
+
+export const $1Provider = ({ children }) => {
+  const [data, setData] = useState($1);
+
+  const action = useCallback(
+    (payload) => {
+      setData({ ...studentsData, ...payload });
+    },
+    [data]
+  );
+
+  return (
+    <$3.Provider value={data}>
+      <$4.Provider value={action}>
+        {children}
+      </$4.Provider>
+    </$5.Provider>
+  );
+};
 $0
 endsnippet

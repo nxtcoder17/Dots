@@ -22,6 +22,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'fratajczak/one-monokai-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'doums/darcula'
+
+" For SCSS Highlighting
+Plug 'cakebaker/scss-syntax.vim'
+
 
 " Vim Rooter : keeps project root as the nvim root
 Plug 'airblade/vim-rooter'
@@ -68,6 +73,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Auto Close XHTML tags
 Plug 'alvan/vim-closetag'
+Plug 'AndrewRadev/tagalong.vim'
 
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
@@ -85,20 +91,16 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Vim Sneak
 Plug 'justinmk/vim-sneak'
 
-" Neovim LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-
 " Auto Sizing Window splits : It conflicts with fzf floating window
 " Plug 'camspiers/animate.vim'
 " Plug 'camspiers/lens.vim'
 
-" Custom tsserver
-" Plug 'neoclide/coc-tsserver', {'branch': 'master',  'do': 'yarn install --frozen-lockfile' }
-
 " Debugging
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+
+" FireNvim
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
 " }}}
@@ -232,3 +234,11 @@ map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
+
+
+" Vim Multiscursors
+let g:VM_mouse_mappings = 1
+
+nmap   <C-LeftMouse>         <Plug>(VM-Mouse-Cursor)
+nmap   <C-RightMouse>        <Plug>(VM-Mouse-Word)  
+nmap   <M-C-RightMouse>      <Plug>(VM-Mouse-Column)

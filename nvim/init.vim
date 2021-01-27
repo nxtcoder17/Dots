@@ -1,4 +1,3 @@
-
 let s:VIM_HOME = "$HOME/.config/nvim"
 
 let s:MOD_DIR = expand(s:VIM_HOME) . "/mods"
@@ -39,4 +38,7 @@ if (!exists("g:vscode"))
 
 	" Key Mappings, so so important
 	LoadFile 'keymaps.vim'
+
+    " Abbreviations
+    LoadFile 'abbreviations.vim'
 endif

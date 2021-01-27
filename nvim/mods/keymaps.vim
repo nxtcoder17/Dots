@@ -38,6 +38,7 @@ nnoremap <leader>r b:%s/\<<C-r><C-w>\>//c<left><left>
 vnoremap <leader>r :s/<C-r>"//c<left><left>
 
 nnoremap <leader>t :tab split<CR>
+nmap <leader>n :tabedit<CR>
 
 
 function! HLCurrentLine(blinktime)
@@ -48,8 +49,7 @@ function! HLCurrentLine(blinktime)
   redraw
 endfunction
 
-nnoremap <M-i> :call HLCurrentLine(0.3)<CR>
-inoremap <M-i> <Esc>:call HLCurrentLine(0.1)<CR>
+nnoremap <M-;> :call HLCurrentLine(0.2)<CR>
 
 "-------------------------------------------------------------
 " Rewriting my entire workflow around `s`: WHY? cause why not 
@@ -150,5 +150,4 @@ nmap <C-S-Right> :vertical resize +5<CR>
 nmap <C-S-Left> :vertical resize -5<CR>
 nmap <C-S-Up> :resize +5<CR>
 nmap <C-S-Down> :resize -5<CR>
-
 
