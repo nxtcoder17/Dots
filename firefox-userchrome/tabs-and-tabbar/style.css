@@ -87,8 +87,3 @@
 }
 
 /* }}} */
-
-#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] > #identity-icon {
-    list-style-image: url("../assets/search-icon.svg");
-    /* fill-opacity: .4; */
-  }
