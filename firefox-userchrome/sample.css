@@ -1,0 +1,94 @@
+*{
+	--tab-bg-color: #070107
+	--tab-active-bg-color: rgba(64, 66, 64, 0.5);
+	--tab-active-text-color: #a6ef62;
+	--tab-line-color: var(--tab-active-text-color);
+}
+
+:-moz-any(.titlebar-placeholder, .titlebar-spacer)[type=pre-tabs]
+{
+	width: 0 !important;
+}
+
+.tab-line {
+	display: none !important;
+}
+
+
+.tab-close-button {
+    display: none !important;
+}
+
+.tabbrowser-tab[visuallyselected] .tab-close-button {
+  display: inline-block !important;
+	list-style-image: url("../assets/delete-icon.svg") !important;
+	width: 24px;
+}
+
+
+/* Styling the tab */
+
+/* Normal Tab */
+.tabbrowser-tab {
+	min-height: 32px !important;
+	overflow: visible !important;
+	font-size: 0.92rem !important;
+	
+	border: 0 !important;
+	 background: var(--tab-bg-color) !important;
+}
+
+/* Currently Active Tab */
+.tabbrowser-tab[visuallyselected] {
+	font-size: 1rem !important;
+	background: var(--tab-active-bg-color) !important;
+	font-weight: 600 !important;
+	color: var(--tab-active-text-color) !important;	
+}
+
+/* After the Currently Active Tab */
+
+/* It is here to show the badge of the currently active tab */
+.tabbrowser-tab[visuallyselected]:not([usercontextid]):after  {
+    position: absolute !important;
+    top: 70% !important;
+    right: 90% !important;
+	height: 10px !important;
+	width: 10px !important;
+
+    border-radius: 50%;
+    background-color: var(--tab-line-color) !important;
+}
+
+
+/* Firefox Containers */
+
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-bottom-line {
+  height: 0 !important;
+}
+
+.tabbrowser-tab[visuallyselected][usercontextid] > .tab-stack > .tab-background > .tab-bottom-line {
+  background: linear-gradient(to right, transparent 10%, var(--identity-tab-color) 10%, var(--identity-tab-color) 90%, transparent 90%) !important;
+  height: 4px !important;
+  margin-bottom: 2px !important;
+}
+
+.tabbrowser-tab[usercontextid]:after {
+	position: absolute;
+	background: var(--identity-tab-color) !important;
+/*   background: linear-gradient(to right, transparent 10%, var(--identity-tab-color) 10%, var(--identity-tab-color) 90%, transparent 90%) !important; */
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 50% !important;
+}
+
+.tabbrowser-tab[visuallyselected][usercontextid]:after {
+	position: absolute;
+	background: var(--identity-tab-color) !important;
+/*   background: linear-gradient(to right, transparent 10%, var(--identity-tab-color) 10%, var(--identity-tab-color) 90%, transparent 90%) !important; */
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 50% !important;
+}
+
+

@@ -3,6 +3,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Colorscheme : Gruvbox is the best thing
 set background=dark
 colorscheme gruvbox-material
+let g:gruvbox_invert_selection='0'
+
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1

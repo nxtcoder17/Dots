@@ -139,7 +139,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-nmap <silent><nowait> <space>e :CocCommand explorer<CR>
+" nmap <silent><nowait> <space>e :CocCommand explorer<CR>
 
 " Intellij Like
 nmap <A-CR> <Plug>(coc-codeaction)
@@ -147,3 +147,8 @@ vmap <A-CR> <Plug>(coc-codeaction)
 " nmap <A-CR> :CocFzfList actions<CR>
 
 nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+
+" Project Wide Word Renaming
+
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+

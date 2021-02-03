@@ -23,7 +23,7 @@ augroup nxtvim
 
     au BufEnter *.jsx set filetype=typescriptreact
     au BufWritePost *.jsx,*.js CocCommand eslint.executeAutofix
-    au BufWritePost *.scss Format
+    au BufWritePost *.scss,*.css Format
 augroup end
 
 

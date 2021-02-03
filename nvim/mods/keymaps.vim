@@ -15,7 +15,6 @@ tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 " Makes switching to command mode a breeze
 nnoremap ; :
 vnoremap ; :
-
 nnoremap ci "_ci
 
 " Move by screen lines, instead of actual lines
@@ -58,6 +57,9 @@ nnoremap <M-;> :call HLCurrentLine(0.2)<CR>
 
 nnoremap <silent> <A-S-P> :e ~/.config/nvim/init.vim<CR>
 
+nnoremap Y "+y 
+vnoremap Y "+y 
+
 " Make s your sweet key
 map s <nop>
 
@@ -77,9 +79,12 @@ nnoremap <silent> sm :split<CR>
 nnoremap <Space><Space> :w<CR>
 nnoremap ss :w<CR>
 
-nnoremap <silent> sr :CocRestart<CR>\|<CR>
-
+nnoremap <silent> s; :CocRestart<CR>\|<CR>
 nnoremap <silent> sd :bw<CR>
+nnoremap <silent> sr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+" Need to Look at this: https://github.com/mg979/vim-visual-multi/wiki/Mappings
+
 
 " Plugin Specific KeyMappings
 
@@ -150,4 +155,6 @@ nmap <C-S-Right> :vertical resize +5<CR>
 nmap <C-S-Left> :vertical resize -5<CR>
 nmap <C-S-Up> :resize +5<CR>
 nmap <C-S-Down> :resize -5<CR>
+
+nmap <leader>x <Plug>(coc-rename)
 

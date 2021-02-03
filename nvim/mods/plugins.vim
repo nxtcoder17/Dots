@@ -91,6 +91,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Vim Sneak
 Plug 'justinmk/vim-sneak'
 
+" CtrlSF:  for Refactoring
+Plug 'dyng/ctrlsf.vim'
+
 " Auto Sizing Window splits : It conflicts with fzf floating window
 " Plug 'camspiers/animate.vim'
 " Plug 'camspiers/lens.vim'
@@ -98,6 +101,10 @@ Plug 'justinmk/vim-sneak'
 " Debugging
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+
+
+" Vim Fugitive
+Plug 'tpope/vim-fugitive'
 
 " FireNvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
