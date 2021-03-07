@@ -14,3 +14,5 @@ Everyone is free to tweak anything you want to, if you run on issues, generate a
 If you make something, interesting out of it, do share with me (if you want to).
 
 Anyway, Thanks for visiting my repository.
+
+Various Coding Fonts are available at [this repo](git@github.com:bad33bug/coding-fonts.git)
