@@ -1,0 +1,9 @@
+-- nxtcoder17 Neovim LUA config
+
+vim.g.mapleader = ' '
+
+require 'key-mappings'
+require 'switches'
+require 'lsp'
+require 'plugins'
+require 'autocommands'

@@ -33,14 +33,13 @@
 		}
 	},
 
-	/* Kind of not that intuituve in NeoVim */
 	"codeLens.enable": false,
-	"eslint.validate": ["typescriptreact",  "javascriptreact", "javascript", "typescript"],
 
-	/* "eslint.autoFixOnSave": true, */ /* Handled through AutoCommands */
+	"eslint.validate": ["jsx", "typescriptreact", "javscriptreact", "javascript", "typescript"],
+
+	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true,
 
-	// TODO add more labels and give them cool glyphs
 	"suggest.completionItemKindLabels": {
 		"text": "t",
 		"method": "m",
@@ -62,12 +61,12 @@
 	"git.enableGlobalStatus": false,
 
 
-	/* "typescript.validate.enable": true, */
-	"typescript.validate.enable": true,
+	// "typescript.validate.enable": true,
+	"typescript.validate.enable": false,
 	"javascript.validate.enable": true,
-
 	"typescript.suggestionActions.enabled": true,
 	"javascript.suggestionActions.enabled": true,
+
 	"javascript.suggest.autoImports": true,
 	"typescript.suggest.autoImports": true,
 
@@ -82,7 +81,7 @@
 	"coc.preferences.extensionUpdateCheck": "daily",
 
 	"python.jediEnabled": false,
-	/* "python.linting.enabled": true, */
-	"python.formatting.provider": "black"
-	/* "coc.preferences.formatOnSaveFiletypes": ["*.py"] */
+	"python.formatting.provider": "black",
+
+	"emmet.includeLanguages": {"typescriptreact": "javascriptreact"}
 }

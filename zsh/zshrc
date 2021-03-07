@@ -1,15 +1,10 @@
 # vim: set ft=zsh
-
+#
 #! /bin/zsh
 
-# nvim() {
-#     $HOME/builds/nvim-linux64/bin/nvim $*
-# }
 
-vim() {
-    # nvim
-    VIMRUNTIME="$HOME/builds/nvim-linux64/share/nvim/runtime"
-    $HOME/builds/nvim-linux64/bin/nvim $*
+nvim() {
+  $HOME/builds/nvim-linux64/bin/nvim $*
 }
 
 
@@ -98,5 +93,5 @@ source /usr/share/fzf/completion.zsh
 NPM_PACKAGES="${HOME}/.local-node"
 export PATH="$PATH:$NPM_PACKAGES/bin:$HOME/bin"
 
-
 [ -f './.sh.env' ] && source './.sh.env'
+[ -f './.sh.override' ] && source './.sh.override'
